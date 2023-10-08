@@ -2,3 +2,8 @@
 flake8
 pytest
 pytest-cov
+python-weather # general weather API/module
+pyowm # API for weather forecast access
+meteostat # python weather API with weather data sourced from the NOAA and DWD
+sodapy # open data API with access to unique data regarding New York City, New York
+
