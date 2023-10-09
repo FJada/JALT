@@ -1,9 +1,9 @@
-# Brainstorming 
+# Brainstorming
 
 ## Who are our User Groups? Who do we want to create solutions for?
 
-
 ## Types of Solutions
+
 - web application
 - mobile app
 - website
@@ -15,11 +15,27 @@
 # Solutions/ Ideas
 
 ## CitySafeguard / StormSafe
-Web Application implementing weather-based APIS to predict flooding or vulnerabilites in New York CIty 
-Aims to prevent new york residents from suffering from natural disasters. 
-- By utilizing this app, residents can avoid repeated dangerous red zones or flee to shelter before the storm strikes. 
+
+Web Application implementing weather-based APIS to predict flooding or vulnerabilites in New York CIty
+Aims to prevent new york residents from suffering from natural disasters.
+
+- By utilizing this app, residents can avoid repeated dangerous red zones or flee to shelter before the storm strikes.
 
 ## InfraRat / Ratscape
-Web Application implementing trash dataframe to visualize problem areas in New York City's trash management. 
+
+Web Application implementing trash dataframe to visualize problem areas in New York City's trash management.
 Aims to spread awareness to lack of government actions to reduce rat and pest populations within residential areas.
-- By displaying data, residents along with those in the New York state will notice the detrimental effects of trash that have taken over the city. 
+
+- By displaying data, residents along with those in the New York state will notice the detrimental effects of trash that have taken over the city.
+
+## AI Shopping System
+
+Web Application that will users to search for a specific product. The AI will be trained on shopping data and provide results that are related to the search. Users may find items that they didn't realize they wanted or needed, and the AI will be further trained based on their searches.
+
+## Women Safety App
+
+Mobile App that will allow users to report safety issues in the local area so that others are aware of areas to stay away from. It will also allow users to input emergency contacts so they can contact help quickly and safely. It can also have recording and location sharing features that are easy to toggle on and off, but easily camoflauges with other apps.
+
+## Subway Route Planner
+
+Mobile App that will use up to date subway data to provide the user with the best route to their destination. It will take into account delays, weekend and night-time schedules, and subway schedules when producing a route. May even provide a few different routes based on preferences such as "no busses." Allows users to navigate the MTA more efficiently.
