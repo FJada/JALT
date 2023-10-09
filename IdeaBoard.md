@@ -1,3 +1,17 @@
+# Brainstorming 
+
+## Who are our User Groups? Who do we want to create solutions for?
+
+
+## Types of Solutions
+- web application
+- mobile app
+- website
+
+## Do we want to create something for one-time use or continuous use?
+
+# Solutions/ Ideas
+
 ## CitySafeguard / StormSafe
 Web Application implementing weather-based APIS to predict flooding or vulnerabilites in New York CIty 
 Aims to prevent new york residents from suffering from natural disasters. 
