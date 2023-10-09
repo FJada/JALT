@@ -1,5 +1,6 @@
 # Idea Analysis 
 
+## Criteria to judge each of our ideas / solutions by:
 
 | Prompt             | Idea/ Solution             |
 | :---               |     :---:                  |  
