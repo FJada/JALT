@@ -1,0 +1,22 @@
+* Requirements and Packages for StormScape and RatScape
+  These are the Python packages that will be used for either one of the applications detailed in the =ideaBoard.md= file. The first half of this document will contain dependencies for StormScape, and the second half of this document will contain dependencies for RatScape.
+
+* Dependencies for StormScape
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| name           | description                                                             | url                                            | 
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| python-weather | A free and asynchronous weather API wrapper made in Python, for Python. | https://pypi.org/project/python-weather/       |
+| pyowm          | Allows quick and easy consumption of OWM data from Python applications. | https://github.com/csparpa/pyowm               |
+| meteostat      | A weather API that leverages data sources like the NOAA and DWD.        | https://github.com/meteostat/meteostat-python  |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+
+These dependencies consist of python modules and APIs that act as weather API wrappers, allowing for a wide range of access to certain meteorological data with simple API calls. Data is sourced from various reputable weather services like the National Oceanic and Atmospheric Administration (NOAA). These will be useful in the development of the StormScape application as synchronous and asynchronous flooding data will be necessary and can be reasonably tabulated by using a combination of these dependencies.
+
+* Dependencies for RatScape
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| name           | description                                                             | url                                            | 
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| sodapy         | Socrata Open Data API that allows access and querying of NYC Open Data. | https://pypi.org/project/sodapy/               |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+
+These dependencies consist of python APIs that have the ability to easily query New York City data and have great connectivity to NY Open Data. This will be instrumental in gathering various statistics around the five boroughs of New York City, and will aid in tallying a rat/pest population within the city for the RatScape Application.
