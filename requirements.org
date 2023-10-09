@@ -1,5 +1,5 @@
 * Requirements and Packages for StormScape and RatScape
-  These are the Python packages that will be used for either one of the applications detailed in the =ideaBoard.md= file. The first half of this document will contain dependencies for StormScape, and the second half of this document will contain dependencies for RatScape.
+  These are the Python packages that will be used for either one of the applications detailed in the =IdeaBoard.md= file. The first half of this document will contain dependencies for StormScape, and the second half of this document will contain dependencies for RatScape.
 
 * Dependencies for StormScape
 |----------------+-------------------------------------------------------------------------+------------------------------------------------|
