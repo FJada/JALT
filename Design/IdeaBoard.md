@@ -10,6 +10,8 @@
 
 ## Do we want to create something for one-time use or continuous use?
 
+## [user group] needs [solution] to [problem/why is it important?]
+
 # Solutions/ Ideas
 
 ## CitySafeguard / StormSafe
