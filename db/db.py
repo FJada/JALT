@@ -29,3 +29,10 @@ def fetch_pets():
 # URL = 'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw'
 # feed = SubwayFeed.get(URL)
 
+
+# https://data.cityofnewyork.us/resource/p937-wjvj.json
+# rodent inspection api 
+
+# https://data.cityofnewyork.us/api/views/inra-wqx3/rows.json?accessType=DOWNLOAD
+# floodplain of nyc, shows redzones for storm watch 
+
