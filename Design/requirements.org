@@ -32,4 +32,6 @@ These dependencies consist of python APIs that have the ability to easily query 
 | Shopify        | Programmatically access admin-level data in Shopify stores with python. | https://shopify.github.io/shopify_python_api/  |
 |----------------+-------------------------------------------------------------------------+------------------------------------------------|
 
+These dependencies consist of APIs that synergize well with python and mostly contain an e-commerce framework that allows for easy communication between backend data storage and frontend shopfront customization. These APIs all support GraphQL, allowing developers to easily have backend, dashboard, and frontend components communicate with each other.
+
 
