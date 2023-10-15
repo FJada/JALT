@@ -20,3 +20,39 @@ These dependencies consist of python modules and APIs that act as weather API wr
 |----------------+-------------------------------------------------------------------------+------------------------------------------------|
 
 These dependencies consist of python APIs that have the ability to easily query New York City data and have great connectivity to NY Open Data. This will be instrumental in gathering various statistics around the five boroughs of New York City, and will aid in tallying a rat/pest population within the city for the RatScape Application.
+
+* Dependencies for AI Shopping System
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| name           | description                                                             | url                                            | 
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| Saleor         | GraphQL e-commerce platform compatible with python & more frontend tech.| https://saleor.io/                             |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| GraphQL        | A precise backend data retrieval API commonly used for ecommerce apps.  | https://graphql.org/                           |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| Shopify        | Programmatically access admin-level data in Shopify stores with python. | https://shopify.github.io/shopify_python_api/  |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+
+These dependencies consist of APIs that synergize well with python and mostly contain an e-commerce framework that allows for easy communication between backend data storage and frontend shopfront customization. These APIs all support GraphQL, allowing developers to easily have backend, dashboard, and frontend components communicate with each other.
+
+* Dependencies for Women Safety Application
+
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| name           | description                                                             | url                                                                                                 | 
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| Safe Place API | provides safety scores for 65K cities, also scoring on women's safety.  | https://developers.amadeus.com/self-service/category/covid-19-and-travel-safety/api-doc/safe-place  |
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+These dependencies consist of APIs that have the ability to provide safety and security ratings for women and LGBTQ+ in a variety of large cities, NYC being no exception. 
+
+
+* Dependencies for Subway Route Planner
+
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| name           | description                                                             | url                                                                                                 | 
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| GTFS Realtime  | Real-time NYC MTA subway and train alert data.                          | https://api.mta.info/#/landing                                                                      | 
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| MTA Bus Time   | Real-time NYC MTA bus time data.                                        | http://bt.mta.info/wiki/Developers/Index                                                            |
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+
+These dependencies provide robust and easily accessible real-time MTA data across NYC for all modes of transportation that the MTA provides. 
+
