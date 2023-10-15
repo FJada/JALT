@@ -20,3 +20,16 @@ These dependencies consist of python modules and APIs that act as weather API wr
 |----------------+-------------------------------------------------------------------------+------------------------------------------------|
 
 These dependencies consist of python APIs that have the ability to easily query New York City data and have great connectivity to NY Open Data. This will be instrumental in gathering various statistics around the five boroughs of New York City, and will aid in tallying a rat/pest population within the city for the RatScape Application.
+
+* Dependencies for AI Shopping System
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| name           | description                                                             | url                                            | 
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| Saleor         | GraphQL e-commerce platform compatible with python & more frontend tech.| https://saleor.io/                             |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| GraphQL        | A precise backend data retrieval API commonly used for ecommerce apps.  | https://graphql.org/                           |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+| Shopify        | Programmatically access admin-level data in Shopify stores with python. | https://shopify.github.io/shopify_python_api/  |
+|----------------+-------------------------------------------------------------------------+------------------------------------------------|
+
+
