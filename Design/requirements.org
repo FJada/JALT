@@ -34,4 +34,12 @@ These dependencies consist of python APIs that have the ability to easily query 
 
 These dependencies consist of APIs that synergize well with python and mostly contain an e-commerce framework that allows for easy communication between backend data storage and frontend shopfront customization. These APIs all support GraphQL, allowing developers to easily have backend, dashboard, and frontend components communicate with each other.
 
+* Dependencies for Women Safety Application
 
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| name           | description                                                             | url                                                                                                 | 
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| Safe Place API | provides safety scores for 65K cities, also scoring on women's safety.  | https://developers.amadeus.com/self-service/category/covid-19-and-travel-safety/api-doc/safe-place  |
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+
+These dependencies consist of APIs that have the ability to provide safety and security ratings for women and LGBTQ+ in a variety of large cities, NYC being no exception. 
