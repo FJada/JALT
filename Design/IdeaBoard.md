@@ -1,5 +1,7 @@
 # Brainstorming
 
+Language: Python
+
 ## Who are our User Groups? Who do we want to create solutions for?
 
 ## Types of Solutions
@@ -49,3 +51,10 @@ A list of other crime APIs with free alternatives
 ## Subway Route Planner
 
 Mobile App that will use up to date subway data to provide the user with the best route to their destination. It will take into account delays, weekend and night-time schedules, and subway schedules when producing a route. May even provide a few different routes based on preferences such as "no busses." Allows users to navigate the MTA more efficiently.
+
+Resources: https://new.mta.info/developers
+Developer resources directly from the MTA
+https://github.com/jonthornton/MTAPI
+MTAPI is a small HTTP server that converts the MTA's realtime subway feed from Protocol Buffers/GTFS to JSON. The app also adds caching and makes it possible to retrieve information by location and train line.
+https://bustime.mta.info/wiki/Developers/Index
+Bus time API
