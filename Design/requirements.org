@@ -41,5 +41,18 @@ These dependencies consist of APIs that synergize well with python and mostly co
 |----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
 | Safe Place API | provides safety scores for 65K cities, also scoring on women's safety.  | https://developers.amadeus.com/self-service/category/covid-19-and-travel-safety/api-doc/safe-place  |
 |----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
-
 These dependencies consist of APIs that have the ability to provide safety and security ratings for women and LGBTQ+ in a variety of large cities, NYC being no exception. 
+
+
+* Dependencies for Subway Route Planner
+
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| name           | description                                                             | url                                                                                                 | 
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| GTFS Realtime  | Real-time NYC MTA subway and train alert data.                          | https://api.mta.info/#/landing                                                                      | 
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+| MTA Bus Time   | Real-time NYC MTA bus time data.                                        | http://bt.mta.info/wiki/Developers/Index                                                            |
+|----------------+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------|
+
+These dependencies provide robust and easily accessible real-time MTA data across NYC for all modes of transportation that the MTA provides. 
+

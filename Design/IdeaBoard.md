@@ -58,3 +58,11 @@ https://github.com/jonthornton/MTAPI
 MTAPI is a small HTTP server that converts the MTA's realtime subway feed from Protocol Buffers/GTFS to JSON. The app also adds caching and makes it possible to retrieve information by location and train line.
 https://bustime.mta.info/wiki/Developers/Index
 Bus time API
+
+
+## Affordable housing finder "Affordar
+A mobile/ web application that allows users to find affordable housing units and properties throughout the 5 boroughs in NYC, through sourcing data from NYC housing apis. Currently, there are no compiled sites or apps that include all informaiton on how to find afforable housing units across the city. This app would allows users to get information and updates on afforable hoiusing that have just opened, closed, or have a waitlist for. It would also include information to users on how to navigate the complicated and vague NYC housing market, as well as eligibility requirements for afforable housing, and how to avoid housing scams.
+
+## Enrichment / Hobby finder 
+A mobile / web application that allows users to find out about events and extra curricular activies that are happening wihtin the users vicinity and neighborhood. It would show users about various art events, music events, volunteering, park events, that users can be aware of. It would be targeted to users of any age group but specifically users who are recent grads and need a new sense of purpose
+
