@@ -1,8 +1,6 @@
 # Brainstorming
 
-Language: Python
-
-## Who are our User Groups? Who do we want to create solutions for?
+Language(s): Python, React, MySQL
 
 ## Types of Solutions
 
@@ -11,10 +9,24 @@ Language: Python
 - website
 
 ## Do we want to create something for one-time use or continuous use?
+    - continous use longevity in app usage makes for a dynamic and useful solution that does not use resources needlessly
 
-## [user group] needs [solution] to [problem/why is it important?]
+## [user group] needs [solution] to [problem/why is it important?] Done for the main idea for now
+
+# user groups
+    - public transit users:
+        - students, senior citizens, physically disabled people, youth, non-drivers
+
+# problem / why is it important 
+    - current apps do not provide specific information on the routes predicted for users and not allow for specific parameters for each route. For example only a select few of subway stations are accessible and some apps do not account for that in the routes generated for users. Additionally, some routes include out of station transfers resulting in long walks and additional payment.
+
+    - public transit users should have an app that allows them to choose their own route at based on what they prefer to do as no route has to be the same in order to be "optimized"
 
 # Solutions/ Ideas
+
+## Smart Transit app (Main Idea for now)
+
+Mobile / web application that combines the features of citymapper, google maps and chat gbt to allows users to be able to input specific indiviualized parameters for their public transit commute. Utilizing publicly accessible apis on the MTA's public transit, as well as information station accessibility, and chat gbt like generative artifical intelligence, users will be able to input their destination and specify how they want to travel and the app generates differen paths specifically designed.
 
 ## CitySafeguard / StormSafe
 
