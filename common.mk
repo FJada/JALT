@@ -29,7 +29,7 @@ nocrud:
 	-rm *~
 	-rm *.log
 	-rm *.out
-	-rm *.swp
+	-rm .*swp
 	-rm *.csv
 	-rm $(TESTDIR)/*~
 
