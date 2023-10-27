@@ -19,7 +19,7 @@
 | :---               |     :---:                                                                                                                                                         |  
 | For                | public transit users, students, youth, physically disabled, senior citizens                                                                                       |
 | Who                | current transit apps dont allow for individualization in routes outputted for destinations                                                                        | 
-| Our solution is a  | mobile or ios app                                                                                                                                                 | 
+| Our solution is a  | mobile or ios/ web-app app                                                                                                                                                 | 
 | That               | gives users more range to plot their public transit commute based on their preferences                                                                            | 
 | Unlike             | CityMapper, Google Maps, Apple Maps, Transit, Chat GBT, My MTA                                                                                                    | 
 | Our solution       | using generative ai we can plot of various routes for users to use that incorporates their parameters such an transfer locations, walkability, and accessibility  | 
