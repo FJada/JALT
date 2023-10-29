@@ -56,3 +56,17 @@ These dependencies consist of APIs that have the ability to provide safety and s
 
 These dependencies provide robust and easily accessible real-time MTA data across NYC for all modes of transportation that the MTA provides. 
 
+
+* MTA Open Data Program
+
+|----------------------------------|
+|              link                | 
+|  https://new.mta.info/open-data  |
+|  https://metrics.mta.info/?home/ |
+|----------------------------------|
+
+These links allows access to the MTA Open Data Catalog, which logs various type of rapid transit data over the years, and logs current data as well. Metrics like Subway OMNY usage, Additional Platform time, Additional Train time, Customer Journey Time performance, Safety, and various others are recorded daily across all subway stations and contains up-to-date data that is at most a month behind. Subway Fare evastion metrics are also included!
+
+
+
+
