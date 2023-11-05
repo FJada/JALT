@@ -4,7 +4,7 @@ Pass in your API Key with the request using the header x-api-key
 Example code is shown below 
 */
 
-/* added function call to be used in test file */
+/* added function */
 function make_http_request() {
 const https = require('https');
 https.get(
