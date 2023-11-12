@@ -15,3 +15,13 @@
 - https://github.com/OneBusAway/onebusaway-application-modules
 
 - https://github.com/transitland/transitland-datastore 
+
+- https://github.com/zacs/ha-gtfs-rt
+
+- https://github.com/jonthornton/MTAPI
+
+- https://github.com/ashryanbeats/node-mta-gtfs-api 
+
+- https://github.com/neoterix/nyc-mta-arrival-notify
+
+-  https://pypi.org/project/underground/ 
