@@ -2,6 +2,10 @@
 flake8
 pytest
 pytest-cov
+flask==2.3.3
+flask-restx==1.1.0
+pymongo
+werkzeug
 python-weather # general weather API/module
 pyowm # API for weather forecast access
 meteostat # python weather API with weather data sourced from the NOAA and DWD
