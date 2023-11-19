@@ -1,23 +1,20 @@
-from flask import Flask, jsonify
 from pymongo import MongoClient
 
-app = Flask(__name__)
-
 mongo_uri = "mongodb+srv://af3842:Nipploni1!@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority"
-
 client = MongoClient(mongo_uri)
 
-db = client.collections
+db = client['saved_addresses']
+collection = db['collections']
 
-# Sample route to retrieve user addresses
-@app.route('/user/<username>/addresses', methods=['GET'])
-def get_user_addresses(username):
-    user = db.users.find_one({"username": username})
-    if user:
-        addresses = user.get('addresses', [])
-        return jsonify({"addresses": addresses})
-    else:
-        return jsonify({"error": "User not found"}), 404
+# Insert user data into the collection
+user_data = [
+    {"username": "user1", "addresses": [{"street": "123 Main St", "city": "Cityville", "state": "CA", "zip": "12345"}]},
+    {"username": "user2", "addresses": [{"street": "456 Business Blvd", "city": "Worktown", "state": "NY", "zip": "67890"}]},
+    # Add more user data as needed
+]
 
-if __name__ == '__main__':
-    app.run(debug=True)
+collection.insert_many(user_data)
+
+# Verify the creation of the new database and collection
+print("Database:", client.list_database_names())
+print("Collections in", db.name, ":", db.list_collection_names())
