@@ -1,4 +1,4 @@
-"""
+based on :"""
 addresses.py: the interface to our user data.
 """
 import random
@@ -28,12 +28,12 @@ def _gen_id() -> str:
 
 
 def get_users() -> dict:
-    dbc.connect_db()
+    dbc.connect_db(db_name='Metro')
     return dbc.fetch_all_as_dict(USERNAME, USERS_COLLECTION)
 
 
 def user_exists(username: str) -> bool:
-    dbc.connect_db()
+    dbc.connect_db(db_name='Metro')
     return dbc.fetch_one(USERS_COLLECTION, {USERNAME: username})
 
 
@@ -51,7 +51,7 @@ def add_user(username: str, account_id:
             WORK: work_address
         }
     }
-    dbc.connect_db()
+    dbc.connect_db(db_name='Metro')
     _id = dbc.insert_one(USERS_COLLECTION, user)
     return _id is not None
 
