@@ -40,10 +40,17 @@ def user_exists(username):
 
 
 # Use this function to add a user
-def add_user(username):
+def add_user(username, account_id, home_address, work_address):
     if not user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
-        user_doc = {USERNAME: username}
+        user_doc = {
+            USERNAME: username,
+            ACCOUNT_ID: account_id,
+            ADDRESSES: {
+                HOME: home_address,
+                WORK: work_address
+            }
+        }
         dbc.insert_one(user_collection, user_doc)
 
 
