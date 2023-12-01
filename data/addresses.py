@@ -32,35 +32,25 @@ def get_users() -> dict:
     return dbc.fetch_all_as_dict(USERNAME, USERS_COLLECTION)
 
 
-def user_exists(username: str) -> bool:
-    dbc.connect_db()
-    return dbc.fetch_one(USERS_COLLECTION, {USERNAME: username})
+# Use this function to check if a user exists
+def user_exists(username):
+    filt = {USERNAME: username}
+    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION), filt) is not None
 
 
-def add_user(username: str, account_id: str,
-             home_address: dict, work_address: dict) -> bool:
+# Use this function to add a user
+def add_user(username):
+    if not user_exists(username):
+        user_collection = dbc.get_collection(USERS_COLLECTION)
+        user_doc = {USERNAME: username}
+        dbc.insert_one(user_collection, user_doc)
+
+
+# Use this function to delete a user
+def del_user(username):
     if user_exists(username):
-        raise ValueError(f'Duplicate username: {username=}')
-    if not username:
-        raise ValueError('Username may not be blank')
-    user = {
-        USERNAME: username,
-        ACCOUNT_ID: account_id,
-        ADDRESSES: {
-            HOME: home_address,
-            WORK: work_address
-        }
-    }
-    dbc.connect_db()
-    _id = dbc.insert_one(USERS_COLLECTION, user)
-    return _id is not None
-
-
-def del_user(username: str):
-    if user_exists(username):
-        return dbc.del_one(USERS_COLLECTION, {USERNAME: username})
-    else:
-        raise ValueError(f'Delete failure: {username} not in database.')
+        user_collection = dbc.get_collection(USERS_COLLECTION)
+        dbc.del_one(user_collection, {USERNAME: username})
 
 
 def main():
