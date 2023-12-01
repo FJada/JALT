@@ -1,6 +1,6 @@
 import pytest
 
-import db.games as gms
+import data.games as gms
 
 
 def test_get_games():
