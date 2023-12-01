@@ -2,8 +2,8 @@ import os
 
 import pymongo as pm
 
-LOCAL = "1"
-CLOUD = "0"
+LOCAL = "0"
+CLOUD = "1"
 
 METRO_DB = 'metroDB'
 
