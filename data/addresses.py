@@ -1,4 +1,4 @@
-based on :"""
+"""
 addresses.py: the interface to our user data.
 """
 import random
