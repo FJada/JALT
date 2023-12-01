@@ -37,7 +37,8 @@ def user_exists(username: str) -> bool:
     return dbc.fetch_one(USERS_COLLECTION, {USERNAME: username})
 
 
-def add_user(username: str, account_id: str, home_address: dict, work_address: dict) -> bool:
+def add_user(username: str, account_id: str, 
+             home_address: dict, work_address: dict) -> bool:
     if user_exists(username):
         raise ValueError(f'Duplicate username: {username=}')
     if not username:
@@ -53,7 +54,7 @@ def add_user(username: str, account_id: str, home_address: dict, work_address: d
     dbc.connect_db()
     _id = dbc.insert_one(USERS_COLLECTION, user)
     return _id is not None
-    
+
 
 def del_user(username: str):
     if user_exists(username):
