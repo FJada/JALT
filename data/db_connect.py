@@ -10,6 +10,7 @@ client = None
 
 MONGO_ID = '_id'
 
+
 def connect_db():
     global client
     if client is None:  # not connected yet!
