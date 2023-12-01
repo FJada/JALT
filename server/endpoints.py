@@ -6,8 +6,8 @@ The endpoint called `endpoints` will return all available endpoints.
 from flask import Flask
 from flask_restx import Resource, Api
 
-import db.games as gms
-import db.users as users
+import data.games as gms
+import data.users as users
 
 app = Flask(__name__)
 api = Api(app)
