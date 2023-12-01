@@ -37,7 +37,7 @@ def user_exists(username: str) -> bool:
     return dbc.fetch_one(USERS_COLLECTION, {USERNAME: username})
 
 
-def add_user(username: str, account_id: str, 
+def add_user(username: str, account_id: str,
              home_address: dict, work_address: dict) -> bool:
     if user_exists(username):
         raise ValueError(f'Duplicate username: {username=}')
