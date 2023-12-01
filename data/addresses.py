@@ -35,7 +35,8 @@ def get_users() -> dict:
 # Use this function to check if a user exists
 def user_exists(username):
     filt = {USERNAME: username}
-    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION), filt) is not None
+    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION),
+                         filt) is not None
 
 
 # Use this function to add a user
