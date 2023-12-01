@@ -1,2 +1,2 @@
-PKG = db
+PKG = data
 include ../common.mk
