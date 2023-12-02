@@ -6,7 +6,14 @@ import werkzeug.exceptions as wz
 from data import addresses
 
 app = Flask(__name__)
-api = Api(app)
+api = Api(app, version='1.0', title='Your API', description='Your API description')
+
+# Define the user model
+user_model = api.model('User', {
+    'username': fields.String(required=True, description='Username'),
+    'home_address': fields.String(required=True, description='Home Address'),
+    'work_address': fields.String(required=True, description='Work Address'),
+})
 
 DELETE = 'delete'
 DEFAULT = 'Default'
