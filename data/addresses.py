@@ -18,6 +18,17 @@ NEAREST_TRAIN_STATION = 'nearest_train_station'
 
 api = dbc.api  # Added this line to import the api object from db_connect
 
+ADDRESS_MODEL = api.model('Address', {
+    USERNAME: fields.String,
+    ACCOUNT_ID: fields.String,
+    ADDRESSES: fields.Nested(api.model('UserAddresses', {
+        HOME: fields.String,
+        WORK: fields.String,
+        ADDRESS: fields.String,
+        NEAREST_TRAIN_STATION: fields.String,
+    })),
+})
+
 def _gen_id() -> str:
     _id = random.randint(0, BIG_NUM)
     _id = str(_id)
@@ -28,13 +39,10 @@ def get_users() -> dict:
     dbc.connect_db()
     return dbc.fetch_all_as_dict(USERNAME, USERS_COLLECTION)
 
-
 # Use this function to check if a user exists
 def user_exists(username):
     filt = {USERNAME: username}
-    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION),
-                         filt) is not None
-
+    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION), filt) is not None
 
 # Use this function to add a user
 def add_user(username, account_id, home_address, work_address):
@@ -50,17 +58,14 @@ def add_user(username, account_id, home_address, work_address):
         }
         dbc.insert_one(user_collection, user_doc)
 
-
 # Use this function to delete a user
 def del_user(username):
     if user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
         dbc.del_one(user_collection, {USERNAME: username})
 
-
 def main():
     print(get_users())
-
 
 if __name__ == '__main__':
     main()
