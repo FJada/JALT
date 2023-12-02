@@ -61,7 +61,7 @@ class DelUser(Resource):
             
 
 # Add a new endpoint for adding a user with both home and work addresses
-@app.route('/add_user', methods=['POST'])
+@app.route('/add_user')
 class AddUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
