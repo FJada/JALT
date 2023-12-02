@@ -1,3 +1,4 @@
+# In endpoints.py
 from http import HTTPStatus
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
@@ -14,6 +15,7 @@ ADDRESS_MENU_NM = 'Address Menu'
 ADDRESSES_EP = '/addresses'
 DEL_USER_EP = f'{ADDRESSES_EP}/{DELETE}'
 
+
 @api.route(f'{ADDRESSES_EP}')
 class Addresses(Resource):
     """
@@ -23,11 +25,15 @@ class Addresses(Resource):
         """
         This method returns all addresses.
         """
+        # Fetch the latest user data from the database
+        users_data = addresses.get_all_users()
+
         return {
-            addresses.USERNAME: addresses.USERNAME,
-            addresses.ACCOUNT_ID: addresses.ACCOUNT_ID,
-            addresses.ADDRESSES: addresses.ADDRESSES,
+            addresses.USERNAME: [user.get(addresses.USERNAME) for user in users_data],
+            addresses.ACCOUNT_ID: [user.get(addresses.ACCOUNT_ID) for user in users_data],
+            addresses.ADDRESSES: [user.get(addresses.ADDRESSES, {}) for user in users_data],
         }
+
 
 @api.route(f'{DEL_USER_EP}/<username>')
 class DelUser(Resource):
@@ -45,6 +51,7 @@ class DelUser(Resource):
             return {username: 'Deleted'}
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
+            
 
 # Add a new endpoint for adding a user with both home and work addresses
 @api.route('/add_user')
