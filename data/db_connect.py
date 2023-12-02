@@ -4,9 +4,7 @@ from flask_restx import Api
 
 LOCAL = "0"
 CLOUD = "1"
-
 METRO_DB = 'Metro'
-
 client = None
 
 MONGO_ID = '_id'
@@ -21,7 +19,6 @@ def connect_db():
             username = 'af3842'
             password = 'af3842'
             cluster_hostname = 'cluster0.9laqhsg.mongodb.net'
-
             if not (username and password and cluster_hostname):
                 raise ValueError('You must set your username, password, '
                                  + 'and cluster hostname to use Mongo in the cloud.')
@@ -31,9 +28,11 @@ def connect_db():
             print("Connecting to Mongo locally.")
             client = pymongo.MongoClient()
 
+
 def get_collection(collection_name, db=METRO_DB):
     connect_db()
     return client[db][collection_name]
+
 
 def insert_one(collection, doc):
     """
@@ -41,6 +40,7 @@ def insert_one(collection, doc):
     """
     print(f'{collection.db=}')
     return collection.insert_one(doc)
+
 
 def fetch_one(collection, filt):
     """
@@ -52,17 +52,20 @@ def fetch_one(collection, filt):
         doc[MONGO_ID] = str(doc[MONGO_ID])
     return doc
 
+
 def del_one(collection, filt):
     """
     Find with a filter and return on the first doc found.
     """
     collection.delete_one(filt)
 
+
 def fetch_all(collection):
     ret = []
     for doc in collection.find():
         ret.append(doc)
     return ret
+
 
 def fetch_all_as_dict(key, collection):
     ret = {}
