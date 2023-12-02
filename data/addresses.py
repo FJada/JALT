@@ -1,6 +1,10 @@
+"""
+addresses.py: the interface to our user data.
+"""
 import random
-from flask_restx import fields
+
 import data.db_connect as dbc
+from flask_restx import fields
 
 USERS_COLLECTION = 'Addresses'
 
@@ -16,18 +20,23 @@ WORK = 'work'
 ADDRESS = 'address'
 NEAREST_TRAIN_STATION = 'nearest_train_station'
 
-api = dbc.api  # Added this line to import the api object from db_connect
-
-ADDRESS_MODEL = api.model('Address', {
+USER_MODEL = dbc.api.model('User', {
     USERNAME: fields.String,
     ACCOUNT_ID: fields.String,
-    ADDRESSES: fields.Nested(api.model('UserAddresses', {
+    ADDRESSES: {
         HOME: fields.String,
         WORK: fields.String,
-        ADDRESS: fields.String,
-        NEAREST_TRAIN_STATION: fields.String,
-    })),
+    }
 })
+
+ADDRESS_MODEL = dbc.api.model('Address', {
+    ADDRESS: fields.String,
+    ADDRESSES: {
+        HOME: fields.String,
+        WORK: fields.String,
+    }
+})
+
 
 def _gen_id() -> str:
     _id = random.randint(0, BIG_NUM)
@@ -35,14 +44,18 @@ def _gen_id() -> str:
     _id = _id.rjust(ID_LEN, '0')
     return _id
 
+
 def get_users() -> dict:
     dbc.connect_db()
     return dbc.fetch_all_as_dict(USERNAME, USERS_COLLECTION)
 
+
 # Use this function to check if a user exists
 def user_exists(username):
     filt = {USERNAME: username}
-    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION), filt) is not None
+    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION),
+                         filt) is not None
+
 
 # Use this function to add a user
 def add_user(username, account_id, home_address, work_address):
@@ -58,14 +71,29 @@ def add_user(username, account_id, home_address, work_address):
         }
         dbc.insert_one(user_collection, user_doc)
 
+
 # Use this function to delete a user
 def del_user(username):
     if user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
         dbc.del_one(user_collection, {USERNAME: username})
 
+
+# Use this function to add an address to a user
+def add_address(username, address_type, address_value):
+    user_collection = dbc.get_collection(USERS_COLLECTION)
+    user = dbc.fetch_one(user_collection, {USERNAME: username})
+
+    if user:
+        user[ADDRESSES][address_type] = address_value
+        dbc.insert_one(user_collection, user)
+    else:
+        raise ValueError(f'User {username} not found.')
+
+
 def main():
     print(get_users())
+
 
 if __name__ == '__main__':
     main()
