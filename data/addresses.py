@@ -3,8 +3,7 @@ addresses.py: the interface to our user data.
 """
 import random
 
-from flask_restx import fields
-
+from flask_restx import fields, Resource, Api
 import data.db_connect as dbc
 
 USERS_COLLECTION = 'Addresses'
