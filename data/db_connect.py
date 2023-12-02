@@ -56,9 +56,11 @@ def del_one(collection, filt):
     collection.delete_one(filt)
 
 
-def fetch_all(collection):
+def fetch_all(collection_name):
+    connect_db()
+    collection = client[METRO_DB][collection_name]
     ret = []
-    for doc in collection.find({}):  # Add an empty filter to retrieve all documents
+    for doc in collection.find({}):
         ret.append(doc)
     return ret
 
