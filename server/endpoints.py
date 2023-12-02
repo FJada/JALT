@@ -6,7 +6,7 @@ import werkzeug.exceptions as wz
 from data import addresses
 
 app = Flask(__name__)
-api = Api(app, version='1.0', title='Your API', description='Your API description')
+api = Api(app)
 
 # Define the user model
 user_model = api.model('User', {
