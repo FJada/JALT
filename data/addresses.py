@@ -19,6 +19,17 @@ WORK = 'work'
 ADDRESS = 'address'
 NEAREST_TRAIN_STATION = 'nearest_train_station'
 
+ADDRESS_MODEL = dbc.api.model('Address', {
+    USERNAME: dbc.fields.String(required=True,
+                                description='Username'),
+    ACCOUNT_ID: dbc.fields.String(required=True,
+                                  description='Account ID'),
+    ADDRESSES: dbc.fields.Nested(dbc.api.model('UserAddresses', {
+        HOME: dbc.fields.String(description='Home Address'),
+        WORK: dbc.fields.String(description='Work Address'),
+    }), description='User Addresses'),
+})
+
 
 def _gen_id() -> str:
     _id = random.randint(0, BIG_NUM)
@@ -40,22 +51,18 @@ def user_exists(username):
 
 
 # Use this function to add a user
-def add_user(username, account_id, home_address=None,
-             work_address=None):
+def add_user(username, account_id, home_address,
+             work_address):
     if not user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
         user_doc = {
             USERNAME: username,
             ACCOUNT_ID: account_id,
-            ADDRESSES: {}
+            ADDRESSES: {
+                HOME: home_address,
+                WORK: work_address
+            }
         }
-
-        if home_address:
-            user_doc[ADDRESSES][HOME] = home_address
-
-        if work_address:
-            user_doc[ADDRESSES][WORK] = work_address
-
         dbc.insert_one(user_collection, user_doc)
 
 
@@ -64,20 +71,6 @@ def del_user(username):
     if user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
         dbc.del_one(user_collection, {USERNAME: username})
-
-
-def add_address(username, address_type, new_address):
-    user_collection = dbc.get_collection(USERS_COLLECTION)
-    user = dbc.fetch_one(user_collection, {USERNAME: username})
-
-    if user:
-        addresses = user.get(ADDRESSES, {})
-        addresses[address_type] = new_address
-
-        dbc.update_one(user_collection, {USERNAME: username},
-                       {'$set': {ADDRESSES: addresses}})
-    else:
-        raise ValueError(f'User {username} not found.')
 
 
 def main():
