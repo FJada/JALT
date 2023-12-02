@@ -72,10 +72,9 @@ class AddUser(Resource):
         """
         try:
             # Print received parameters for debugging
-            data = request.get_json()
-            username = data.get('username')
-            home_address = data.get('home_address')
-            work_address = data.get('work_address')
+            username = request.args.get('username')
+            home_address = request.args.get('home_address')
+            work_address = request.args.get('work_address')
             print(f"Received request: username={username}, home_address={home_address}, work_address={work_address}")
 
             # Call the add_user function
