@@ -3,6 +3,7 @@ addresses.py: the interface to our user data.
 """
 import random
 import data.db_connect as dbc
+import uuid
 
 USERS_COLLECTION = 'Addresses'
 ID_LEN = 24
@@ -40,7 +41,9 @@ def user_exists(username):
 
 
 # Use this function to add a user
-def add_user(username, account_id, home_address=None, work_address=None):
+def add_user(username, home_address, work_address, account_id=None):
+    if account_id is None:
+        account_id = str(uuid.uuid4())
     if not user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
         user_doc = {
