@@ -61,7 +61,7 @@ class DelUser(Resource):
             
 
 # Add a new endpoint for adding a user with both home and work addresses
-@api.route('/add_user')
+@app.route('/add_user', methods=['POST'])
 class AddUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
@@ -72,9 +72,10 @@ class AddUser(Resource):
         """
         try:
             # Print received parameters for debugging
-            username = request.args.get('username')
-            home_address = request.args.get('home_address')
-            work_address = request.args.get('work_address')
+            data = request.get_json()
+            username = data.get('username')
+            home_address = data.get('home_address')
+            work_address = data.get('work_address')
             print(f"Received request: username={username}, home_address={home_address}, work_address={work_address}")
 
             # Call the add_user function
