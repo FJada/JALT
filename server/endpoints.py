@@ -56,14 +56,6 @@ class DelUser(Resource):
 # Add a new endpoint for adding a user with both home and work addresses
 @api.route('/add_user')
 class AddUser(Resource):
-    """
-    Adds a new user.
-    """
-    @api.response(HTTPStatus.CREATED, 'User Created Successfully')
-    @api.response(HTTPStatus.OK, 'Success')
-    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
-    @api.route('/add_user')
-class AddUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
     @api.expect(user_model)
