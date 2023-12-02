@@ -46,49 +46,5 @@ class DelUser(Resource):
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
 
-@api.route('/add_user')
-class AddUser(Resource):
-    """
-    Adds a new user with a username.
-    """
-    @api.expect(addresses.USER_MODEL)
-    @api.response(HTTPStatus.OK, 'Success')
-    @api.response(HTTPStatus.NOT_ACCEPTABLE, 'Not Acceptable')
-    def post(self):
-        """
-        Add a user.
-        """
-        username = request.json[addresses.USERNAME]
-        account_id = request.json[addresses.ACCOUNT_ID]
-        home_address = request.json[addresses.ADDRESSES][addresses.HOME]
-        work_address = request.json[addresses.ADDRESSES][addresses.WORK]
-
-        try:
-            addresses.add_user(username, account_id, home_address, work_address)
-            return {addresses.USERNAME: username, 'Added': True}
-        except ValueError as e:
-            raise wz.NotAcceptable(f'{str(e)}')
-
-@api.route('/add_address/<username>')
-class AddAddress(Resource):
-    """
-    Adds a new address to a user.
-    """
-    @api.expect(addresses.ADDRESS_MODEL)
-    @api.response(HTTPStatus.OK, 'Success')
-    @api.response(HTTPStatus.NOT_ACCEPTABLE, 'Not Acceptable')
-    def post(self, username):
-        """
-        Add an address to a user.
-        """
-        address_type = request.json[addresses.ADDRESS]
-        address_value = request.json[addresses.ADDRESSES][address_type]
-
-        try:
-            addresses.add_address(username, address_type, address_value)
-            return {addresses.ADDRESS: address_type, 'Added to': username}
-        except ValueError as e:
-            raise wz.NotAcceptable(f'{str(e)}')
-
 if __name__ == '__main__':
     app.run(debug=True)
