@@ -46,5 +46,32 @@ class DelUser(Resource):
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
 
+# Add a new endpoint for adding a user
+@api.route('/add_user')
+class AddUser(Resource):
+    """
+    Adds a new user.
+    """
+    @api.response(HTTPStatus.CREATED, 'User Created Successfully')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    def post(self):
+        """
+        Adds a new user.
+        """
+        try:
+            # Extract user information from the request JSON
+            data = request.get_json()
+            username = data.get('username')
+            account_id = data.get('account_id')
+            home_address = data.get('home_address')
+            work_address = data.get('work_address')
+
+            # Add the user
+            addresses.add_user(username, account_id, home_address, work_address)
+
+            return {'message': 'User created successfully'}, HTTPStatus.CREATED
+        except ValueError as e:
+            raise wz.BadRequest(f'{str(e)}')
+
 if __name__ == '__main__':
     app.run(debug=True)
