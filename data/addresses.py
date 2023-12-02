@@ -3,6 +3,8 @@ addresses.py: the interface to our user data.
 """
 import random
 
+from flask_restx import fields
+
 import data.db_connect as dbc
 
 USERS_COLLECTION = 'Addresses'
@@ -19,16 +21,10 @@ WORK = 'work'
 ADDRESS = 'address'
 NEAREST_TRAIN_STATION = 'nearest_train_station'
 
-ADDRESS_MODEL = dbc.api.model('Address', {
-    USERNAME: dbc.fields.String(required=True,
-                                description='Username'),
-    ACCOUNT_ID: dbc.fields.String(required=True,
-                                  description='Account ID'),
-    ADDRESSES: dbc.fields.Nested(dbc.api.model('UserAddresses', {
-        HOME: dbc.fields.String(description='Home Address'),
-        WORK: dbc.fields.String(description='Work Address'),
-    }), description='User Addresses'),
-})
+ADDRESS_MODEL = fields.Nested(dbc.api.model('UserAddresses', {
+    HOME: fields.String(description='Home Address'),
+    WORK: fields.String(description='Work Address'),
+}), description='User Addresses')
 
 
 def _gen_id() -> str:
@@ -51,8 +47,7 @@ def user_exists(username):
 
 
 # Use this function to add a user
-def add_user(username, account_id, home_address,
-             work_address):
+def add_user(username, account_id, home_address, work_address):
     if not user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
         user_doc = {
