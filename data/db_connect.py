@@ -7,10 +7,6 @@ CLOUD = "1"
 METRO_DB = 'Metro'
 client = None
 
-MONGO_ID = '_id'
-
-api = Api()  # Added this line to expose the api object
-
 def connect_db():
     global client
     if client is None:  # not connected yet!
@@ -62,7 +58,7 @@ def del_one(collection, filt):
 
 def fetch_all(collection):
     ret = []
-    for doc in collection.find():
+    for doc in collection.find({}):  # Add an empty filter to retrieve all documents
         ret.append(doc)
     return ret
 
