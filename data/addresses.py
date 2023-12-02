@@ -40,8 +40,7 @@ def user_exists(username):
 
 
 # Use this function to add a user
-def add_user(username, account_id, home_address=None,
-             work_address=None):
+def add_user(username, account_id, home_address=None, work_address=None):
     if not user_exists(username):
         user_collection = dbc.get_collection(USERS_COLLECTION)
         user_doc = {
@@ -51,12 +50,20 @@ def add_user(username, account_id, home_address=None,
         }
 
         if home_address:
-            user_doc[ADDRESSES][HOME] = home_address
+            user_doc[ADDRESSES][HOME] = {
+                ADDRESS: home_address,
+                NEAREST_TRAIN_STATION: "Some Station"  # You can update this as needed
+            }
 
         if work_address:
-            user_doc[ADDRESSES][WORK] = work_address
+            user_doc[ADDRESSES][WORK] = {
+                ADDRESS: work_address,
+                NEAREST_TRAIN_STATION: "Some Station"  # You can update this as needed
+            }
 
         dbc.insert_one(user_collection, user_doc)
+    else:
+        raise ValueError(f'User {username} already exists.')
 
 
 # Use this function to delete a user
