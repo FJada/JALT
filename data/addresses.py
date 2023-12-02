@@ -42,8 +42,7 @@ def user_exists(username):
 
 # Use this function to add a user
 def add_user(username, home_address, work_address, account_id=None):
-    print(f"Received: username={username}, home_address={home_address},
-    work_address={work_address}, account_id={account_id}")
+    print(f"Received: username={username}, home_address={home_address}, work_address={work_address}, account_id={account_id}")
 
     if not user_exists(username):
         if account_id is None:
