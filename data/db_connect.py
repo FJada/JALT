@@ -1,5 +1,6 @@
 import os
 import pymongo
+from flask_restx import Api
 
 LOCAL = "0"
 CLOUD = "1"
@@ -9,6 +10,8 @@ METRO_DB = 'Metro'
 client = None
 
 MONGO_ID = '_id'
+
+api = Api()  # Added this line to expose the api object
 
 def connect_db():
     global client
