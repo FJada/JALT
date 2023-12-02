@@ -1,9 +1,5 @@
-"""
-addresses.py: the interface to our user data.
-"""
 import random
-
-from flask_restx import fields, Resource, Api
+from flask_restx import fields
 import data.db_connect as dbc
 
 USERS_COLLECTION = 'Addresses'
@@ -20,18 +16,13 @@ WORK = 'work'
 ADDRESS = 'address'
 NEAREST_TRAIN_STATION = 'nearest_train_station'
 
-ADDRESS_MODEL = fields.Nested(dbc.api.model('UserAddresses', {
-    HOME: fields.String(description='Home Address'),
-    WORK: fields.String(description='Work Address'),
-}), description='User Addresses')
-
+api = dbc.api  # Added this line to import the api object from db_connect
 
 def _gen_id() -> str:
     _id = random.randint(0, BIG_NUM)
     _id = str(_id)
     _id = _id.rjust(ID_LEN, '0')
     return _id
-
 
 def get_users() -> dict:
     dbc.connect_db()
