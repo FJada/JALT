@@ -13,8 +13,6 @@ ADDRESS_MENU_EP = '/address_menu'
 ADDRESS_MENU_NM = 'Address Menu'
 ADDRESSES_EP = '/addresses'
 DEL_USER_EP = f'{ADDRESSES_EP}/{DELETE}'
-ADD_USER_EP = f'{ADDRESSES_EP}/add_user'
-ADD_ADDRESS_EP = f'{ADDRESSES_EP}/add_address'
 
 @api.route(f'{ADDRESSES_EP}')
 class Addresses(Resource):
@@ -48,39 +46,49 @@ class DelUser(Resource):
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
 
-@api.route(ADD_USER_EP)
+@api.route('/add_user')
 class AddUser(Resource):
     """
-    Adds a new user with a given username and addresses.
+    Adds a new user with a username.
     """
-    @api.expect(addresses.ADDRESS_MODEL)
-    @api.response(HTTPStatus.CREATED, 'User Created')
-    @api.response(HTTPStatus.CONFLICT, 'User Already Exists')
+    @api.expect(addresses.USER_MODEL)
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_ACCEPTABLE, 'Not Acceptable')
     def post(self):
         """
-        Adds a new user with a given username and addresses.
+        Add a user.
         """
-        data = request.json
-        username = data.get(addresses.USERNAME)
-        account_id = data.get(addresses.ACCOUNT_ID)
-        home_address = data.get(addresses.HOME)
-        work_address = data.get(addresses.WORK)
+        username = request.json[addresses.USERNAME]
+        account_id = request.json[addresses.ACCOUNT_ID]
+        home_address = request.json[addresses.ADDRESSES][addresses.HOME]
+        work_address = request.json[addresses.ADDRESSES][addresses.WORK]
 
         try:
             addresses.add_user(username, account_id, home_address, work_address)
-            return {addresses.USERNAME: username, 'status': 'User Created'}, HTTPStatus.CREATED
+            return {addresses.USERNAME: username, 'Added': True}
         except ValueError as e:
-            raise wz.Conflict(f'{str(e)}')
+            raise wz.NotAcceptable(f'{str(e)}')
 
-@api.route(ADD_ADDRESS_EP)
+@api.route('/add_address/<username>')
 class AddAddress(Resource):
     """
-    Adds a new address to an existing user based on the username.
+    Adds a new address to a user.
     """
     @api.expect(addresses.ADDRESS_MODEL)
-    @api.response(HTTPStatus.CREATED, 'Address Added')
-    @api.response(HTTPStatus.NOT_FOUND, 'User Not Found')
-    def post(self):
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_ACCEPTABLE, 'Not Acceptable')
+    def post(self, username):
         """
-        Adds a new address to an existing user based on the username.
+        Add an address to a user.
         """
+        address_type = request.json[addresses.ADDRESS]
+        address_value = request.json[addresses.ADDRESSES][address_type]
+
+        try:
+            addresses.add_address(username, address_type, address_value)
+            return {addresses.ADDRESS: address_type, 'Added to': username}
+        except ValueError as e:
+            raise wz.NotAcceptable(f'{str(e)}')
+
+if __name__ == '__main__':
+    app.run(debug=True)
