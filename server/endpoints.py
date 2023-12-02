@@ -53,7 +53,7 @@ class AddUser(Resource):
     """
     Adds a new user with a given username and addresses.
     """
-    @api.expect(addresses.USER_MODEL)
+    @api.expect(addresses.ADDRESS_MODEL)
     @api.response(HTTPStatus.CREATED, 'User Created')
     @api.response(HTTPStatus.CONFLICT, 'User Already Exists')
     def post(self):
