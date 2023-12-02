@@ -7,6 +7,11 @@ CLOUD = "1"
 METRO_DB = 'Metro'
 client = None
 
+MONGO_ID = '_id'
+
+api = Api()
+
+
 def connect_db():
     global client
     if client is None:  # not connected yet!
