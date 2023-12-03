@@ -141,5 +141,24 @@ class DelUser(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
+@api.route('/bus_routes')
+class BusRoutes(Resource):
+    """
+    This class supports fetching details of all available bus routes.
+    """
+    def get(self):
+        """
+        This method returns details of all available bus routes.
+        """
+        return {
+            TYPE: DATA,
+            TITLE: 'Available Bus Routes',
+            DATA: buses.get_bus_routes(),  
+            MENU: MAIN_MENU_EP,  
+            RETURN: MAIN_MENU_EP,  
+        }
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
