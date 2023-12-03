@@ -5,6 +5,7 @@ from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 
 import data.addresses as addr  # Importing addresses.py as addr
+import data.buses as buses #Importing buses.py
 import data.users as users
 import data.db_connect as dbc  # Importing db_connect.py as dbc
 
