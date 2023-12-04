@@ -47,7 +47,7 @@ def get_train_locations(stop_id):
 def main():
     stops = get_train_stops()
     if stops:
-        stop_id = stops[0]['stop_id']  # Assuming the first route for demonstration
+        stop_id = stops[0]['stop_id']  # Assuming the first stop for demonstration
         schedule = get_train_schedule(stop_id)
         locations = get_train_locations(stop_id)
         print("Train Stops:", stops)
