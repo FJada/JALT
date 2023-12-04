@@ -20,7 +20,7 @@ TRAIN_SCHEDULES = {
     }
 }
 
-TRAIN_STATIONS = {
+TRAIN_LOCATIONS = {
     'Van Cortlandt Park - 242 St': {
         'latitude': 40.889248,
         'longitude': -73.898583
