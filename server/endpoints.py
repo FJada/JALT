@@ -4,8 +4,8 @@ from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 
-import data.addresses as addr
-import data.buses as buses #Importing buses.py
+import data.addresses as addresses
+import data.buses as buses  # Importing buses.py
 import data.users as users
 import data.db_connect as dbc  # Importing db_connect.py as dbc
 
@@ -148,7 +148,7 @@ class Users(Resource):
         return {
             TYPE: DATA,
             TITLE: 'Current Users',
-            DATA: addr.get_users(),
+            DATA: addresses.get_users(),
             MENU: USER_MENU_EP,
             RETURN: MAIN_MENU_EP,
         }
@@ -166,7 +166,7 @@ class DelUser(Resource):
         Deletes a user by username.
         """
         try:
-            addr.del_user(username)
+            addresses.del_user(username)
             return {username: 'Deleted'}
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
