@@ -3,7 +3,11 @@ from http import HTTPStatus
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
+
 from data import addresses
+import data.buses as buses #Importing buses.py
+import data.users as users
+import data.db_connect as dbc  # Importing db_connect.py as dbc
 
 app = Flask(__name__)
 api = Api(app)
