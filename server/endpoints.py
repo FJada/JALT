@@ -4,7 +4,7 @@ from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 
-from data import addresses
+import data.addresses as addr
 import data.buses as buses #Importing buses.py
 import data.users as users
 import data.db_connect as dbc  # Importing db_connect.py as dbc
@@ -27,6 +27,10 @@ MAIN_MENU_NM = "MTA Route Planner"
 HELLO_EP = '/hello'
 HELLO_RESP = 'hello'
 USERS_EP = '/users'
+BUSES_EP = '/bus_routes'
+ADDRESSES_EP = '/addresses'
+ADDRESS_MENU_EP = '/address_menu'
+ADDRESS_MENU_NM = 'Address Menu'
 DEL_USER_EP = f'{USERS_EP}/delete'  # Adjusted endpoint for deleting users
 USER_MENU_EP = '/user_menu'
 USER_MENU_NM = 'User Menu'
@@ -168,7 +172,7 @@ class DelUser(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
-@api.route('/bus_routes')
+@api.route(F'{BUSES_EP')
 class BusRoutes(Resource):
     """
     This class supports fetching details of all available bus routes.
