@@ -3,19 +3,19 @@ import data.buses as buses
 
 @pytest.fixture(scope='function')
 def temp_bus_data():
-    mta.BUS_ROUTES = [
+    buses.BUS_ROUTES = [
         {'route_id': 'B25', 'route_name': 'Downtown Express'},
         {'route_id': 'B38', 'route_name': 'Uptown Local'},
         {'route_id': 'B45', 'route_name': 'Cross-town Shuttle'}
     ]
 
-    mta.BUS_SCHEDULES = {
+    buses.BUS_SCHEDULES = {
         'B25': {'times': ['09:00 AM', '11:30 AM', '02:00 PM']},
         'B38': {'times': ['10:00 AM', '12:30 PM', '03:00 PM']},
         'B45': {'times': ['09:45 AM', '01:15 PM', '04:30 PM']}
     }
 
-    mta.BUS_LOCATIONS = {
+    buses.BUS_LOCATIONS = {
         'B25': {'latitude': 40.7128, 'longitude': -74.0060},
         'B38': {'latitude': 40.7580, 'longitude': -73.9855},
         'B45': {'latitude': 40.7267, 'longitude': -74.0031}
