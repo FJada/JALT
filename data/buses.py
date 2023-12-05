@@ -1,7 +1,7 @@
 import random
 import data.db_connect as dbc
 
-# Mocked data constants for 
+# Mocked data constants for
 BUS_ROUTES = [
     {'route_id': '1A', 'route_name': 'Downtown Express'},
     {'route_id': '2B', 'route_name': 'Uptown Local'},
@@ -38,21 +38,25 @@ BUS_STATIONS = {
 def get_bus_routes():
     return BUS_ROUTES
 
+
 def get_bus_schedule(route_id):
     return BUS_SCHEDULES.get(route_id, {})
 
-def get_bus_locations(route_id):
-    return BUS_LOCATIONS.get(route_id, {})
+
+def get_bus_stations(route_id):
+    return BUS_STATIONS.get(route_id, {})
+
 
 def main():
     routes = get_bus_routes()
     if routes:
         route_id = routes[0]['route_id']  # Assuming the first route for demonstration
         schedule = get_bus_schedule(route_id)
-        locations = get_bus_locations(route_id)
+        stations = get_bus_stations(route_id)
         print("Bus Routes:", routes)
         print("Schedule for Route:", schedule)
-        print("Bus Locations:", locations)
+        print("Bus Stations:", stations)
+
 
 if __name__ == '__main__':
     main()
