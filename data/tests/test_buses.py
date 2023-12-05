@@ -15,7 +15,7 @@ def temp_bus_data():
         'B45': {'times': ['09:45 AM', '01:15 PM', '04:30 PM']}
     }
 
-    buses.BUS_LOCATIONS = {
+    buses.BUS_STATIONS = {
         'B25': {'latitude': 40.7128, 'longitude': -74.0060},
         'B38': {'latitude': 40.7580, 'longitude': -73.9855},
         'B45': {'latitude': 40.7267, 'longitude': -74.0031}
@@ -31,11 +31,11 @@ def test_get_bus_schedule(temp_bus_data):
     assert 'times' in schedule
     # Add assertions to validate schedule format and content
 
-def test_get_bus_locations(temp_bus_data):
-    location = buses.get_bus_locations('B38')
-    assert 'latitude' in location
-    assert 'longitude' in location
-    # Add assertions to validate location format and content
+def test_get_bus_stations(temp_bus_data):
+    station = buses.get_bus_stations('B38')
+    assert 'latitude' in station
+    assert 'longitude' in station
+    # Add assertions to validate station format and content
 
 
 
