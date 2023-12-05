@@ -172,7 +172,7 @@ class DelUser(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
-@api.route(F'{BUSES_EP')
+@api.route(f'{BUSES_EP}')
 class BusRoutes(Resource):
     """
     This class supports fetching details of all available bus routes.
