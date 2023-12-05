@@ -77,8 +77,11 @@ class AddUser(Resource):
             username = data.get('username')
             home_address = data.get('home_address')
             work_address = data.get('work_address')
-            print(f"Received request: username={username}, home_address={home_address}, work_address={work_address}")
-
+            print(
+                f"Received request: username={username}, "
+                f"home_address={home_address}, "
+                f"work_address={work_address}"
+            )
             # Call the add_user function
             addresses.add_user(username, home_address=home_address, work_address=work_address)
 
