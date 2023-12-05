@@ -1,7 +1,3 @@
-import random
-from data import db_connect as dbc
-
-
 TRAIN_STOPS = [
     {'stop_id': '101', 'stop_name': 'Van Cortlandt Park - 242 St', 'stop_line': 'Broadway-Seventh Avenue Local'},
     {'stop_id': 'A49', 'stop_name': 'Nostrand Av', 'stop_line': 'Eighth Avenue Express'},
