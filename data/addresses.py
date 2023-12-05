@@ -59,12 +59,12 @@ def add_user(username, home_address, work_address, account_id=None):
         if home_address:
             user_doc[ADDRESSES][HOME] = {
                 ADDRESS: home_address,
-                NEAREST_TRAIN_STATION: "Some Station" 
+                NEAREST_TRAIN_STATION: "Some Station"
             }
         if work_address:
             user_doc[ADDRESSES][WORK] = {
                 ADDRESS: work_address,
-                NEAREST_TRAIN_STATION: "Some Station"  
+                NEAREST_TRAIN_STATION: "Some Station"
             }
         dbc.insert_one(user_collection, user_doc)
         print("User created successfully")
