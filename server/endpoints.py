@@ -15,6 +15,7 @@ user_model = api.model('User', {
     'work_address': fields.String(required=True, description='Work Address'),
 })
 
+
 DELETE = 'delete'
 DEFAULT = 'Default'
 ADDRESS_MENU_EP = '/address_menu'
@@ -76,7 +77,8 @@ class AddUser(Resource):
             username = data.get('username')
             home_address = data.get('home_address')
             work_address = data.get('work_address')
-            print(f"Received request: username={username}, home_address={home_address}, work_address={work_address}")
+            print(f"Received request: username={username}, home_address={home_address}, 
+            work_address={work_address}")
 
             # Call the add_user function
             addresses.add_user(username, home_address=home_address, work_address=work_address)
@@ -84,6 +86,7 @@ class AddUser(Resource):
             return {'message': 'User created successfully'}
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
 
 if __name__ == '__main__':
     app.run(debug=True)
