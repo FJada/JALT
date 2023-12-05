@@ -1,5 +1,4 @@
 import random
-import data.db_connect as dbc
 
 # Mocked data constants for
 BUS_ROUTES = [
@@ -34,6 +33,7 @@ BUS_STATIONS = {
         'longitude': random.uniform(-74.05, -73.85)
     }
 }
+
 
 def get_bus_routes():
     return BUS_ROUTES
