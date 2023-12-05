@@ -6,8 +6,8 @@ import werkzeug.exceptions as wz
 
 import data.addresses as addresses
 import data.buses as buses  # Importing buses.py
-import data.users as users
-import data.db_connect as dbc  # Importing db_connect.py as dbc
+# import data.users as users
+# import data.db_connect as dbc Importing db_connect.py as dbc
 
 app = Flask(__name__)
 api = Api(app)
@@ -184,9 +184,9 @@ class BusRoutes(Resource):
         return {
             TYPE: DATA,
             TITLE: 'Available Bus Routes',
-            DATA: buses.get_bus_routes(),  
-            MENU: MAIN_MENU_EP,  
-            RETURN: MAIN_MENU_EP,  
+            DATA: buses.get_bus_routes(),
+            MENU: MAIN_MENU_EP,
+            RETURN: MAIN_MENU_EP,
         }
 
 
