@@ -59,7 +59,7 @@ class DelUser(Resource):
             return {username: 'Deleted'}
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
-            
+
 
 # Add a new endpoint for adding a user with both home and work addresses
 @api.route('/add_user')
