@@ -11,17 +11,17 @@ TEST_NAME = 'test'
 @pytest.fixture(scope='function')
 def temp_rec():
     dbc.connect_db()
-    dbc.insert_one(TEST_COLLECT, {TEST_NAME: TEST_NAME}, TEST_DB)
+    dbc.insert_one(TEST_COLLECT, {TEST_NAME: TEST_NAME})
     # yield to our test function
     yield
-    dbc.del_one(TEST_COLLECT, {TEST_NAME: TEST_NAME}, TEST_DB)
+    dbc.del_one(TEST_COLLECT, {TEST_NAME: TEST_NAME})
 
 
 def test_fetch_one(temp_rec):
-    ret = dbc.fetch_one(TEST_COLLECT, {TEST_NAME: TEST_NAME}, TEST_DB)
+    ret = dbc.fetch_one(TEST_COLLECT, {TEST_NAME: TEST_NAME})
     assert ret is not None
 
 
 def test_fetch_one_not_there(temp_rec):
-    ret = dbc.fetch_one(TEST_COLLECT, {TEST_NAME: 'not a field value in db!'}, TEST_DB)
+    ret = dbc.fetch_one(TEST_COLLECT, {TEST_NAME: 'not a field value in db!'})
     assert ret is None
