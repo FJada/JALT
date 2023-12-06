@@ -76,3 +76,4 @@ def test_del_game_not_there():
     name = gm._get_test_name()
     with pytest.raises(ValueError):
         gm.del_game(name)
+
