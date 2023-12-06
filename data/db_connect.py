@@ -35,7 +35,7 @@ def get_collection(collection_name, db=METRO_DB):
     return client[db][collection_name]
 
 
-def insert_one(collection, doc):
+def insert_one(collection, doc, db):
     """
     Insert a single doc into collection.
     """
@@ -43,7 +43,7 @@ def insert_one(collection, doc):
     return collection.insert_one(doc)
 
 
-def fetch_one(collection, filt):
+def fetch_one(collection, filt, db):
     """
     Find with a filter and return on the first doc found.
     """
@@ -54,14 +54,14 @@ def fetch_one(collection, filt):
     return doc
 
 
-def del_one(collection, filt):
+def del_one(collection, filt, db):
     """
     Find with a filter and return on the first doc found.
     """
     collection.delete_one(filt)
 
 
-def fetch_all(collection_name):
+def fetch_all(collection_name, db):
     connect_db()
     collection = client[METRO_DB][collection_name]
     ret = []
@@ -70,7 +70,7 @@ def fetch_all(collection_name):
     return ret
 
 
-def fetch_all_as_dict(key, collection):
+def fetch_all_as_dict(key, collection, db):
     ret = {}
     for doc in collection.find():
         del doc[MONGO_ID]
