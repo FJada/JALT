@@ -36,12 +36,12 @@ def test_get_train_stops(temp_stop_data):
     # Add more assertions to validate the structure and content of the data
 
 def test_get_train_schedule(temp_stop_data):
-    schedule = trains.get_train_schedule('101')
+    schedule = trains.get_train_schedule('1')
     assert 'times' in schedule
     # Add assertions to validate schedule format and content
 
 def test_get_train_locations(temp_stop_data):
-    location = trains.get_train_locations('A49')
+    location = trains.get_train_locations('Nostrand Av')
     assert 'latitude' in location
     assert 'longitude' in location
     # Add assertions to validate location format and content
