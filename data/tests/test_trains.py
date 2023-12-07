@@ -3,19 +3,19 @@ import data.trains as trains
 
 @pytest.fixture(scope='function')
 def temp_stop_data():
-    mta.TRAIN_STOPS = [
+    trains.TRAIN_STOPS = [
        {'stop_id': '101', 'stop_name': 'Van Cortlandt Park - 242 St', 'stop_line':'Broadway-Seventh Avenue Local'},
        {'stop_id': 'A49', 'stop_name': 'Nostrand Av' ,'stop_line': 'Eighth Avenue Express'},
        {'stop_id': 'F01', 'stop_name': 'Jamaica - 179 St' ,'stop_line': 'Queens Boulevard Express/Sixth Avenue Local'}
     ]
 
-    mta.TRAIN_SCHEDULES = {
+    trains.TRAIN_SCHEDULES = {
        '1': {'times': ['09:00 AM', '11:30 AM', '02:00 PM']},
        'A': {'times': ['10:00 AM', '12:30 PM', '03:00 PM']},
        'F': {'times': ['09:45 AM', '01:15 PM', '04:30 PM']}
     }
 
-    mta.TRAIN_LOCATIONS = {
+    trains.TRAIN_LOCATIONS = {
         'Van Cortlandt Park - 242 St': {
         'latitude': 40.889248,
         'longitude': -73.898583
