@@ -11,8 +11,10 @@ then
     DATA_DIR=/Users/lalitm/JALT/data
 fi
 BKUP_DIR=$DATA_DIR/bkup
-EXP=/usr/local/bin/mongoexport
-IMP=/usr/local/bin/mongoimport
+# EXP=/usr/local/bin/mongoexport
+EXP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoexport
+# IMP=/usr/local/bin/mongoimport
+IMP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoimport
 
 if [ -z $MONGO_PASSWD ]
 then
