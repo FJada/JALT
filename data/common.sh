@@ -20,4 +20,4 @@ if [ -z "$MONGO_PASSWD" ]; then
     exit 1
 fi
 
-declare -a RouteCollections=("buses" "trains" "addresses" "users")
+declare -a RouteCollections=("buses" "trains" "Addresses" "users")
