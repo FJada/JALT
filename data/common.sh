@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # common shell for data
 
 echo "Importing from common.sh"
