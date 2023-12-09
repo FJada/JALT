@@ -11,9 +11,9 @@ then
     DATA_DIR=/Users/lalitm/JALT/data
 fi
 BKUP_DIR=$DATA_DIR/bkup
-EXP=/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoexport.exe
+EXP=C:/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoexport.exe
 # EXP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoexport
-IMP=/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoimport.exe
+IMP=C:/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoimport.exe
 # IMP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoimport
 
 if [ -z $MONGO_PASSWD ]
