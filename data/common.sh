@@ -11,8 +11,9 @@ if [ -z "$DATA_DIR" ]; then
     DATA_DIR="/home/amyf/SWE/JALT/data"
 fi
 BKUP_DIR="$DATA_DIR/bkup"
-EXP="C:/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoexport.exe"
-IMP="C:/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoimport.exe"
+EXP="/mnt/c/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoexport.exe" 
+IMP="/mnt/c/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoimport.exe" 
+
 
 if [ -z "$MONGO_PASSWD" ]; then
     echo "You must set MONGO_PASSWD in your env before running this script."
