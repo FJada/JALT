@@ -7,11 +7,14 @@ USER=cluster_user
 CONNECT_STR="mongodb+srv://cluster_user:cluster_pass@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority"
 if [ -z $DATA_DIR ]
 then
-    DATA_DIR=/home/amyf/SWE/JALT/data
+    # DATA_DIR=/home/amyf/SWE/JALT/data
+    DATA_DIR=/Users/lalitm/JALT/data
 fi
 BKUP_DIR=$DATA_DIR/bkup
-EXP=/usr/local/bin/mongoexport
-IMP=/usr/local/bin/mongoimport
+# EXP=/usr/local/bin/mongoexport
+EXP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoexport
+# IMP=/usr/local/bin/mongoimport
+IMP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoimport
 
 if [ -z $MONGO_PASSWD ]
 then
@@ -19,4 +22,4 @@ then
     exit 1
 fi
 
-declare -a RouteCollections = ("buses" "trains" "addresses" "users")
+declare -a RouteCollections=("buses" "trains" "addresses" "users")
