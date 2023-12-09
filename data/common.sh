@@ -7,7 +7,7 @@ USER=cluster_user
 CONNECT_STR="mongodb+srv://cluster_user:cluster_pass@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority"
 if [ -z "$DATA_DIR" ]; then
     # DATA_DIR="/Users/lalitm/JALT/data"
-    DATA_DIR = "/home/amyf/SWE/JALT/data"
+    DATA_DIR="/home/amyf/SWE/JALT/data"
 fi
 BKUP_DIR="$DATA_DIR/bkup"
 EXP="C:/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoexport.exe"
