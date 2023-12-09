@@ -11,9 +11,9 @@ then
     DATA_DIR=/Users/lalitm/JALT/data
 fi
 BKUP_DIR=$DATA_DIR/bkup
-EXP=C:/ProgramFiles/MongoDB/Server/7.0/bin/mongoexport.exe
+EXP=C:/Program_Files/MongoDB/Server/7.0/bin/mongoexport.exe
 # EXP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoexport
-IMP=C:/ProgramFiles/MongoDB/Server/7.0/bin/mongoimport.exe
+IMP=C:/Program_Files/MongoDB/Server/7.0/bin/mongoimport.exe
 # IMP=/Users/lalitm/Downloads/mongodb-database-tools-macos-arm64-100.9.4/bin/mongoimport
 
 if [ -z $MONGO_PASSWD ]
