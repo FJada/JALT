@@ -7,5 +7,5 @@
 
 for collection in "${RouteCollections[@]}"; do
     echo "Restoring $collection"
-    "$IMP" --db="$DB" --collection="$collection" --drop --file="$BKUP_DIR/$collection.json"
+    "/mnt/c/Users/amyho/OneDrive/Desktop/school/Senior_Year/SWE/mongodb-database-tools-windows-x86_64-100.9.4/bin/mongoimport.exe" --db="$DB" --collection="$collection" --drop --file="$BKUP_DIR/$collection.json"
 done
