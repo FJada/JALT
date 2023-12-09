@@ -1,1 +1,0 @@
-{"_id":{"$oid":"656bb1a35e721f466bef09c0"},"username":"amy","account_id":"baef2818-2fc4-4158-8f28-265709528961","addresses":{"home":{"address":"370","nearest_train_station":"Some Station"},"work":{"address":"2Metro","nearest_train_station":"Some Station"}}}
