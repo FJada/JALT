@@ -3,7 +3,7 @@ import data.addresses as am
 
 @pytest.fixture(scope='function')
 def temp_user():
-    username = am._gen_id()
+    username = str(am._gen_id())
     ret = am.add_user(
         username,
         '123456',
@@ -16,14 +16,14 @@ def temp_user():
     assert not am.user_exists(username), "User should be deleted successfully."
 
 def test_get_test_name():
-    name = am._gen_id()
+    name = str(am._gen_id())
     assert isinstance(name, str)
     assert len(name) > 0
 
 
 
 def test_add_user():
-    new_username = am._gen_id()
+    new_username = str(am._gen_id())
     ret = am.add_user(
         new_username,
         '789012',
@@ -36,6 +36,6 @@ def test_add_user():
     assert not am.user_exists(new_username), "User should be deleted successfully."
 
 def test_del_user_not_there():
-    username = am._gen_id()
+    username = str(am._gen_id())
     with pytest.raises(ValueError):
         am.del_user(username)
