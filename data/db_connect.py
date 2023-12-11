@@ -35,10 +35,11 @@ def get_collection(collection_name, db=METRO_DB):
     return client[db][collection_name]
 
 
-def insert_one(collection, doc, db=METRO_DB):
+def insert_one(collection_name, doc, db=METRO_DB):
     """
     Insert a single doc into collection.
     """
+    collection = get_collection(collection_name, db)
     print(f'{collection.db=}')
     return collection.insert_one(doc)
 
@@ -54,16 +55,18 @@ def fetch_one(collection, filt, db=METRO_DB):
     return doc
 
 
-def del_one(collection, filt, db=METRO_DB):
+def del_one(collection_name, filt, db=METRO_DB):
     """
-    Find with a filter and return on the first doc found.
+    Find with a filter and delete the first doc found.
     """
+    collection = get_collection(collection_name, db)
+    connect_db()  # Ensure the connection is established
     collection.delete_one(filt)
 
 
 def fetch_all(collection_name, db=METRO_DB):
     connect_db()
-    collection = client[METRO_DB][collection_name]
+    collection = client[db][collection_name]
     ret = []
     for doc in collection.find({}):
         ret.append(doc)
