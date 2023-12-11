@@ -40,7 +40,7 @@ def get_all_users():
 
 
 def user_exists(username):
-    filt = {USERNAME: str(username)}
+    filt = {str(USERNAME): str(username)}
     # Connect to the database if not connected
     if not dbc.is_connected():
         dbc.connect_db()
