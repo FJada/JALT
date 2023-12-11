@@ -1,7 +1,6 @@
 import os
 import pymongo as pm
 from flask_restx import Api
-from pymongo.errors import PyMongoError
 
 LOCAL = "0"
 CLOUD = "1"
