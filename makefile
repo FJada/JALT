@@ -22,3 +22,9 @@ dev_env: FORCE
 
 docs: FORCE
 	cd $(API_DIR); make docs
+
+mongo: FORCE
+	sudo systemctl start mongod
+
+pythonpath:
+	export PYTHONPATH=$(pwd)
