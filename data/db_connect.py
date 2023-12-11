@@ -11,6 +11,7 @@ MONGO_ID = '_id'
 
 api = Api()
 
+
 def connect_db():
     print("CONNECTING!!!!")
     global client
