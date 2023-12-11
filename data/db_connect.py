@@ -17,14 +17,14 @@ def connect_db():
     if client is None:  # not connected yet!
         print("Setting client because it is None.")
         #if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
-            username = 'cluster_user'
-            password = 'cluster_pass'
-            cluster_hostname = 'cluster0.9laqhsg.mongodb.net'
-            if not (username and password and cluster_hostname):
-                raise ValueError('You must set your username, password, '
-                                 + 'and cluster hostname to use Mongo in the cloud.')
-            print("Connecting to Mongo in the cloud.")
-            client = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@{cluster_hostname}/?retryWrites=true&w=majority')
+        username = 'cluster_user'
+        password = 'cluster_pass'
+        cluster_hostname = 'cluster0.9laqhsg.mongodb.net'
+        if not (username and password and cluster_hostname):
+            raise ValueError('You must set your username, password, '
+                            + 'and cluster hostname to use Mongo in the cloud.')
+        print("Connecting to Mongo in the cloud.")
+        client = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@{cluster_hostname}/?retryWrites=true&w=majority')
         #else:
             #print("Connecting to Mongo locally.")
             #client = pymongo.MongoClient()
