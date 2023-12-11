@@ -35,10 +35,11 @@ def get_collection(collection_name, db=METRO_DB):
     return client[db][collection_name]
 
 
-def insert_one(collection, doc, db=METRO_DB):
+def insert_one(collection_name, doc, db=METRO_DB):
     """
     Insert a single doc into collection.
     """
+    collection = get_collection(collection_name, db)
     print(f'{collection.db=}')
     return collection.insert_one(doc)
 
