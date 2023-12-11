@@ -1,5 +1,5 @@
 import os
-import pymongo
+import pymongo as pm
 from flask_restx import Api
 
 LOCAL = "0"
@@ -11,71 +11,73 @@ MONGO_ID = '_id'
 
 api = Api()
 
-
 def connect_db():
+    print("CONNECTING!!!!")
     global client
     if client is None:  # not connected yet!
         print("Setting client because it is None.")
         if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
-            username = 'cluster_user'
-            password = 'cluster_pass'
-            cluster_hostname = 'cluster0.9laqhsg.mongodb.net'
-            if not (username and password and cluster_hostname):
-                raise ValueError('You must set your username, password, '
-                                 + 'and cluster hostname to use Mongo in the cloud.')
+            password = cluster_pass
             print("Connecting to Mongo in the cloud.")
-            client = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@{cluster_hostname}/?retryWrites=true&w=majority')
+            client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}'
+                                    + '@cluster0.9laqhsg.mongodb.net/'
+                                    + '?retryWrites=true&w=majority')
+
         else:
             print("Connecting to Mongo locally.")
-            client = pymongo.MongoClient()
+            client = pm.MongoClient()
 
 
-def get_collection(collection_name, db=METRO_DB):
-    connect_db()
-    return client[db][collection_name]
-
-
-def insert_one(collection_name, doc, db=METRO_DB):
+def insert_one(collection, doc, db=RECIPE_DB):
     """
     Insert a single doc into collection.
     """
-    collection = get_collection(collection_name, db)
-    print(f'{collection.db=}')
-    return collection.insert_one(doc)
+    print(f'{db=}')
+    return client[db][collection].insert_one(doc)
 
 
-def fetch_one(collection, filt, db=METRO_DB):
+def fetch_one(collection, filt, fields=None, db=RECIPE_DB):
     """
     Find with a filter and return on the first doc found.
     """
-    doc = collection.find_one(filt)
-    if doc and MONGO_ID in doc:
-        # Convert mongo ID to a string so it works as JSON
-        doc[MONGO_ID] = str(doc[MONGO_ID])
-    return doc
+
+    res = client[db][collection].find(filt, fields)
+    print(f'{res=}')
+    if res is not None:
+        for doc in res:
+            if MONGO_ID in doc:
+                # Convert mongo ID to a string so it works as JSON
+                doc[MONGO_ID] = str(doc[MONGO_ID])
+            return doc
+
+    raise ValueError("Object to fetch does not exist")
 
 
-def del_one(collection_name, filt, db=METRO_DB):
+def del_one(collection, filt, db=RECIPE_DB):
     """
-    Find with a filter and delete the first doc found.
+    Find with a filter and return on the first doc found.
     """
-    collection = get_collection(collection_name, db)
-    connect_db()  # Ensure the connection is established
-    collection.delete_one(filt)
+    client[db][collection].delete_one(filt)
 
 
-def fetch_all(collection_name, db=METRO_DB):
-    connect_db()
-    collection = client[db][collection_name]
+def fetch_all(collection, db=RECIPE_DB):
     ret = []
-    for doc in collection.find({}):
-        ret.append(doc)
+    res = client[db][collection].find()
+    if res is not None:
+        for doc in res:
+            ret.append(doc)
     return ret
 
 
-def fetch_all_as_dict(key, collection, db=METRO_DB):
+def fetch_all_as_dict(key, collection, db=RECIPE_DB):
     ret = {}
-    for doc in collection.find():
-        del doc[MONGO_ID]
-        ret[doc[key]] = doc
+    res = client[db][collection].find()
+    if res is not None:
+        for doc in res:
+            del doc[MONGO_ID]
+            ret[doc[key]] = doc
     return ret
+
+
+def update_one(collection, filter, query, db=RECIPE_DB):
+    return client[db][collection].update_one(filter, query)
