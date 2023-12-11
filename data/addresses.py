@@ -26,53 +26,25 @@ def _gen_id() -> str:
 
 
 def get_users() -> dict:
-    dbc.connect_db()
+    # Connect to the database if not connected
+    if not dbc.is_connected():
+        dbc.connect_db()
     return dbc.fetch_all_as_dict(USERNAME, USERS_COLLECTION)
 
 
 def get_all_users():
-    dbc.connect_db()
+    # Connect to the database if not connected
+    if not dbc.is_connected():
+        dbc.connect_db()
     return dbc.fetch_all(USERS_COLLECTION)
 
 
 def user_exists(username):
     filt = {USERNAME: username}
+    # Connect to the database if not connected
+    if not dbc.is_connected():
+        dbc.connect_db()
     return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION), filt) is not None
-
-
-# Use this function to add a user
-def add_user(username, home_address, work_address, account_id=None):
-    print(f"Received: username={username}, "
-          f"home_address={home_address}, "
-          f"work_address={work_address}, account_id={account_id}")
-
-    if not user_exists(username):
-        if account_id is None:
-            account_id = str(uuid.uuid4())
-
-        user_collection = dbc.get_collection(USERS_COLLECTION)
-        user_doc = {
-            USERNAME: username,
-            ACCOUNT_ID: account_id,
-            ADDRESSES: {}
-        }
-        if home_address:
-            user_doc[ADDRESSES][HOME] = {
-                ADDRESS: home_address,
-                NEAREST_TRAIN_STATION: "Some Station"
-            }
-        if work_address:
-            user_doc[ADDRESSES][WORK] = {
-                ADDRESS: work_address,
-                NEAREST_TRAIN_STATION: "Some Station"
-            }
-        dbc.insert_one(user_collection, user_doc)
-        print("User created successfully")
-        return {"message": "User created successfully"}
-    else:
-        raise ValueError(f'User {username} already exists.')
-        print(f"User {username} already exists.")
-        return {"message": f"User {username} already exists."}
 
 
 # Use this function to delete a user
