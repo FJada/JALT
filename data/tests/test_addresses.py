@@ -41,7 +41,7 @@ def test_add_user():
 def test_get_users():
     # fetching address database as dictionary and checking if returns all keys
     users_dict = am.get_users()
-    self.assertEqual(len(users_dict), 4)
+    assert len(users_dict) == 4
 
 
 def test_user_exists():
