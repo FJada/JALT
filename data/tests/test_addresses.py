@@ -40,13 +40,11 @@ def test_add_user():
 
 def test_get_users():
     # fetching address database as dictionary and checking if returns all keys
-    users_dict = get_users()
+    users_dict = am.get_users()
     self.assertEqual(len(users_dict), 4)
 
 
-def test_del_user_not_there():
+def test_user_exists():
     username = 'Johnny'
-    print(f"Type of username: {type(username)}")
-    with pytest.raises(ValueError):
-        am.del_user(username)
+    assert not am.user_exists(username)
 
