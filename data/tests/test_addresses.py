@@ -18,8 +18,8 @@ def temp_user():
 
 def test_gen_id():
     acc_id = am._gen_id()
-    assert isinstance(name, str)
-    assert len(name) > 0
+    assert isinstance(acc_id, str)
+    assert len(acc_id) > 0
 
 
 def test_add_user():
