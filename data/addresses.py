@@ -3,6 +3,7 @@ addresses.py: the interface to our user data.
 """
 import random
 import data.db_connect as dbc
+import uuid
 
 USERS_COLLECTION = 'Addresses'
 ID_LEN = 24
