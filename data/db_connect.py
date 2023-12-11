@@ -11,24 +11,23 @@ MONGO_ID = '_id'
 
 api = Api()
 
+
 def connect_db():
     print("CONNECTING!!!!")
     global client
     if client is None:  # not connected yet!
         print("Setting client because it is None.")
         if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
-            password = cluster_pass
             print("Connecting to Mongo in the cloud.")
-            client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}'
-                                    + '@cluster0.9laqhsg.mongodb.net/'
-                                    + '?retryWrites=true&w=majority')
+            password = "cluster_pass"
+            client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority')
 
         else:
             print("Connecting to Mongo locally.")
             client = pm.MongoClient()
 
 
-def insert_one(collection, doc, db=RECIPE_DB):
+def insert_one(collection, doc, db=METRO_DB):
     """
     Insert a single doc into collection.
     """
@@ -36,7 +35,7 @@ def insert_one(collection, doc, db=RECIPE_DB):
     return client[db][collection].insert_one(doc)
 
 
-def fetch_one(collection, filt, fields=None, db=RECIPE_DB):
+def fetch_one(collection, filt, fields=None, db=METRO_DB):
     """
     Find with a filter and return on the first doc found.
     """
@@ -53,14 +52,14 @@ def fetch_one(collection, filt, fields=None, db=RECIPE_DB):
     raise ValueError("Object to fetch does not exist")
 
 
-def del_one(collection, filt, db=RECIPE_DB):
+def del_one(collection, filt, db=METRO_DB):
     """
     Find with a filter and return on the first doc found.
     """
     client[db][collection].delete_one(filt)
 
 
-def fetch_all(collection, db=RECIPE_DB):
+def fetch_all(collection, db=METRO_DB):
     ret = []
     res = client[db][collection].find()
     if res is not None:
@@ -69,7 +68,7 @@ def fetch_all(collection, db=RECIPE_DB):
     return ret
 
 
-def fetch_all_as_dict(key, collection, db=RECIPE_DB):
+def fetch_all_as_dict(key, collection, db=METRO_DB):
     ret = {}
     res = client[db][collection].find()
     if res is not None:
@@ -79,5 +78,5 @@ def fetch_all_as_dict(key, collection, db=RECIPE_DB):
     return ret
 
 
-def update_one(collection, filter, query, db=RECIPE_DB):
+def update_one(collection, filter, query, db=METRO_DB):
     return client[db][collection].update_one(filter, query)
