@@ -4,13 +4,13 @@ import logging
 import data.db_connect as dbc
 
 TEST_DB = dbc.METRO_DB
-TEST_COLLECT = 'test_collect'
+TEST_COLLECT = dbc.USERS_COLLECTION
 # can be used for field and value:
 TEST_NAME = 'test'
 
 # Set up logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+# logging.basicConfig(level=logging.INFO)
+# logger = logging.getLogger(__name__)
 
 @pytest.fixture(scope='function')
 def temp_rec():
