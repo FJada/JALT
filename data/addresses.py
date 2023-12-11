@@ -3,7 +3,6 @@ addresses.py: the interface to our user data.
 """
 import random
 import data.db_connect as dbc
-import uuid
 
 USERS_COLLECTION = 'Addresses'
 ID_LEN = 24
@@ -16,6 +15,7 @@ HOME = 'home'
 WORK = 'work'
 ADDRESS = 'address'
 NEAREST_TRAIN_STATION = 'nearest_train_station'
+
 
 # returns account id between big_num and 0, used to generate account ids
 def _gen_id() -> str:
