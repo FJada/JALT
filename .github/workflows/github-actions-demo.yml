@@ -40,8 +40,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-        # - name: Install MongoDB
-        # uses: supercharge/mongodb-github-action@1.8.0
       - name: Install MongoDB
         uses: supercharge/mongodb-github-action@1.8.0
 
@@ -56,9 +54,3 @@ jobs:
           # run: ./deploy.sh
           # env:
           # DEMO_PA_PWD: ${{secrets.DEMO_PA_PWD}}
-
-      - name: Test MongoDB Connection
-        run: |
-          # Use command-line tools or MongoDB utilities to test the connection
-          # For example:
-          mongo --host 216.165.95.164/32 --port 27017 -u cluster_user -p cluster_pass --authenticationDatabase admin
