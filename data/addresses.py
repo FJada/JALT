@@ -44,7 +44,17 @@ def user_exists(username):
     # Connect to the database if not connected
     if not dbc.is_connected():
         dbc.connect_db()
-    return dbc.fetch_one(USERS_COLLECTION, filt) is not None
+    try:
+        userdata = dbc.fetch_one(USERS_COLLECTION, filt)
+        if userdata is None:
+            return False  # User doesn't exist
+
+        return True  # User exists
+
+    except ValueError as e:
+        # Handle the specific ValueError raised when user is not found
+        print(f"User not found: {e}")
+        return False  # Return False as user is expected not to exist
 
 
 # Use this function to add a user
