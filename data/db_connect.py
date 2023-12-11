@@ -1,4 +1,4 @@
-#import os
+import os
 import pymongo
 from flask_restx import Api
 
@@ -16,7 +16,7 @@ def connect_db():
     global client
     if client is None:  # not connected yet!
         print("Setting client because it is None.")
-        #if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
+        if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
         username = 'cluster_user'
         password = 'cluster_pass'
         cluster_hostname = 'cluster0.9laqhsg.mongodb.net'
@@ -25,9 +25,9 @@ def connect_db():
                             + 'and cluster hostname to use Mongo in the cloud.')
         print("Connecting to Mongo in the cloud.")
         client = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@{cluster_hostname}/?retryWrites=true&w=majority')
-        #else:
-            #print("Connecting to Mongo locally.")
-            #client = pymongo.MongoClient()
+        else:
+            print("Connecting to Mongo locally.")
+            client = pymongo.MongoClient()
 
 
 def get_collection(collection_name, db=METRO_DB):
