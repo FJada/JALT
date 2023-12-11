@@ -18,7 +18,13 @@ all_tests: FORCE
 	cd $(DB_DIR); make tests
 
 dev_env: FORCE
-	pip install -r $(REQ_DIR)/requirements-dev.txt
+	pip3 install -r $(REQ_DIR)/requirements-dev.txt
 
 docs: FORCE
 	cd $(API_DIR); make docs
+
+mongo: FORCE
+	sudo systemctl start mongod
+
+pythonpath:
+	export PYTHONPATH=$(pwd)
