@@ -1,5 +1,6 @@
 import pytest
 import data.addresses as am
+import data.db_connect as dbc
 
 @pytest.fixture(scope='function')
 def temp_user():
@@ -35,6 +36,12 @@ def test_add_user():
     assert isinstance(ret, dict)
     am.del_user(new_username)
     assert not am.user_exists(new_username), "User should be deleted successfully."
+
+
+def test_get_users():
+    # fetching address database as dictionary and checking if returns all keys
+    users_dict = get_users()
+    self.assertEqual(len(users_dict), 4)
 
 
 def test_del_user_not_there():
