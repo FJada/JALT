@@ -24,7 +24,6 @@ def test_get_test_name():
 
 def test_add_user():
     new_username = str(am._gen_id())
-    print(f"Type of username: {type(username)}")
     ret = am.add_user(
         new_username,
         '789012',
