@@ -58,12 +58,14 @@ def del_one(collection, filt, db=METRO_DB):
     """
     Find with a filter and return on the first doc found.
     """
+    connect_db()  # Ensure the connection is established
+    collection = get_collection(collection.db, db)  # Fixing the collection assignment
     collection.delete_one(filt)
 
 
 def fetch_all(collection_name, db=METRO_DB):
     connect_db()
-    collection = client[METRO_DB][collection_name]
+    collection = client[db][collection_name]
     ret = []
     for doc in collection.find({}):
         ret.append(doc)
