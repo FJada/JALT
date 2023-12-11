@@ -5,7 +5,7 @@ import random
 import data.db_connect as dbc
 import uuid
 
-USERS_COLLECTION = 'Addresses'
+USERS_COLLECTION = "Addresses"
 ID_LEN = 24
 BIG_NUM = 100_000_000_000_000_000_000
 MOCK_ID = '0' * ID_LEN
