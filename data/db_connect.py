@@ -33,18 +33,12 @@ def connect_db():
 
 
 def get_collection(collection_name):
-    try:
-        # Convert collection_name to string
-        collection_name = str(collection_name)
+    collection_name = str(collection_name)
 
-        if not is_connected():
-            connect_db()
+    if not is_connected():
+        connect_db()
 
-        return client[METRO_DB][collection_name]
-    except PyMongoError as e:
-        # Handle or log the PyMongoError appropriately
-        print(f"Error getting collection '{collection_name}': {e}")
-        return None
+    return client[METRO_DB][collection_name]
 
 
 def insert_one(collection, doc, db=METRO_DB):
