@@ -1,4 +1,7 @@
 import random
+import data.db_connect as dbc
+
+BUSES_COLLECTION = 'buses'
 
 # Mocked data constants for
 BUS_ROUTES = [
@@ -37,6 +40,16 @@ BUS_STATIONS = {
 
 def get_bus_routes():
     return BUS_ROUTES
+
+
+def add_bus_route():
+    bus_route = {}
+    bus_route[BUS_NAME] = 'name'
+    bus_route[STATION_NAME] = 'station name'
+    bus_route[BOROUGH] = 'borough'
+    dbc.connect_db()
+    _id = dbc.insert_one(BUSES_COLLECTION, bus_route)
+    return _id is not None
 
 
 def get_bus_schedule(route_id):
