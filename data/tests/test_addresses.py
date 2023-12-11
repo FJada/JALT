@@ -38,10 +38,10 @@ def test_add_user():
     assert not am.user_exists(new_username), "User should be deleted successfully."
 
 
-def test_get_users():
+def test_get_all_users():
     # fetching address database as dictionary and checking if returns all keys
-    users_dict = am.get_users()
-    assert len(users_dict) == 4
+    docs = am.get_all_users()
+    assert len(docs) == 4
 
 
 def test_user_exists():
