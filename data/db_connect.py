@@ -19,9 +19,7 @@ def connect_db():
         print("Setting client because it is None.")
         if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
             print("Connecting to Mongo in the cloud.")
-            client = pm.MongoClient(f'mongodb+srv://cluster_user:cluster_pass'
-                                    + '@cluster0.9laqhsg.mongodb.net/'
-                                    + '?retryWrites=true&w=majority')
+            client = pm.MongoClient(f'mongodb+srv://cluster_user:cluster_pass@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority')
 
         else:
             print("Connecting to Mongo locally.")
