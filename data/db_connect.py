@@ -5,7 +5,7 @@ from flask_restx import Api
 LOCAL = "0"
 CLOUD = "1"
 METRO_DB = 'Metro'
-CLOUD_MONGO = 1
+CLOUD_MONGO = "1"
 client = None
 
 MONGO_ID = '_id'
