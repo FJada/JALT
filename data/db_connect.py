@@ -21,8 +21,8 @@ def connect_db():
             password = 'cluster_pass'
             cluster_hostname = 'cluster0.9laqhsg.mongodb.net'
             if not (username and password and cluster_hostname):
-                raise ValueError('You must set your username, password, '
-                                + 'and cluster hostname to use Mongo in the cloud.')
+                raise ValueError('You must set your username, password, ' 
+                                 + 'and cluster hostname to use Mongo in the cloud.')
             print("Connecting to Mongo in the cloud.")
             client = pymongo.MongoClient(f'mongodb+srv://{username}:{password}@{cluster_hostname}/?retryWrites=true&w=majority')
         else:
