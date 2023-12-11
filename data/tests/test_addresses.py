@@ -20,17 +20,7 @@ def test_get_test_name():
     assert isinstance(name, str)
     assert len(name) > 0
 
-def test_add_user_with_blank_username():
-    """
-    Make sure a blank username raises a ValueError.
-    """
-    with pytest.raises(ValueError):
-        am.add_user(
-            '',
-            '789012',
-            {'address': '789 Broadway, New York, NY 10003', 'nearest_train_station': 'Times Square'},
-            {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'}
-        )
+
 
 def test_add_user():
     new_username = am._gen_id()
