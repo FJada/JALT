@@ -6,16 +6,21 @@ LOCAL = "0"
 CLOUD = "1"
 METRO_DB = 'Metro'
 client = None
+USERS_COLLECTION = 'Addresses'
 
 MONGO_ID = '_id'
 
 api = Api()
 
 
+def is_connected():
+    return client is not None
+
+
 def connect_db():
     print("CONNECTING!!!!")
     global client
-    if client is None:  # not connected yet!
+    if not is_connected():  # not connected yet!
         print("Setting client because it is None.")
         if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
             print("Connecting to Mongo in the cloud.")
@@ -25,6 +30,15 @@ def connect_db():
         else:
             print("Connecting to Mongo locally.")
             client = pm.MongoClient()
+
+
+def get_collection(collection_name):
+    collection_name = str(collection_name)
+
+    if not is_connected():
+        connect_db()
+
+    return client[METRO_DB][collection_name]
 
 
 def insert_one(collection, doc, db=METRO_DB):

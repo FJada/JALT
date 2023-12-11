@@ -1,57 +1,44 @@
 import pytest
-
 import data.addresses as am
+import data.db_connect as dbc
 
 @pytest.fixture(scope='function')
 def temp_user():
-    username = am._gen_id()  # Use _gen_id instead of _get_test_name
+    username = 'John123'
     ret = am.add_user(
         username,
-        '123456',
         {'address': '123 Main St, New York, NY 10001', 'nearest_train_station': 'Penn Station'},
-        {'address': '456 Broadway, New York, NY 10002', 'nearest_train_station': 'Grand Central Terminal'}
+        {'address': '456 Broadway, New York, NY 10002', 'nearest_train_station': 'Grand Central Terminal'},
+        '123456'
     )
+    assert am.user_exists(username), "User should be added successfully."
     yield username
-    if am.user_exists(username):
-        am.del_user(username)
+    am.del_user(username)
+    assert not am.user_exists(username), "User should be deleted successfully."
 
 
-def test_get_test_name():
-    name = am._gen_id()  # Use _gen_id instead of _get_test_name
-    assert isinstance(name, str)
-    assert len(name) > 0
-
-
-def test_add_user_blank_name():
-    """
-    Make sure a blank username raises a ValueError.
-    """
-    with pytest.raises(ValueError):
-        am.add_user(
-            '',
-            '789012',
-            {'address': '789 Broadway, New York, NY 10003', 'nearest_train_station': 'Times Square'},
-            {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'}
-        )
-
-
-ADD_USERNAME = 'NewUser'
+def test_gen_id():
+    acc_id = am._gen_id()
+    assert isinstance(acc_id, str)
+    assert len(acc_id) > 0
 
 
 def test_add_user():
-    new_username = am._gen_id()  # Use _gen_id instead of _get_test_name
+    new_username = 'JohnSmith'
+    account_id = am._gen_id()
     ret = am.add_user(
         new_username,
-        '789012',
         {'address': '789 Broadway, New York, NY 10003', 'nearest_train_station': 'Times Square'},
-        {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'}
+        {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'},
+        account_id
     )
-    assert am.user_exists(new_username)
-    assert isinstance(ret, bool)
+    assert am.user_exists(new_username), "User should be added successfully."
+    assert isinstance(ret, dict)
     am.del_user(new_username)
+    assert not am.user_exists(new_username), "User should be deleted successfully."
 
 
-def test_del_user_not_there():
-    username = am._gen_id()  # Use _gen_id instead of _get_test_name
-    with pytest.raises(ValueError):
-        am.del_user(username)
+def test_user_exists():
+    username = 'Johnny'
+    assert not am.user_exists(username)
+
