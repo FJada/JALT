@@ -14,7 +14,7 @@ api = Api()
 
 def is_connected():
     return client is not None
-    
+
 
 def connect_db():
     print("CONNECTING!!!!")
