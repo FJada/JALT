@@ -17,7 +17,7 @@ WORK = 'work'
 ADDRESS = 'address'
 NEAREST_TRAIN_STATION = 'nearest_train_station'
 
-
+# returns account id between big_num and 0, used to generate account ids
 def _gen_id() -> str:
     _id = random.randint(0, BIG_NUM)
     _id = str(_id)
@@ -56,7 +56,7 @@ def add_user(username, home_address, work_address, account_id=None):
 
     if not user_exists(username):
         if account_id is None:
-            account_id = str(uuid.uuid4())
+            account_id = _gen_id
 
         user_collection = dbc.get_collection(USERS_COLLECTION)
         user_doc = {
