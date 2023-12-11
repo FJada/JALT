@@ -6,6 +6,7 @@ LOCAL = "0"
 CLOUD = "1"
 METRO_DB = 'Metro'
 client = None
+USERS_COLLECTION = 'Addresses'
 
 MONGO_ID = '_id'
 
