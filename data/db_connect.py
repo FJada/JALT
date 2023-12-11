@@ -17,9 +17,8 @@ def connect_db():
     if client is None:  # not connected yet!
         print("Setting client because it is None.")
         if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
-            password = cluster_pass
             print("Connecting to Mongo in the cloud.")
-            client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}'
+            client = pm.MongoClient(f'mongodb+srv://cluster_user:cluster_pass'
                                     + '@cluster0.9laqhsg.mongodb.net/'
                                     + '?retryWrites=true&w=majority')
 
