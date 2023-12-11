@@ -1,6 +1,7 @@
 import os
 import pymongo as pm
 from flask_restx import Api
+from pymongo.errors import PyMongoError
 
 LOCAL = "0"
 CLOUD = "1"
@@ -32,9 +33,18 @@ def connect_db():
 
 
 def get_collection(collection_name):
-    if not is_connected():
-        connect_db()
-    return client[METRO_DB][collection_name]
+    try:
+        # Convert collection_name to string
+        collection_name = str(collection_name)
+
+        if not is_connected():
+            connect_db()
+
+        return client[METRO_DB][collection_name]
+    except PyMongoError as e:
+        # Handle or log the PyMongoError appropriately
+        print(f"Error getting collection '{collection_name}': {e}")
+        return None
 
 
 def insert_one(collection, doc, db=METRO_DB):
