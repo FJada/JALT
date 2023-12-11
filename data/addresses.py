@@ -44,7 +44,6 @@ def user_exists(username):
     # Connect to the database if not connected
     if not dbc.is_connected():
         dbc.connect_db()
-    user_collection = str(USERS_COLLECTION)
     return dbc.fetch_one(USERS_COLLECTION, filt) is not None
 
 
