@@ -44,7 +44,8 @@ def user_exists(username):
     # Connect to the database if not connected
     if not dbc.is_connected():
         dbc.connect_db()
-    return dbc.fetch_one(dbc.get_collection(USERS_COLLECTION), filt) is not None
+    user_collection = str(USERS_COLLECTION)
+    return dbc.fetch_one(dbc.get_collection(user_collection), filt) is not None
 
 
 # Use this function to add a user
