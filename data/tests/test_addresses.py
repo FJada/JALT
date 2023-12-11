@@ -6,9 +6,9 @@ def temp_user():
     username = 'John123'
     ret = am.add_user(
         username,
-        '123456',
         {'address': '123 Main St, New York, NY 10001', 'nearest_train_station': 'Penn Station'},
-        {'address': '456 Broadway, New York, NY 10002', 'nearest_train_station': 'Grand Central Terminal'}
+        {'address': '456 Broadway, New York, NY 10002', 'nearest_train_station': 'Grand Central Terminal'},
+        '123456'
     )
     assert am.user_exists(username), "User should be added successfully."
     yield username
@@ -27,9 +27,9 @@ def test_add_user():
     account_id = am._gen_id()
     ret = am.add_user(
         new_username,
-        account_id,
         {'address': '789 Broadway, New York, NY 10003', 'nearest_train_station': 'Times Square'},
-        {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'}
+        {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'},
+        account_id
     )
     assert am.user_exists(new_username), "User should be added successfully."
     assert isinstance(ret, dict)
