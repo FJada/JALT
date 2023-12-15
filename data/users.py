@@ -26,7 +26,7 @@ def _gen_id() -> str:
     return _id
 
 
-def gen_account_id():
+def gen_account_id() -> str:
     """
     Returns acc123456789 to identify each account by unique id
     """
