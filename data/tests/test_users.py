@@ -49,11 +49,17 @@ def test_add_blank_user():
 
 def test_del_user(temp_user):
     username = temp_user
-    us.del_user(username)
+    us.del_user(username, 1)
     assert not us.username_exists(username)
+
+
+def test_del_user_false(temp_user):
+    username = temp_user
+    with pytest.raises(ValueError):
+        us.del_user(username, 0)
 
 
 def test_del_user_not_there():
     username = 'arfghbvdfs'
     with pytest.raises(ValueError):
-        us.del_user(username)
+        us.del_user(username, 1)

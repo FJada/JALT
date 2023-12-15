@@ -95,7 +95,7 @@ def del_user(username: str, delete_flag: bool):
         else:
             raise ValueError(f'Delete failure: {username} not in database.')
     else:
-        print("Account Deletion Skipped")
+        raise ValueError(f'Delete skipped')
 
 
 def get_username(user: dict):
