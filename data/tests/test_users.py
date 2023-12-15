@@ -45,3 +45,15 @@ def test_gen_account_id():
 def test_add_blank_user():
     with pytest.raises(ValueError):
         us.add_user('', 4)
+
+
+def test_del_user(temp_user):
+    username = temp_user
+    us.del_user(username)
+    assert not us.username_exists(username)
+
+
+def test_del_user_not_there():
+    username = 'arfghbvdfs'
+    with pytest.raises(ValueError):
+        us.del_user(username)
