@@ -15,6 +15,7 @@ MONGO_ID = '_id'
 
 api = Api()
 
+
 def connect_db():
     print("CONNECTING!!!!")
     global client
@@ -57,7 +58,7 @@ def del_one(collection, filt, db=METRO_DB):
     client[db][collection].delete_one(filt)
 
 
-def update_doc(collection, filters, update_dict, db=GAME_DB):
+def update_doc(collection, filters, update_dict, db=METRO_DB):
     return client[db][collection].update_one(filters, {'$set': update_dict})
 
 
