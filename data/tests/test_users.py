@@ -34,7 +34,7 @@ def test_gen_id():
 def test_add_dup_user(temp_user):
     account_id = us.gen_account_id
     with pytest.raises(ValueError):
-        us.user(temp_user, account_id)
+        us.add_user(temp_user, account_id)
 
 
 def test_gen_account_id():

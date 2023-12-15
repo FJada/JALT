@@ -106,5 +106,5 @@ def get_account_id(user: dict):
     return user.get(ACCOUNT_ID, '')
 
 
-def get_home_addres(user: dict):
+def get_home_address(user: dict):
     return user.get(HOME, '')
