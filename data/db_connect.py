@@ -9,7 +9,7 @@ CLOUD = "1"
 
 METRO_DB = 'Metro'
 client = None
-USERS_COLLECTION = 'Addresses'
+USERS_COLLECTION = 'users'
 
 MONGO_ID = '_id'
 
