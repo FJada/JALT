@@ -43,7 +43,7 @@ def get_users_as_dict() -> dict:
     return dbc.fetch_all_as_dict(USERNAME, USERS_COLLECTION)
 
 
-def get_game_by_username(username: str) -> dict:
+def get_user_by_username(username: str) -> dict:
     """
     Retrieve user information by username
     """
@@ -51,7 +51,7 @@ def get_game_by_username(username: str) -> dict:
     return dbc.fetch_one(USERS_COLLECTION, {USERNAME: username})
 
 
-def get_game_by_account_id(account_id: str) -> dict:
+def get_user_by_account_id(account_id: str) -> dict:
     """
     Retrieve user information by account id
     """
@@ -63,7 +63,7 @@ def username_exists(username: str) -> dict:
     """
     Returns boolean is account user exists
     """
-    return get_game_by_username(username) is not None
+    return get_user_by_username(username) is not None
 
 
 def add_user(username: str, account_id: int) -> bool:
@@ -104,3 +104,7 @@ def get_username(user: dict):
 
 def get_account_id(user: dict):
     return user.get(ACCOUNT_ID, '')
+
+
+def get_home_addres(user: dict):
+    return user.get(HOME, '')
