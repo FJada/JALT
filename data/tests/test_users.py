@@ -6,7 +6,7 @@ import data.users as us
 @pytest.fixture(scope='function')
 def temp_user():
     username = 'Test'
-    account_id = us.gen_account_id
+    account_id = us.gen_account_id()
     ret = us.add_user(username, account_id)
     yield username
     if us.username_exists(username):
