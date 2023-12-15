@@ -2,6 +2,9 @@ import random
 import data.db_connect as dbc
 
 BUSES_COLLECTION = 'buses'
+BUS_NAME = 'bus name'
+STATION_NAME = 'station name'
+BOROUGH = 'borough'
 
 # Mocked data constants for
 BUS_ROUTES = [
