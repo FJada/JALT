@@ -6,7 +6,8 @@ import data.buses as bu
 def temp_bus():
     bus_name = 'Test'
     vehicle_id = bu.gen_vehicle_id()
-    ret = bu.add_bus(bus_name, vehicle_id, 0)
+    favorite = 0
+    ret = bu.add_bus(bus_name, vehicle_id, favorite)
     yield bus_name
     if bu.bus_exists(bus_name):
         bu.del_bus(bus_name, 1)
@@ -14,13 +15,13 @@ def temp_bus():
 
 def test_favorite_bus(temp_bus):
     bu.favorite_bus(temp_bus)
-    assert bu.get_favorite(temp_bus) == 1
+    assert bu.get_favorite(temp_bus) is True
 
 
 def test_remove_favorite(temp_bus):
     bu.favorite_bus(temp_bus)
     bu.remove_favorite_bus(temp_bus)
-    assert bu.get_favorite(temp_bus) == 0
+    assert bu.get_favorite(temp_bus) is False
 
 
 def test_vehicle_id():
@@ -42,4 +43,4 @@ def test_del_bus(temp_bus):
 def test_del_bus_false(temp_bus):
     bus_name = temp_bus
     with pytest.raises(ValueError):
-        bu.del_bus(bus_name, 0, 0)
+        bu.del_bus(bus_name, 0)
