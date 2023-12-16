@@ -96,12 +96,21 @@ def test_get_all_routes():
     assert resp_get_routes.status_code == HTTPStatus.OK
 
 
-def test_get_home_address():
-    # Specify a known username for testing
+def setup_user_with_home_address():
+    # Setup logic to add a user with a home address to the system
     test_username = 'test_username'
+    test_home_address = '123 Main Street'
 
-    # Optional: Add a user with a home address to the system before testing
-    # ...
+    # Call the add_user and add_home_address functions from your application code
+    us.add_user(test_username, 'test_account_id')
+    us.add_home_address(test_username, test_home_address)
+
+    # Return the username and home address for later use in tests
+    return test_username, test_home_address
+
+def test_get_home_address(setup_user_with_home_address):
+    # Retrieve the username and home address from the fixture
+    test_username, test_home_address = setup_user_with_home_address
 
     # Send a GET request to the /users/home_address/<username> endpoint
     resp_get_home_address = TEST_CLIENT.get(f'/users/home_address/{test_username}')
