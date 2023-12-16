@@ -44,5 +44,13 @@ def test_add_dup_route(temp_route):
         ro.add_route('new york', 'boston', route_id)
 
 
+def test_get_routes_as_dict():
+    routes = ro.get_routes_as_dict()
+    assert isinstance(routes, dict)
+    for route in routes: 
+        assert isinstance(route, str)
+        assert isinstance(routes[route], dict)
+
+
 def test_route_exists(temp_route):
     assert ro.route_exists(temp_route) is not None
