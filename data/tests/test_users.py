@@ -20,6 +20,15 @@ def test_add_home_address(temp_user):
     assert us.get_home_address(updated_user) == home_address
 
 
+def test_get_users_as_dict():
+    users = us.get_users_as_dict()
+    assert isinstance(users, dict)
+    assert len(users) > 0
+    for user in users: 
+        assert isinstance(user, str)
+        assert isinstance(users[user], dict)
+    
+
 def test_get_user(temp_user):
     user = us.get_user_by_username(temp_user)
     assert isinstance(user, dict)
@@ -63,3 +72,15 @@ def test_del_user_not_there():
     username = 'arfghbvdfs'
     with pytest.raises(ValueError):
         us.del_user(username, 1)
+
+
+def test_get_user_by_username(temp_user):
+    user = us.get_user_by_username(temp_user)
+    assert isinstance(user, dict)
+
+
+def test_get_user_by_account_id(temp_user):
+    user = us.get_user_by_username(temp_user)
+    account_id = us.get_account_id(user)
+    user = us.get_user_by_account_id(account_id)
+    assert isinstance(user, dict)
