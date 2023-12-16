@@ -88,12 +88,9 @@ def test_get_all_users():
     assert resp_get_users.status_code == HTTPStatus.OK
     
 
-def test_get_user_by_account_id():
-    # Assuming you have a known account ID for testing
-    known_account_id = '1234567890'
-
-    # Send a GET request to the /users/account/{account_id} endpoint
-    resp_get_user = TEST_CLIENT.get(f'/users/account/{known_account_id}')
+def test_get_all_routes():
+    # Send a GET request to the /routes endpoint
+    resp_get_routes = TEST_CLIENT.get('/routes')
 
     # Assert the response status code
-    assert resp_get_user.status_code == HTTPStatus.OK
+    assert resp_get_routes.status_code == HTTPStatus.OK
