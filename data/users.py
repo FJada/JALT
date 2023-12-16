@@ -66,7 +66,7 @@ def username_exists(username: str) -> dict:
     return get_user_by_username(username) is not None
 
 
-def add_user(username: str, account_id: int) -> bool:
+def add_user(username: str, account_id: str) -> bool:
     if username_exists(username):
         raise ValueError(f'Duplicate username: {username=}, please choose another username!')
     if not username:
