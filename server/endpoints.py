@@ -248,5 +248,32 @@ class AddHomeAddress(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
+@api.route('/users/home_address/<username>')
+class GetHomeAddress(Resource):
+    """
+    Gets the home address of a user by username.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, username):
+        """
+        Gets the home address of a user by username.
+        """
+        try:
+            user = us.get_user_by_username(username)
+            if user:
+                home_address = us.get_home_address(user)
+                return {
+                    TYPE: DATA,
+                    TITLE: f'Home Address for {username}',
+                    DATA: {'home_address': home_address},
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with username {username} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
