@@ -60,7 +60,7 @@ def test_add_route():
 def test_delete_route():
     route_id_to_delete = 'test_route_id'
     
-    resp_add = TEST_CLIENT.post('/add_route', json={'starting_point': 'X', 'ending_point': 'Y', 'route_id': 'test_route_id'})
+    resp_add = TEST_CLIENT.post('/add_route', json={'starting_point': 'X', 'ending_point': 'Y', 'route_id': route_id_to_delete})
     assert resp_add.status_code == HTTPStatus.OK
     
     resp_delete = TEST_CLIENT.delete(f'/routes/delete/{route_id_to_delete}')
