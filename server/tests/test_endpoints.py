@@ -21,4 +21,5 @@ def test_endpoints():
     print(f'{resp=}')
     resp_json = resp.get_json()
     print(f'{resp_json=}')
-    assert ep.OPEN_ENDPOINTS in resp_json
+    available_endpoints = resp_json.get('Available endpoints', [])
+    assert ep.OPEN_ENDPOINTS in available_endpoints
