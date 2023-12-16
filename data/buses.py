@@ -66,8 +66,8 @@ def add_bus(bus_name: str, vehicle_id: str, favorite: bool) -> bool:
     if bus_exists(bus_name):
         raise ValueError(f'Duplicate bus: {bus_name=}')
     if not bus_name:
-        raise ValueError(f'Bus name may not be blank')
-    bus ={}
+        raise ValueError('Bus name may not be blank')
+    bus = {}
     bus[BUS_NAME] = bus_name
     bus[VEHICLE_ID] = vehicle_id
     bus[FAVORITE] = 0
@@ -83,7 +83,7 @@ def del_bus(bus_name: str, delete_flag: bool):
         else:
             raise ValueError(f'Delete failure: {bus_name} not in database.')
     else:
-        raise ValueError(f'Delete skipped')
+        raise ValueError('Delete skipped')
 
 
 def get_bus_name(bus: dict):
