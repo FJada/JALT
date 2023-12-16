@@ -95,3 +95,20 @@ def test_get_all_routes():
     # Assert the response status code
     assert resp_get_routes.status_code == HTTPStatus.OK
 
+
+def test_get_home_address():
+    # Specify a known username for testing
+    test_username = 'test_username'
+
+    # Optional: Add a user with a home address to the system before testing
+    # ...
+
+    # Send a GET request to the /users/home_address/<username> endpoint
+    resp_get_home_address = TEST_CLIENT.get(f'/users/home_address/{test_username}')
+
+    # Print response details for debugging
+    print(f"Response status code: {resp_get_home_address.status_code}")
+    print(f"Response JSON: {resp_get_home_address.get_json()}")
+
+    # Assert the response status code
+    assert resp_get_home_address.status_code == HTTPStatus.OK
