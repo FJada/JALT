@@ -79,4 +79,15 @@ def test_add_home_address():
     # Clean up: Delete the test user after the test
     resp_delete_user = TEST_CLIENT.delete(f'/users/delete/{test_username}')
     assert resp_delete_user.status_code == HTTPStatus.OK
-  
+
+
+def test_delete_route(route_id_to_delete):
+    # Send a POST request to add a route for testing
+    resp_add_route = TEST_CLIENT.post('/add_route', json={'starting_point': 'X', 'ending_point': 'Y', 'route_id': route_id_to_delete})
+    assert resp_add_route.status_code == HTTPStatus.OK
+
+    # Send a DELETE request to delete the route using the provided route_id
+    resp_delete_route = TEST_CLIENT.delete(f'/routes/delete/{route_id_to_delete}')
+    
+    # Assert the response status code
+    assert resp_delete_route.status_code == HTTPStatus.OK
