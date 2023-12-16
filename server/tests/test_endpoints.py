@@ -1,5 +1,6 @@
 import server.endpoints as ep
 from http import HTTPStatus
+import data.users as us
 
 TEST_CLIENT = ep.app.test_client()
 
