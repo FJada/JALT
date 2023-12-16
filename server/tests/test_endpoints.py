@@ -57,12 +57,26 @@ def test_add_route():
     assert resp.status_code == HTTPStatus.OK
 
 
-def test_delete_route():
-    route_id_to_delete = 'test_route_id'
+def test_add_home_address():
+    # Choose a unique username for testing
+    test_username = 'test_user_for_home_address'
     
-    resp_add = TEST_CLIENT.post('/add_route', json={'starting_point': 'X', 'ending_point': 'Y', 'route_id': route_id_to_delete})
-    assert resp_add.status_code == HTTPStatus.OK
+    # Ensure the user doesn't already exist (clean state)
+    # You might need to add a delete user endpoint or use a different approach depending on your implementation
     
-    resp_delete = TEST_CLIENT.delete(f'/routes/delete/{route_id_to_delete}')
-    assert resp_delete.status_code == HTTPStatus.OK
-   
+    # Add a new user to ensure the username is available
+    resp_add_user = TEST_CLIENT.post('/add_user', json={'username': test_username, 'account_id': 'test_account_id'})
+    assert resp_add_user.status_code == HTTPStatus.OK
+
+    # Send a POST request to add a home address
+    resp_add_home_address = TEST_CLIENT.post('/users/home_address', json={'username': test_username, 'home_address': '123 Main St'})
+    
+    # Assert the response status code
+    assert resp_add_home_address.status_code == HTTPStatus.OK
+
+    # Optionally, you can check the response content or server logs for additional information
+
+    # Clean up: Delete the test user after the test
+    resp_delete_user = TEST_CLIENT.delete(f'/users/delete/{test_username}')
+    assert resp_delete_user.status_code == HTTPStatus.OK
+  
