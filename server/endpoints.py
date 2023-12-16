@@ -11,6 +11,8 @@ api = Api(app)
 
 DEFAULT = 'Default'
 MENU = 'menu'
+ENDPOINTS_EP = '/endpoints'
+OPEN_ENDPOINTS = "Currently available endpoints"
 MAIN_MENU_EP = '/MainMenu'
 MAIN_MENU_NM = "MTA Route Planner"
 HELLO_EP = '/hello'
