@@ -135,7 +135,7 @@ class DelUser(Resource):
         Deletes a user by username.
         """
         try:
-            us.del_user(username)
+            us.del_user(username, True)
             return {username: 'Deleted'}
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
