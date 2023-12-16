@@ -349,5 +349,23 @@ class GetRouteById(Resource):
             raise wz.InternalServerError(f'Error: {str(e)}')
 
 
+@api.route('/routes/delete/<route_id>')
+class DelRoute(Resource):
+    """
+    Deletes a route by route ID.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def delete(self, route_id):
+        """
+        Deletes a route by route ID.
+        """
+        try:
+            routes.del_route(route_id)
+            return {route_id: 'Deleted'}
+        except ValueError as e:
+            raise wz.NotFound(f'{str(e)}')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
