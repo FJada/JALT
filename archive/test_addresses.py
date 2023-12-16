@@ -23,22 +23,20 @@ def test_gen_id():
     assert len(acc_id) > 0
 
 
-def test_add_user():
-    new_username = 'JohnSmith'
-    account_id = am._gen_id()
-    ret = am.add_user(
-        new_username,
-        {'address': '789 Broadway, New York, NY 10003', 'nearest_train_station': 'Times Square'},
-        {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'},
-        account_id
-    )
-    assert am.user_exists(new_username), "User should be added successfully."
-    assert isinstance(ret, dict)
-    am.del_user(new_username)
-    assert not am.user_exists(new_username), "User should be deleted successfully."
-
-
-def test_user_exists():
-    username = 'Johnny'
-    assert not am.user_exists(username)
+# def test_add_user():
+#     new_username = 'JohnSmith'
+#     account_id = am._gen_id()
+#     ret = am.add_user(
+#         new_username,
+#         {'address': '789 Broadway, New York, NY 10003', 'nearest_train_station': 'Times Square'},
+#         {'address': '101 Park Ave, New York, NY 10004', 'nearest_train_station': 'Union Square'},
+#         account_id
+#     )
+#     assert am.user_exists(new_username), "User should be added successfully."
+#     assert isinstance(ret, dict)
+#     am.del_user(new_username)
+#     assert not am.user_exists(new_username), "User should be deleted successfully."
+# def test_user_exists():
+#     username = 'Johnny'
+#     assert not am.user_exists(username)
 

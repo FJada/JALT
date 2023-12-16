@@ -1,41 +1,48 @@
 import pytest
-import data.buses as buses
+import data.buses as bu
+
 
 @pytest.fixture(scope='function')
-def temp_bus_data():
-    buses.BUS_ROUTES = [
-        {'route_id': 'B25', 'route_name': 'Downtown Express'},
-        {'route_id': 'B38', 'route_name': 'Uptown Local'},
-        {'route_id': 'B45', 'route_name': 'Cross-town Shuttle'}
-    ]
-
-    buses.BUS_SCHEDULES = {
-        'B25': {'times': ['09:00 AM', '11:30 AM', '02:00 PM']},
-        'B38': {'times': ['10:00 AM', '12:30 PM', '03:00 PM']},
-        'B45': {'times': ['09:45 AM', '01:15 PM', '04:30 PM']}
-    }
-
-    buses.BUS_STATIONS = {
-        'B25': {'latitude': 40.7128, 'longitude': -74.0060},
-        'B38': {'latitude': 40.7580, 'longitude': -73.9855},
-        'B45': {'latitude': 40.7267, 'longitude': -74.0031}
-    }
-
-def test_get_bus_routes(temp_bus_data):
-    routes = buses.get_bus_routes()
-    assert len(routes) == 3
-    # Add more assertions to validate the structure and content of the data
-
-def test_get_bus_schedule(temp_bus_data):
-    schedule = buses.get_bus_schedule('B25')
-    assert 'times' in schedule
-    # Add assertions to validate schedule format and content
-
-def test_get_bus_stations(temp_bus_data):
-    station = buses.get_bus_stations('B38')
-    assert 'latitude' in station
-    assert 'longitude' in station
-    # Add assertions to validate station format and content
+def temp_bus():
+    bus_name = 'Test'
+    vehicle_id = bu.gen_vehicle_id()
+    favorite = 0
+    ret = bu.add_bus(bus_name, vehicle_id, favorite)
+    yield bus_name
+    if bu.bus_exists(bus_name):
+        bu.del_bus(bus_name, 1)
 
 
+def test_favorite_bus(temp_bus):
+    bu.favorite_bus(temp_bus)
+    bus = bu.get_bus_by_bus_name(temp_bus)
+    assert bu.get_favorite(bus) is True
 
+
+def test_remove_favorite(temp_bus):
+    bu.favorite_bus(temp_bus)
+    bu.remove_favorite_bus(temp_bus)
+    bus = bu.get_bus_by_bus_name(temp_bus)
+    assert bu.get_favorite(bus) is False
+
+
+def test_vehicle_id():
+    vehicle_id = bu.gen_vehicle_id()
+    assert vehicle_id is not None
+
+
+def test_add_blank_bus():
+    with pytest.raises(ValueError):
+        bu.add_bus('', 4, 0)
+
+
+def test_del_bus(temp_bus):
+    bus_name = temp_bus
+    bu.del_bus(bus_name, 1)
+    assert not bu.bus_exists(bus_name)
+
+
+def test_del_bus_false(temp_bus):
+    bus_name = temp_bus
+    with pytest.raises(ValueError):
+        bu.del_bus(bus_name, 0)

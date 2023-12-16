@@ -1,62 +1,94 @@
 import random
+import data.db_connect as dbc
 
-# Mocked data constants for
-BUS_ROUTES = [
-    {'route_id': '1A', 'route_name': 'Downtown Express'},
-    {'route_id': '2B', 'route_name': 'Uptown Local'},
-    {'route_id': '3C', 'route_name': 'Cross-town Shuttle'}
-]
-
-BUS_SCHEDULES = {
-    'B25': {
-        'times': ['09:00 AM', '11:30 AM', '02:00 PM']
-    },
-    'B38': {
-        'times': ['10:00 AM', '12:30 PM', '03:00 PM']
-    },
-    'B45': {
-        'times': ['09:45 AM', '01:15 PM', '04:30 PM']
-    }
-}
-
-BUS_STATIONS = {
-    'B25': {
-        'latitude': random.uniform(40.6, 40.8),
-        'longitude': random.uniform(-74.1, -73.9)
-    },
-    'B38': {
-        'latitude': random.uniform(40.7, 40.9),
-        'longitude': random.uniform(-74.0, -73.8)
-    },
-    'B45': {
-        'latitude': random.uniform(40.65, 40.85),
-        'longitude': random.uniform(-74.05, -73.85)
-    }
-}
+BUSES_COLLECTION = 'buses'
+ID_LEN = 24
+BIG_NUM = 100_000_000_000_000_000_000
+BUS_NAME = 'busName'
+STATION_NAME = 'stationName'
+BOROUGH = 'borough'
+FAVORITE = 'favorite'
+VEHICLE_ID = 'vehicleId'
 
 
-def get_bus_routes():
-    return BUS_ROUTES
+def _gen_id() -> str:
+    """
+    Generates an id per entry for mongodb
+    """
+    _id = random.randint(0, BIG_NUM)
+    _id = str(_id)
+    _id = _id.rjust(ID_LEN, '0')
+    return _id
 
 
-def get_bus_schedule(route_id):
-    return BUS_SCHEDULES.get(route_id, {})
+def gen_vehicle_id() -> str:
+    """
+    Returns vehicle12345678987654 to identify each account by unique id
+    """
+    vehicle = 'vehicle'
+    rand_part = random.randint(0, BIG_NUM)
+    return vehicle + str(rand_part)
 
 
-def get_bus_stations(route_id):
-    return BUS_STATIONS.get(route_id, {})
+def get_buses_as_dict() -> dict:
+    dbc.connect_db()
+    return dbc.fetch_all_as_dict(BUS_NAME, BUSES_COLLECTION)
 
 
-def main():
-    routes = get_bus_routes()
-    if routes:
-        route_id = routes[0]['route_id']  # Assuming the first route for demonstration
-        schedule = get_bus_schedule(route_id)
-        stations = get_bus_stations(route_id)
-        print("Bus Routes:", routes)
-        print("Schedule for Route:", schedule)
-        print("Bus Stations:", stations)
+def get_bus_by_bus_name(bus_name: str) -> dict:
+    dbc.connect_db()
+    return dbc.fetch_one(BUSES_COLLECTION, {BUS_NAME: bus_name})
 
 
-if __name__ == '__main__':
-    main()
+def bus_exists(bus_name: str) -> bool:
+    return get_bus_by_bus_name(bus_name) is not None
+
+
+def favorite_bus(bus_name: str):
+    if not bus_exists(bus_name):
+        raise ValueError(f'Update failure: {bus_name} not in database.')
+    else:
+        dbc.connect_db()
+        return dbc.update_doc(BUSES_COLLECTION, {BUS_NAME: bus_name},
+                              {FAVORITE: 1})
+
+
+def remove_favorite_bus(bus_name: str):
+    if not bus_exists(bus_name):
+        raise ValueError(f'Update failure: {bus_name} not in database.')
+    else:
+        dbc.connect_db()
+        return dbc.update_doc(BUSES_COLLECTION, {BUS_NAME: bus_name},
+                              {FAVORITE: 0})
+
+
+def add_bus(bus_name: str, vehicle_id: str, favorite: bool) -> bool:
+    if bus_exists(bus_name):
+        raise ValueError(f'Duplicate bus: {bus_name=}')
+    if not bus_name:
+        raise ValueError('Bus name may not be blank')
+    bus = {}
+    bus[BUS_NAME] = bus_name
+    bus[VEHICLE_ID] = vehicle_id
+    bus[FAVORITE] = 0
+    dbc.connect_db()
+    _id = dbc.insert_one(BUSES_COLLECTION, bus)
+    return _id is not None
+
+
+def del_bus(bus_name: str, delete_flag: bool):
+    if delete_flag:
+        if bus_exists(bus_name):
+            return dbc.del_one(BUSES_COLLECTION, {BUS_NAME: bus_name})
+        else:
+            raise ValueError(f'Delete failure: {bus_name} not in database.')
+    else:
+        raise ValueError('Delete skipped')
+
+
+def get_bus_name(bus: dict):
+    return bus.get(BUS_NAME, '')
+
+
+def get_favorite(bus: dict) -> bool:
+    return bool(bus.get(FAVORITE, 0))

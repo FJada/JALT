@@ -4,9 +4,8 @@ from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 
-import data.addresses as addresses
 import data.buses as buses  # Importing buses.py
-# import data.users as users
+import data.users as us
 # import data.db_connect as dbc Importing db_connect.py as dbc
 
 app = Flask(__name__)
@@ -50,12 +49,10 @@ class Addresses(Resource):
         This method returns all addresses.
         """
         # Fetch the latest user data from the database
-        users_data = addresses.get_all_users()
+        users_data = us.get_users_as_dict()
 
         return {
-            addresses.USERNAME: [user.get(addresses.USERNAME) for user in users_data],
-            addresses.ACCOUNT_ID: [user.get(addresses.ACCOUNT_ID) for user in users_data],
-            addresses.ADDRESSES: [user.get(addresses.ADDRESSES, {}) for user in users_data],
+            us.HOME: [user.get(us.HOME, {}) for user in users_data],
         }
 
 
@@ -148,7 +145,7 @@ class Users(Resource):
         return {
             TYPE: DATA,
             TITLE: 'Current Users',
-            DATA: addresses.get_users(),
+            DATA: us.get_users_as_dict(),
             MENU: USER_MENU_EP,
             RETURN: MAIN_MENU_EP,
         }
@@ -166,7 +163,7 @@ class DelUser(Resource):
         Deletes a user by username.
         """
         try:
-            addresses.del_user(username)
+            us.del_user(username)
             return {username: 'Deleted'}
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
@@ -204,15 +201,12 @@ class AddUser(Resource):
             # Print received parameters for debugging
             data = request.json
             username = data.get('username')
-            home_address = data.get('home_address')
-            work_address = data.get('work_address')
             print(
-                f"Received request: username={username}, "
-                f"home_address={home_address}, "
-                f"work_address={work_address}"
+                f"Received request: username={username}"
             )
             # Call the add_user function
-            addresses.add_user(username, home_address=home_address, work_address=work_address)
+            account_id = us.gen_account_id()
+            us.add_user(username, account_id)
 
             return {'message': 'User created successfully'}
         except ValueError as e:
