@@ -11,35 +11,31 @@ import data.users as us
 app = Flask(__name__)
 api = Api(app)
 
-# Define the user model
-user_model = api.model('User', {
-    'username': fields.String(required=True, description='Username'),
-    'home_address': fields.String(required=True, description='Home Address'),
-    'work_address': fields.String(required=True, description='Work Address'),
-})
-
-
-DEFAULT = 'Default'
-MENU = 'menu'
-MAIN_MENU_EP = '/MainMenu'
-MAIN_MENU_NM = "MTA Route Planner"
-HELLO_EP = '/hello'
-HELLO_RESP = 'hello'
-USERS_EP = '/users'
-BUSES_EP = '/bus_routes'
-ADDRESSES_EP = '/addresses'
-ADDRESS_MENU_EP = '/address_menu'
-ADDRESS_MENU_NM = 'Address Menu'
-DEL_USER_EP = f'{USERS_EP}/delete'  # Adjusted endpoint for deleting users
-USER_MENU_EP = '/user_menu'
-USER_MENU_NM = 'User Menu'
 TYPE = 'Type'
 DATA = 'Data'
 TITLE = 'Title'
 RETURN = 'Return'
 
+user_model = api.model('User', {
+    'username': fields.String(required=True, description='Username'),
+    'account_id': fields.String(required=True, description='Account ID'),
+})
 
-@api.route(f'{ADDRESSES_EP}')
+@api.route('/hello')
+class HelloWorld(Resource):
+    """
+    The purpose of the HelloWorld class is to have a simple test to see if the
+    app is working at all.
+    """
+    def get(self):
+        """
+        A trivial endpoint to see if the server is running.
+        It just answers with "hello world."
+        """
+        return {'hello': 'world'}
+
+
+@api.route('/addresses')
 class Addresses(Resource):
     """
     This class supports fetching a list of all addresses.
@@ -52,23 +48,8 @@ class Addresses(Resource):
         users_data = us.get_users_as_dict()
 
         return {
-            us.HOME: [user.get(us.HOME, {}) for user in users_data],
+            us.HOME: [user.get(us.HOME, '') for user in users_data],
         }
-
-
-@api.route(HELLO_EP)
-class HelloWorld(Resource):
-    """
-    The purpose of the HelloWorld class is to have a simple test to see if the
-    app is working at all.
-    """
-    def get(self):
-        """
-        A trivial endpoint to see if the server is running.
-        It just answers with "hello world."
-        """
-        return {HELLO_RESP: 'world'}
-
 
 @api.route('/endpoints')
 class Endpoints(Resource):
@@ -83,8 +64,7 @@ class Endpoints(Resource):
         endpoints = sorted(rule.rule for rule in api.app.url_map.iter_rules())
         return {"Available endpoints": endpoints}
 
-
-@api.route(f'{MAIN_MENU_EP}')
+@api.route('/MainMenu')
 class MainMenu(Resource):
     """
     This will deliver our main menu.
@@ -93,22 +73,11 @@ class MainMenu(Resource):
         """
         Gets the main game menu.
         """
-        return {TITLE: MAIN_MENU_NM,
-                DEFAULT: 2,
-                'Choices': {
-                    '1': {'url': '/', 'method': 'get',
-                          'text': 'List Available Characters'},
-                    '2': {'url': '/',
-                          'method': 'get', 'text': 'List Active Users'},  # Updated text
-                    '3': {'url': f'{USERS_EP}',
-                          'method': 'get', 'text': 'List Users'},
-                    '4': {'url': '/',
-                          'method': 'get', 'text': 'Illustrating a Point!'},
-                    'X': {'text': 'Exit'},
-                }}
+        return {TITLE: 'MTA Route Planner',
+                RETURN: '/users'}
 
 
-@api.route(f'{USER_MENU_EP}')
+@api.route('/user_menu')
 class UserMenu(Resource):
     """
     This will deliver our user menu.
@@ -118,22 +87,12 @@ class UserMenu(Resource):
         Gets the user menu.
         """
         return {
-                   TITLE: USER_MENU_NM,
-                   DEFAULT: '0',
-                   'Choices': {
-                       '1': {
-                            'url': '/',
-                            'method': 'get',
-                            'text': 'Get User Details',
-                       },
-                       '0': {
-                            'text': 'Return',
-                       },
-                   },
-               }
+            TITLE: 'User Menu',
+            RETURN: '/MainMenu',
+        }
 
 
-@api.route(f'{USERS_EP}')
+@api.route('/users')
 class Users(Resource):
     """
     This class supports fetching a list of all users.
@@ -146,12 +105,10 @@ class Users(Resource):
             TYPE: DATA,
             TITLE: 'Current Users',
             DATA: us.get_users_as_dict(),
-            MENU: USER_MENU_EP,
-            RETURN: MAIN_MENU_EP,
+            RETURN: '/MainMenu',
         }
 
-
-@api.route(f'{DEL_USER_EP}/<username>')
+@api.route('/users/delete/<username>')
 class DelUser(Resource):
     """
     Deletes a user by username.
@@ -168,26 +125,7 @@ class DelUser(Resource):
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
 
-
-@api.route(f'{BUSES_EP}')
-class BusRoutes(Resource):
-    """
-    This class supports fetching details of all available bus routes.
-    """
-    def get(self):
-        """
-        This method returns details of all available bus routes.
-        """
-        return {
-            TYPE: DATA,
-            TITLE: 'Available Bus Routes',
-            DATA: buses.get_bus_routes(),
-            MENU: MAIN_MENU_EP,
-            RETURN: MAIN_MENU_EP,
-        }
-
-
-# Add a new endpoint for adding a user with both home and work addresses
+            
 @api.route('/add_user')
 class AddUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
@@ -201,9 +139,7 @@ class AddUser(Resource):
             # Print received parameters for debugging
             data = request.json
             username = data.get('username')
-            print(
-                f"Received request: username={username}"
-            )
+            print(f"Received request: username={username}")
             # Call the add_user function
             account_id = us.gen_account_id()
             us.add_user(username, account_id)
