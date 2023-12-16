@@ -3,7 +3,6 @@ from http import HTTPStatus
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
-import data.buses as buses
 import data.users as us
 
 app = Flask(__name__)
