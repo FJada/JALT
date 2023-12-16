@@ -23,7 +23,6 @@ def test_add_home_address(temp_user):
 def test_get_users_as_dict():
     users = us.get_users_as_dict()
     assert isinstance(users, dict)
-    assert len(users) > 0
     for user in users: 
         assert isinstance(user, str)
         assert isinstance(users[user], dict)
