@@ -14,15 +14,15 @@ def temp_bus():
 
 
 def test_favorite_bus(temp_bus):
+    bu.favorite_bus(temp_bus)
     bus = bu.get_bus_by_bus_name(temp_bus)
-    bu.favorite_bus(bus)
     assert bu.get_favorite(bus) is True
 
 
 def test_remove_favorite(temp_bus):
+    bu.favorite_bus(temp_bus)
+    bu.remove_favorite_bus(temp_bus)
     bus = bu.get_bus_by_bus_name(temp_bus)
-    bu.favorite_bus(bus)
-    bu.remove_favorite_bus(bus)
     assert bu.get_favorite(bus) is False
 
 
