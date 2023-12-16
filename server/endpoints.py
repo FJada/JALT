@@ -229,7 +229,7 @@ class AddHomeAddress(Resource):
     """
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
-    @api.expect(user_model_add_home_address)  # Use the same modified model for this endpoint
+    @api.expect(add_home_address_model)  # Use the same modified model for this endpoint
     def post(self):
         """
         Adds a home address to a user.
