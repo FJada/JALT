@@ -123,6 +123,32 @@ class Users(Resource):
         }
 
 
+@api.route('/users/<username>')
+class GetUserByUsername(Resource):
+    """
+    Gets a user by username.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, username):
+        """
+        Gets a user by username.
+        """
+        try:
+            user = us.get_user_by_username(username)
+            if user:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'User Details for {username}',
+                    DATA: user,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with username {username} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
 @api.route('/users/delete/<username>')
 class DelUser(Resource):
     """
