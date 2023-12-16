@@ -14,7 +14,7 @@ def temp_bus():
 
 
 def test_get_buses_as_dict():
-    buses = bu.get_users_as_dict()
+    buses = bu.get_buses_as_dict()
     assert isinstance(buses, dict)
     for bus in buses: 
         assert isinstance(bus, str)
