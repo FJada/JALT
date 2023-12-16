@@ -123,6 +123,21 @@ class Users(Resource):
         }
 
 
+@api.route('/routes/delete/<routeId>')
+class DelRoute(Resource):
+    """
+    Deletes a route by routeId.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def deleteRoute(self, route_id):
+        try:
+            ro.del_route(route_id)
+            return {route_id: 'Deleted'}
+        except ValueError as e:
+            raise wz.NotFound(f'{str(e)}')
+
+
 @api.route('/users/delete/<username>')
 class DelUser(Resource):
     """
