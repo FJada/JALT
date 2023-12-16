@@ -32,6 +32,11 @@ user_model = api.model('User', {
     'account_id': fields.String(required=True, description='Account ID'),
 })
 
+add_home_address_model = api.model('AddHomeAddress', {
+    'username': fields.String(required=True, description='Username'),
+    'home_address': fields.String(required=True, description='Home Address'),
+})
+
 
 @api.route('/hello')
 class HelloWorld(Resource):
@@ -214,6 +219,32 @@ class GetUserByAccountId(Resource):
                 raise wz.NotFound(f'User with account ID {account_id} not found.')
         except ValueError as e:
             raise wz.InternalServerError(f'Error: {str(e)}')
+
+
+@api.route('/users/home_address')
+class AddHomeAddress(Resource):
+    """
+    Adds a home address to a user.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    @api.expect(user_model_add_home_address)  # Use the same modified model for this endpoint
+    def post(self):
+        """
+        Adds a home address to a user.
+        """
+        try:
+            # Get data from the request
+            data = request.json
+            username = data.get('username')
+            home_address = data.get('home_address')
+
+            # Call the add_home_address function
+            us.add_home_address(username, home_address)
+
+            return {'message': 'Home address added successfully'}
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
 if __name__ == '__main__':
