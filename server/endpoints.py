@@ -27,7 +27,7 @@ DATA = 'Data'
 TITLE = 'Title'
 RETURN = 'Return'
 HOME_ADDR_EP = '/home_address'
-ROUTE_EP = '/route'
+ROUTE_EP = '/routes'
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
@@ -43,6 +43,7 @@ route_model = api.model('Route', {
     'starting_point': fields.String(required=True, description='Starting Point'),
     'ending_point': fields.String(required=True, description='Ending Point'),
 })
+
 
 @api.route('/hello')
 class HelloWorld(Resource):
