@@ -33,7 +33,6 @@ def test_list_routes():
 
 
 def test_add_user():
-    # Assuming you have a TEST_CLIENT for your Flask app
     new_user_data = {'username': 'test_user', 'account_id': '123456'}
     resp = TEST_CLIENT.post('/add_user', json=new_user_data)
 
@@ -44,8 +43,6 @@ def test_add_user():
 
 
 def test_delete_user():
-    # Assuming you have a TEST_CLIENT for your Flask app
-    # Assuming the user 'test_user' exists
     username_to_delete = 'test_user'
     resp = TEST_CLIENT.delete(f'/users/delete/{username_to_delete}')
 
@@ -53,3 +50,19 @@ def test_delete_user():
     resp_json = resp.get_json()
     assert username_to_delete in resp_json
     assert resp_json[username_to_delete] == 'Deleted'
+
+
+def test_add_route():
+    resp = TEST_CLIENT.post('/add_route', json={'starting_point': 'A', 'ending_point': 'B'})
+    assert resp.status_code == HTTPStatus.OK
+
+
+def test_delete_route():
+    route_id_to_delete = 'test_route_id'
+    
+    resp_add = TEST_CLIENT.post('/add_route', json={'starting_point': 'X', 'ending_point': 'Y'})
+    assert resp_add.status_code == HTTPStatus.OK
+    
+    resp_delete = TEST_CLIENT.delete(f'/routes/delete/{route_id_to_delete}')
+    assert resp_delete.status_code == HTTPStatus.OK
+   
