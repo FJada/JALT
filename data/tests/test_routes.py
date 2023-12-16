@@ -42,3 +42,7 @@ def test_add_dup_route(temp_route):
     route_id = temp_route
     with pytest.raises(ValueError):
         ro.add_route('new york', 'boston', route_id)
+
+
+def test_route_exists(temp_route):
+    assert ro.route_exists(temp_route) is not None
