@@ -15,3 +15,10 @@ def test_list_users():
     resp = TEST_CLIENT.get(ep.USERS_EP)
     resp_json = resp.get_json()
     assert isinstance(resp_json, dict)
+
+def test_endpoints():
+    resp = TEST_CLIENT.get(ep.ENDPOINTS_EP)
+    print(f'{resp=}')
+    resp_json = resp.get_json()
+    print(f'{resp_json=}')
+    assert ep.OPEN_ENDPOINTS in resp_json
