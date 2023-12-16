@@ -190,5 +190,31 @@ class AddUser(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
+@api.route('/users/account/<account_id>')
+class GetUserByAccountId(Resource):
+    """
+    Gets a user by account ID.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, account_id):
+        """
+        Gets a user by account ID.
+        """
+        try:
+            user = us.get_user_by_account_id(account_id)
+            if user:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'User Details for Account ID {account_id}',
+                    DATA: user,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with account ID {account_id} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
