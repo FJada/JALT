@@ -27,6 +27,7 @@ DATA = 'Data'
 TITLE = 'Title'
 RETURN = 'Return'
 HOME_ADDR_EP = '/home_address'
+ROUTE_EP = '/route'
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
@@ -38,6 +39,10 @@ add_home_address_model = api.model('AddHomeAddress', {
     'home_address': fields.String(required=True, description='Home Address'),
 })
 
+route_model = api.model('Route', {
+    'starting_point': fields.String(required=True, description='Starting Point'),
+    'ending_point': fields.String(required=True, description='Ending Point'),
+})
 
 @api.route('/hello')
 class HelloWorld(Resource):
@@ -273,6 +278,30 @@ class GetHomeAddress(Resource):
                 raise wz.NotFound(f'User with username {username} not found.')
         except ValueError as e:
             raise wz.InternalServerError(f'Error: {str(e)}')
+
+
+@api.route('/add_route')
+class AddRoute(Resource):
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    @api.expect(route_model)
+    def post(self):
+        """
+        Adds a new route.
+        """
+        try:
+            # Print received parameters for debugging
+            data = request.json
+            starting_point = data.get('starting_point')
+            ending_point = data.get('ending_point')
+            print(f"Received request: starting_point={starting_point}, ending_point={ending_point}")
+            # Call the add_route function
+            route_id = routes.gen_route_id()
+            routes.add_route(starting_point, ending_point, route_id)
+
+            return {'message': 'Route created successfully'}
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
 if __name__ == '__main__':
