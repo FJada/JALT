@@ -81,6 +81,12 @@ def test_add_home_address():
     assert resp_delete_user.status_code == HTTPStatus.OK
 
 
+@pytest.fixture
+def route_id_to_delete():
+    return 'test_route_id'
+
+
+# Use the fixture in the test function
 def test_delete_route(route_id_to_delete):
     # Send a POST request to add a route for testing
     resp_add_route = TEST_CLIENT.post('/add_route', json={'starting_point': 'X', 'ending_point': 'Y', 'route_id': route_id_to_delete})
