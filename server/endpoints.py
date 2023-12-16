@@ -4,6 +4,7 @@ from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 import data.users as us
+import data.routes as routes
 
 app = Flask(__name__)
 api = Api(app)
@@ -26,10 +27,22 @@ TYPE = 'Type'
 DATA = 'Data'
 TITLE = 'Title'
 RETURN = 'Return'
+HOME_ADDR_EP = '/home_address'
+ROUTE_EP = '/routes'
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
     'account_id': fields.String(required=True, description='Account ID'),
+})
+
+add_home_address_model = api.model('AddHomeAddress', {
+    'username': fields.String(required=True, description='Username'),
+    'home_address': fields.String(required=True, description='Home Address'),
+})
+
+route_model = api.model('Route', {
+    'starting_point': fields.String(required=True, description='Starting Point'),
+    'ending_point': fields.String(required=True, description='Ending Point'),
 })
 
 
@@ -123,19 +136,30 @@ class Users(Resource):
         }
 
 
-@api.route('/routes/delete/<routeId>')
-class DelRoute(Resource):
+@api.route('/users/<username>')
+class GetUserByUsername(Resource):
     """
-    Deletes a route by routeId.
+    Gets a user by username.
     """
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
-    def deleteRoute(self, route_id):
+    def get(self, username):
+        """
+        Gets a user by username.
+        """
         try:
-            ro.del_route(route_id)
-            return {route_id: 'Deleted'}
+            user = us.get_user_by_username(username)
+            if user:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'User Details for {username}',
+                    DATA: user,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with username {username} not found.')
         except ValueError as e:
-            raise wz.NotFound(f'{str(e)}')
+            raise wz.InternalServerError(f'Error: {str(e)}')
 
 
 @api.route('/users/delete/<username>')
@@ -175,6 +199,109 @@ class AddUser(Resource):
             us.add_user(username, account_id)
 
             return {'message': 'User created successfully'}
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
+
+@api.route('/users/account/<account_id>')
+class GetUserByAccountId(Resource):
+    """
+    Gets a user by account ID.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, account_id):
+        """
+        Gets a user by account ID.
+        """
+        try:
+            user = us.get_user_by_account_id(account_id)
+            if user:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'User Details for Account ID {account_id}',
+                    DATA: user,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with account ID {account_id} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
+@api.route('/users/home_address')
+class AddHomeAddress(Resource):
+    """
+    Adds a home address to a user.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    @api.expect(add_home_address_model)  # Use the same modified model for this endpoint
+    def post(self):
+        """
+        Adds a home address to a user.
+        """
+        try:
+            # Get data from the request
+            data = request.json
+            username = data.get('username')
+            home_address = data.get('home_address')
+
+            # Call the add_home_address function
+            us.add_home_address(username, home_address)
+
+            return {'message': 'Home address added successfully'}
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
+
+@api.route('/users/home_address/<username>')
+class GetHomeAddress(Resource):
+    """
+    Gets the home address of a user by username.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, username):
+        """
+        Gets the home address of a user by username.
+        """
+        try:
+            user = us.get_user_by_username(username)
+            if user:
+                home_address = us.get_home_address(user)
+                return {
+                    TYPE: DATA,
+                    TITLE: f'Home Address for {username}',
+                    DATA: {'home_address': home_address},
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with username {username} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
+@api.route('/add_route')
+class AddRoute(Resource):
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    @api.expect(route_model)
+    def post(self):
+        """
+        Adds a new route.
+        """
+        try:
+            # Print received parameters for debugging
+            data = request.json
+            starting_point = data.get('starting_point')
+            ending_point = data.get('ending_point')
+            print(f"Received request: starting_point={starting_point}, ending_point={ending_point}")
+            # Call the add_route function
+            route_id = routes.gen_route_id()
+            routes.add_route(starting_point, ending_point, route_id)
+
+            return {'message': 'Route created successfully'}
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
