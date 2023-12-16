@@ -8,6 +8,20 @@ import data.users as us
 app = Flask(__name__)
 api = Api(app)
 
+DEFAULT = 'Default'
+MENU = 'menu'
+MAIN_MENU_EP = '/MainMenu'
+MAIN_MENU_NM = "MTA Route Planner"
+HELLO_EP = '/hello'
+HELLO_RESP = 'hello'
+USERS_EP = '/users'
+BUSES_EP = '/bus_routes'
+ADDRESSES_EP = '/addresses'
+ADDRESS_MENU_EP = '/address_menu'
+ADDRESS_MENU_NM = 'Address Menu'
+DEL_USER_EP = f'{USERS_EP}/delete'  # Adjusted endpoint for deleting users
+USER_MENU_EP = '/user_menu'
+USER_MENU_NM = 'User Menu'
 TYPE = 'Type'
 DATA = 'Data'
 TITLE = 'Title'
