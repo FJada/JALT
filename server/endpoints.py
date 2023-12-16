@@ -323,5 +323,31 @@ class Routes(Resource):
         }
 
 
+@api.route('/routes/<route_id>')
+class GetRouteById(Resource):
+    """
+    Gets a route by route ID.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, route_id):
+        """
+        Gets a route by route ID.
+        """
+        try:
+            route = routes.get_route_by_route_id(route_id)
+            if route:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'Route Details for Route ID {route_id}',
+                    DATA: route,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'Route with route ID {route_id} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
