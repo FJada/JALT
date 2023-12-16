@@ -306,5 +306,48 @@ class AddRoute(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
+@api.route('/routes')
+class Routes(Resource):
+    """
+    This class supports fetching a list of all routes.
+    """
+    def get(self):
+        """
+        This method returns all routes.
+        """
+        return {
+            TYPE: DATA,
+            TITLE: 'Current Routes',
+            DATA: routes.get_routes_as_dict(),
+            RETURN: '/MainMenu',
+        }
+
+
+@api.route('/routes/<route_id>')
+class GetRouteById(Resource):
+    """
+    Gets a route by route ID.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, route_id):
+        """
+        Gets a route by route ID.
+        """
+        try:
+            route = routes.get_route_by_route_id(route_id)
+            if route:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'Route Details for Route ID {route_id}',
+                    DATA: route,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'Route with route ID {route_id} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
