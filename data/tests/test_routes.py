@@ -41,4 +41,4 @@ def test_del_route(temp_route):
 def test_add_dup_route(temp_route):
     route_id = ro.gen_route_id
     with pytest.raises(ValueError):
-        ro.add_route(temp_route, route_id)
+        ro.add_route('new york', 'boston', route_id)
