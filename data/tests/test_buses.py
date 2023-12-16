@@ -5,7 +5,7 @@ import data.buses as bu
 @pytest.fixture(scope='function')
 def temp_bus():
     bus_name = 'Test'
-    vehicle_id = bu.gen_vehicle_id
+    vehicle_id = bu.gen_vehicle_id()
     ret = bu.add_bus(bus_name, vehicle_id, 0)
     yield bus_name
     if bu.bus_exists(bus_name):
