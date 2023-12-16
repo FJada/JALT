@@ -53,7 +53,7 @@ def test_delete_user():
 
 
 def test_add_route():
-    resp = TEST_CLIENT.post('/add_route', json={'starting_point': 'A', 'ending_point': 'B'})
+    resp = TEST_CLIENT.post('/add_route', json={'starting_point': 'A', 'ending_point': 'B', 'route_id': 'test_route_id'})
     assert resp.status_code == HTTPStatus.OK
 
 
