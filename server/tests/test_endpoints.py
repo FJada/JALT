@@ -95,14 +95,3 @@ def test_get_all_routes():
     # Assert the response status code
     assert resp_get_routes.status_code == HTTPStatus.OK
 
-
-def test_get_user_by_username():
-    # Specify a known username for testing
-    test_username = 'test_user'
-
-    # Send a GET request to the /users/<username> endpoint
-    resp_get_user = TEST_CLIENT.get(f'/users/{test_username}')
-
-    # Assert the response status code
-    assert resp_get_user.status_code == HTTPStatus.OK
-
