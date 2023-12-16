@@ -306,5 +306,22 @@ class AddRoute(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
+@api.route('/routes')
+class Routes(Resource):
+    """
+    This class supports fetching a list of all routes.
+    """
+    def get(self):
+        """
+        This method returns all routes.
+        """
+        return {
+            TYPE: DATA,
+            TITLE: 'Current Routes',
+            DATA: routes.get_routes_as_dict(),
+            RETURN: '/MainMenu',
+        }
+
+
 if __name__ == '__main__':
     app.run(debug=True)
