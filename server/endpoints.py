@@ -26,6 +26,7 @@ TYPE = 'Type'
 DATA = 'Data'
 TITLE = 'Title'
 RETURN = 'Return'
+HOME_ADDR_EP = '/home_address'
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
