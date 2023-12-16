@@ -91,4 +91,4 @@ def get_bus_name(bus: dict):
 
 
 def get_favorite(bus: dict) -> bool:
-    return bool(bus.get(FAVORITE, False))
+    return bool(bus.get(FAVORITE, 0))

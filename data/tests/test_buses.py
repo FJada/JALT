@@ -35,11 +35,11 @@ def test_add_blank_bus():
 
 def test_del_bus(temp_bus):
     bus_name = temp_bus
-    bu.del_user(bus_name, 1)
-    assert not bu.username_exists(bus_name)
+    bu.del_bus(bus_name, 1)
+    assert not bu.bus_exists(bus_name)
 
 
-def test_del_bus_false(temp_user):
-    bus_name = temp_user
+def test_del_bus_false(temp_bus):
+    bus_name = temp_bus
     with pytest.raises(ValueError):
         bu.del_bus(bus_name, 0, 0)
