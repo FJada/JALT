@@ -80,3 +80,9 @@ def test_add_home_address():
     resp_delete_user = TEST_CLIENT.delete(f'/users/delete/{test_username}')
     assert resp_delete_user.status_code == HTTPStatus.OK
 
+def test_get_all_users():
+    # Send a GET request to the /users endpoint
+    resp_get_users = TEST_CLIENT.get('/users')
+
+    # Assert the response status code
+    assert resp_get_users.status_code == HTTPStatus.OK
