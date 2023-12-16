@@ -3,10 +3,8 @@ from http import HTTPStatus
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
-
-import data.buses as buses  # Importing buses.py
+import data.buses as buses
 import data.users as us
-# import data.db_connect as dbc Importing db_connect.py as dbc
 
 app = Flask(__name__)
 api = Api(app)
@@ -20,6 +18,7 @@ user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
     'account_id': fields.String(required=True, description='Account ID'),
 })
+
 
 @api.route('/hello')
 class HelloWorld(Resource):
@@ -51,6 +50,7 @@ class Addresses(Resource):
             us.HOME: [user.get(us.HOME, '') for user in users_data],
         }
 
+
 @api.route('/endpoints')
 class Endpoints(Resource):
     """
@@ -63,6 +63,7 @@ class Endpoints(Resource):
         """
         endpoints = sorted(rule.rule for rule in api.app.url_map.iter_rules())
         return {"Available endpoints": endpoints}
+
 
 @api.route('/MainMenu')
 class MainMenu(Resource):
@@ -108,6 +109,7 @@ class Users(Resource):
             RETURN: '/MainMenu',
         }
 
+
 @api.route('/users/delete/<username>')
 class DelUser(Resource):
     """
@@ -125,7 +127,7 @@ class DelUser(Resource):
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
 
-            
+
 @api.route('/add_user')
 class AddUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
