@@ -59,6 +59,7 @@ bus_model = api.model('Bus', {
     'favorite': fields.Boolean(description='Favorite', default=False),
 })
 
+
 @api.route('/hello')
 class HelloWorld(Resource):
     """
