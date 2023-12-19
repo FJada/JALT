@@ -47,6 +47,9 @@ route_model = api.model('Route', {
     'ending_point': fields.String(required=True, description='Ending Point'),
 })
 
+get_account_id_model = api.model('GetAccountID', {
+    'username': fields.String(required=True, description='Username'),
+})
 
 @api.route('/hello')
 class HelloWorld(Resource):
@@ -367,6 +370,34 @@ class DelRoute(Resource):
             return {route_id: 'Deleted'}
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
+
+
+@api.route('/users/account_id')
+class GetAccountID(Resource):
+    """
+    Gets the account ID of a user by username.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    @api.expect(get_account_id_model)
+    def get(self):
+        """
+        Gets the account ID of a user by username.
+        """
+        try:
+            # Get data from the request
+            data = request.json
+            username = data.get('username')
+
+            # Call the get_account_id function
+            account_id = us.get_account_id(username)
+
+            if account_id:
+                return {'account_id': account_id}
+            else:
+                raise wz.NotFound(f'User with username {username} not found.')
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
 if __name__ == '__main__':
