@@ -5,6 +5,7 @@ from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 import data.users as us
 import data.routes as routes
+import data.buses as buses
 
 app = Flask(__name__)
 api = Api(app)
