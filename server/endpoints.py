@@ -49,6 +49,7 @@ route_model = api.model('Route', {
 
 get_account_id_model = api.model('GetAccountID', {
     'username': fields.String(required=True, description='Username'),
+    'account_id': fields.String(description='Account ID'),
 })
 
 
