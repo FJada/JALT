@@ -51,6 +51,7 @@ get_account_id_model = api.model('GetAccountID', {
     'username': fields.String(required=True, description='Username'),
 })
 
+
 @api.route('/hello')
 class HelloWorld(Resource):
     """
