@@ -52,6 +52,11 @@ get_account_id_model = api.model('GetAccountID', {
     'account_id': fields.String(description='Account ID'),
 })
 
+bus_model = api.model('Bus', {
+    'bus_name': fields.String(required=True, description='Bus Name'),
+    'vehicle_id': fields.String(required=True, description='Vehicle ID'),
+    'favorite': fields.Boolean(description='Favorite', default=False),
+})
 
 @api.route('/hello')
 class HelloWorld(Resource):
@@ -398,6 +403,32 @@ class GetAccountID(Resource):
                 return {'account_id': account_id}
             else:
                 raise wz.NotFound(f'User with username {username} not found.')
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
+
+@api.route('/buses/add_bus')
+class AddBus(Resource):
+    """
+    Adds a new bus.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    @api.expect(bus_model)  # Create a model for the bus data
+    def post(self):
+        """
+        Adds a new bus.
+        """
+        try:
+            data = request.json
+            bus_name = data.get('bus_name')
+            vehicle_id = data.get('vehicle_id')
+            favorite = data.get('favorite', False)
+
+            # Call the add_bus function
+            buses.add_bus(bus_name, vehicle_id, favorite)
+
+            return {'message': 'Bus created successfully'}
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
