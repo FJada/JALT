@@ -4,9 +4,12 @@ Detail what you have already completed in your project. What requirements were m
 
 ### MongoDB
 
-Local
-Cloud
-Backup
+Local: local database connection successful <br>
+Cloud: cloud database connection successful <br>
+Backup: `bkup.sh`: copies our MongoDB collections from the cloud to our repo and stores them as JSON files. <br>
+`restore.sh`: restores the JSON backups to our local database. <br>
+`common.sh`: Holds common code for the first two above. <br>
+Databases: <br>
 
 ## Goals
 
