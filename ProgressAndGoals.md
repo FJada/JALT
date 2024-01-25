@@ -25,6 +25,8 @@ Detail what you have already completed in your project. What requirements were m
 `trains.py`: holds train_stops, train_schedules, train_locations <br>
 `buses.py`: holds bus_name, station_name, borough, favorite, vehicle_id <br>
 
+These developments fulfilled our MongoDB requirements.
+
 ### API Server
 
 # Goals
