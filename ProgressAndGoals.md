@@ -22,3 +22,6 @@ Detail what you have already completed in your project. What requirements were m
 ## Goals
 
 Set out your goals for this semester. Please detail what the requirement is that each goals will meet, and how you expect to meet it.
+
+**Databases:** <br>
+Further refine databases by narrowing them down to necessary information and connecting them together with keys in order to have them properly interact with each other.
