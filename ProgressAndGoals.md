@@ -1,6 +1,12 @@
-## Progress
+# Progress
 
 Detail what you have already completed in your project. What requirements were met in completing these bits?
+
+### Development Environment
+
+### GitHub Actions
+
+### Fancier Testing
 
 ### MongoDB
 
@@ -19,7 +25,9 @@ Detail what you have already completed in your project. What requirements were m
 `trains.py`: holds train_stops, train_schedules, train_locations <br>
 `buses.py`: holds bus_name, station_name, borough, favorite, vehicle_id <br>
 
-## Goals
+### API Server
+
+# Goals
 
 Set out your goals for this semester. Please detail what the requirement is that each goals will meet, and how you expect to meet it.
 
