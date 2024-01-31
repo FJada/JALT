@@ -27,6 +27,9 @@ These developments fulfilled our MongoDB requirements.
 
 ### API Server
 
+**API Endpoints** <br>
+
+
 # Goals
 
 Set out your goals for this semester. Please detail what the requirement is that each goals will meet, and how you expect to meet it.
@@ -42,3 +45,4 @@ As `users.py` is a database that records user data, like usernames, account ids,
 
 **Deployment Strategy** <br>
 We will need to refine and continuously test our ability to deploy our application as new API endpoints are added to it. We will also need to make sure that mongoDB can be reliably tested on pythonAnywhere with swagger rather than simply being able to use swagger and run API endpoints locally.
+
