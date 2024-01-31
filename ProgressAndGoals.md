@@ -34,6 +34,8 @@ These developments fulfilled our MongoDB requirements.
 `get_account_id_model`: model designed to retrieve an user based on their encrypted user id. <br>
 `add_home_address_model`: model designed expressly to add home addresses as a new parameters to users based on username/user id. <br>
 
+These API models were sufficient to complete at least 12 API Endpoint requirements that utilize MongoDB.
+
 **API Endpoints:** <br>
 
 
