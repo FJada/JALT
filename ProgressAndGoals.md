@@ -31,10 +31,10 @@ These developments fulfilled our MongoDB requirements.
 
 Set out your goals for this semester. Please detail what the requirement is that each goals will meet, and how you expect to meet it.
 
-**Databases:** <br>
+**Databases** <br>
 Further refine databases by narrowing them down to necessary information and connecting them together with keys in order to have them properly interact with each other.
 
-**Enhanced API Implementation:** <br>
+**Enhanced API Implementation** <br>
 Fetch real-time MTA subway and bus data to our databases, allowing for accurate arrival times using NYC OpenData and other APIs. We can expect to meet this goal and test it in swagger, making API endpoints to test and display the most recent subway data for each train line and bus stop.
 
 **User Authentication and Profile Management** <br>
