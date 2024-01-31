@@ -28,11 +28,11 @@ These developments fulfilled our MongoDB requirements.
 ### API Server
 
 **API Models:** <br>
-user_model: username model designed to hold, fetch, and add user account names and ids in MongoDB.
-route_model: route model designed to hold, fetch, and add routes in MongoDB.
-bus_model: bus model designed to hold, fetch, and add bus names, routes, and stops in MongoDB.
-get_account_id_model: model designed to retrieve an user based on their encrypted user id.
-add_home_address_model: model designed expressly to add home addresses as a new parameters to users based on username/user id.
+user_model: username model designed to hold, fetch, and add user account names and ids in MongoDB. <br>
+route_model: route model designed to hold, fetch, and add routes in MongoDB. <br>
+bus_model: bus model designed to hold, fetch, and add bus names, routes, and stops in MongoDB. <br>
+get_account_id_model: model designed to retrieve an user based on their encrypted user id. <br>
+add_home_address_model: model designed expressly to add home addresses as a new parameters to users based on username/user id. <br>
 **API Endpoints:** <br>
 
 
