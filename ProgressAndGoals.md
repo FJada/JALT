@@ -4,7 +4,8 @@ Detail what you have already completed in your project. What requirements were m
 
 ### Development Environment & Github Actions
 
-### Fancier Testing
+The development environment is up and github actions is working
+We did have two weeks where we ran into build breaking issues due to MongoDB, but they were fixed!
 
 ### MongoDB
 
