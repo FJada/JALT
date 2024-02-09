@@ -19,4 +19,5 @@ Will use subway data to provide the user with the best route to their destinatio
 [Progress and Goals](ProgressAndGoals.md)
 
 ## Frontend Repo
-[Frontend Repo]([https://github.com/username/repository](https://github.com/FJada/JALT-Frontend)https://github.com/FJada/JALT-Frontend)
+[JALT-Frontend Repository](https://github.com/FJada/JALT-Frontend)
+
