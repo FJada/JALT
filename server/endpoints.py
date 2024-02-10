@@ -6,9 +6,11 @@ import werkzeug.exceptions as wz
 import data.users as us
 import data.routes as routes
 import data.buses as buses
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 DEFAULT = 'Default'
 MENU = 'menu'
