@@ -17,6 +17,7 @@ fi
 
 echo "PA user = $PA_USER"
 echo "PA password = $DEMO_PA_PWD"
+echo "PA api key = $API_TOKEN"
 
 echo "SSHing to PythonAnywhere."
 sshpass -p $DEMO_PA_PWD ssh -o "StrictHostKeyChecking no" $PA_USER@ssh.pythonanywhere.com << EOF
