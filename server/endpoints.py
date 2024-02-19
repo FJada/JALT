@@ -410,6 +410,21 @@ class GetAccountID(Resource):
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
+@api.route('/buses')
+class Buses(Resource):
+    """
+    This class supports fetching a list of all buses.
+    """
+    def get(self):
+        """
+        This method returns all buses.
+        """
+        return {
+            TYPE: DATA,
+            TITLE: 'Current buses',
+            DATA: buses.get_buses_as_dict(),
+            RETURN: '/MainMenu',
+        }
 
 @api.route('/buses/add_bus')
 class AddBus(Resource):
