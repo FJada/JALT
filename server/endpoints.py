@@ -410,6 +410,7 @@ class GetAccountID(Resource):
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
+
 @api.route('/buses')
 class Buses(Resource):
     """
@@ -425,6 +426,7 @@ class Buses(Resource):
             DATA: buses.get_buses_as_dict(),
             RETURN: '/MainMenu',
         }
+
 
 @api.route('/buses/add_bus')
 class AddBus(Resource):
