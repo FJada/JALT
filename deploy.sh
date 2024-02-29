@@ -1,6 +1,7 @@
 #!/bin/bash
 # This shell script deploys a new version to a server.
 
+source ~/.bashrc
 PROJ_DIR=JALT
 VENV=JALT
 PA_DOMAIN="JALTSWESTINKIES.pythonanywhere.com"
