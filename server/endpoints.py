@@ -6,6 +6,7 @@ import werkzeug.exceptions as wz
 import data.users as us
 import data.routes as routes
 import data.buses as buses
+import data.trains as trains
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -22,6 +23,7 @@ HELLO_EP = '/hello'
 HELLO_RESP = 'hello'
 USERS_EP = '/users'
 BUSES_EP = '/bus_routes'
+TRAINS_EP = '/train_routes'
 ADDRESSES_EP = '/addresses'
 ADDRESS_MENU_EP = '/address_menu'
 ADDRESS_MENU_NM = 'Address Menu'
@@ -57,6 +59,12 @@ get_account_id_model = api.model('GetAccountID', {
 
 bus_model = api.model('Bus', {
     'bus_name': fields.String(required=True, description='Bus Name'),
+    'vehicle_id': fields.String(required=True, description='Vehicle ID'),
+    'favorite': fields.Boolean(description='Favorite', default=False),
+})
+
+train_model = api.model('Train', {
+    'Train_name': fields.String(required=True, description='Train Name'),
     'vehicle_id': fields.String(required=True, description='Vehicle ID'),
     'favorite': fields.Boolean(description='Favorite', default=False),
 })
@@ -409,6 +417,49 @@ class GetAccountID(Resource):
                 raise wz.NotFound(f'User with username {username} not found.')
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
+
+@api.route('/trains')
+class Trains(Resource):
+    """
+    This class supports fetching a list of all trains.
+    """
+    def get(self):
+        """
+        This method returns all trains.
+        """
+        return{
+            TYPE: DATA,
+            TITLE: 'Current trains',
+            DATA: trains.get_trains_as_dict(),
+            RETURN: '/MainMenu',
+        }
+
+@api.route('/trains/add_train')
+class AddTrain(Resource):
+    """
+    Adds a new train.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    @api.expect(train_model)  # Create a model for the train data
+    def post(self):
+        """
+        Adds a new train.
+        """
+        try:
+            data = request.json
+            train_name = data.get('train_name')
+            vehicle_id = data.get('vehicle_id')
+            favorite = data.get('favorite', False)
+
+            # Call the add_bus function
+            trains.add_train(train_name, vehicle_id, favorite)
+
+            return {'message': 'Train created successfully'}
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
 
 
 @api.route('/buses')

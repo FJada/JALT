@@ -1,59 +1,94 @@
-TRAIN_STOPS = [
-    {'stop_id': '101', 'stop_name': 'Van Cortlandt Park - 242 St', 'stop_line': 'Broadway-Seventh Avenue Local'},
-    {'stop_id': 'A49', 'stop_name': 'Nostrand Av', 'stop_line': 'Eighth Avenue Express'},
-    {'stop_id': 'F01', 'stop_name': 'Jamaica - 179 St', 'stop_line': 'Queens Boulevard Express/Sixth Avenue Local'}
-]
+import random
+import data.db_connect as dbc
 
-TRAIN_SCHEDULES = {
-    '1': {
-        'times': ['09:00 AM', '11:30 AM', '02:00 PM']
-    },
-    'A': {
-        'times': ['10:00 AM', '12:30 PM', '03:00 PM']
-    },
-    'F': {
-        'times': ['09:45 AM', '01:15 PM', '04:30 PM']
-    }
-}
-
-TRAIN_LOCATIONS = {
-    'Van Cortlandt Park - 242 St': {
-        'latitude': 40.889248,
-        'longitude': -73.898583
-    },
-    'Nostrand Av': {
-        'latitude': 40.680438,
-        'longitude': -73.950426
-    },
-    'Jamaica - 179 St': {
-        'latitude': 40.712646,
-        'longitude': -73.783817
-    }
-}
+TRAINS_COLLECTION = 'trains'
+ID_LEN = 24
+BIG_NUM = 100_000_000_000_000_000_000
+TRAIN_NAME = 'trainName'
+STATION_NAME = 'stationName'
+BOROUGH = 'borough'
+FAVORITE = 'favorite'
+VEHICLE_ID = 'vehicleId'
 
 
-def get_train_stops():
-    return TRAIN_STOPS
+def _gen_id() -> str:
+    """
+    Generates an id per entry for mongodb
+    """
+    _id = random.randint(0, BIG_NUM)
+    _id = str(_id)
+    _id = _id.rjust(ID_LEN, '0')
+    return _id
 
 
-def get_train_schedule(stop_id):
-    return TRAIN_SCHEDULES.get(stop_id, {})
+def gen_vehicle_id() -> str:
+    """
+    Returns vehicle12345678987654 to identify each account by unique id
+    """
+    vehicle = 'vehicle'
+    rand_part = random.randint(0, BIG_NUM)
+    return vehicle + str(rand_part)
 
 
-def get_train_locations(stop_id):
-    return TRAIN_LOCATIONS.get(stop_id, {})
+def get_trains_as_dict() -> dict:
+    dbc.connect_db()
+    return dbc.fetch_all_as_dict(TRAIN_NAME, TRAINS_COLLECTION)
 
 
-def main():
-    stops = get_train_stops()
-    if stops:
-        stop_id = stops[0]['stop_id']  # Assuming the first stop for demonstration
-        schedule = get_train_schedule(stop_id)
-        locations = get_train_locations(stop_id)
-        print("Train Stops:", stops)
-        print("Schedule for Stop:", schedule)
-        print("Stop Location:", locations)
+def get_train_by_train_name(train_name: str) -> dict:
+    dbc.connect_db()
+    return dbc.fetch_one(TRAINS_COLLECTION, {TRAIN_NAME: train_name})
 
 
-if __name__ == '__main__':
-    main()
+def train_exists(train_name: str) -> bool:
+    return get_train_by_train_name(train_name) is not None
+
+
+def favorite_train(train_name: str):
+    if not train_exists(train_name):
+        raise ValueError(f'Update failure: {train_name} not in database.')
+    else:
+        dbc.connect_db()
+        return dbc.update_doc(TRAINS_COLLECTION, {TRAIN_NAME: train_name},
+                              {FAVORITE: 1})
+
+
+def remove_favorite_train(train_name: str):
+    if not train_exists(train_name):
+        raise ValueError(f'Update failure: {train_name} not in database.')
+    else:
+        dbc.connect_db()
+        return dbc.update_doc(TRAINS_COLLECTION, {TRAIN_NAME: train_name},
+                              {FAVORITE: 0})
+
+
+def add_train(train_name: str, vehicle_id: str, favorite: bool) -> bool:
+    if train_exists(train_name):
+        raise ValueError(f'Duplicate train: {train_name=}')
+    if not train_name:
+        raise ValueError('Train name may not be blank')
+    train = {}
+    train[TRAIN_NAME] = train_name
+    train[VEHICLE_ID] = vehicle_id
+    train[FAVORITE] = 0
+    dbc.connect_db()
+    _id = dbc.insert_one(TRAINS_COLLECTION, train)
+    return _id is not None
+
+
+def del_train(train_name: str, delete_flag: bool):
+    if delete_flag:
+        if train_exists(train_name):
+            return dbc.del_one(TRAINS_COLLECTION, {TRAIN_NAME: train_name})
+        else:
+            raise ValueError(f'Delete failure: {train_name} not in database.')
+    else:
+        raise ValueError('Delete skipped')
+
+
+def get_train_name(train: dict):
+    return train.get(TRAIN_NAME, '')
+
+
+def get_favorite(train: dict) -> bool:
+    return bool(train.get(FAVORITE, 0))
