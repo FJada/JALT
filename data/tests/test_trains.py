@@ -11,7 +11,6 @@ def temp_train():
     if tr.train_exists(train_name):
         tr.del_train(train_name, 1)
 
-
 def test_get_trains_as_dict():
     trains = tr.get_trains_as_dict()
     assert isinstance(trains, dict)

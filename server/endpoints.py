@@ -64,7 +64,7 @@ bus_model = api.model('Bus', {
 })
 
 train_model = api.model('Train', {
-    'Train_name': fields.String(required=True, description='Train Name'),
+    'train_name': fields.String(required=True, description='Train Name'),
     'vehicle_id': fields.String(required=True, description='Vehicle ID'),
     'favorite': fields.Boolean(description='Favorite', default=False),
 })
