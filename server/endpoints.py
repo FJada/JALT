@@ -428,12 +428,13 @@ class Trains(Resource):
         """
         This method returns all trains.
         """
-        return{
+        return {
             TYPE: DATA,
             TITLE: 'Current trains',
             DATA: trains.get_trains_as_dict(),
             RETURN: '/MainMenu',
         }
+
 
 @api.route('/trains/add_train')
 class AddTrain(Resource):
@@ -459,7 +460,6 @@ class AddTrain(Resource):
             return {'message': 'Train created successfully'}
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
-
 
 
 @api.route('/buses')
