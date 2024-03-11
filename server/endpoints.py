@@ -462,7 +462,7 @@ class AddTrain(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
-@api.route('/trains/delete_train/<train_name>')      
+@api.route('/trains/delete_train/<train_name>')   
 class DelTrain(Resource):
     """
     Deletes a train by train name
@@ -523,7 +523,7 @@ class AddBus(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
-@api.route('/buses/delete_bus/<bus_name>')      
+@api.route('/buses/delete_bus/<bus_name>')
 class DelBus(Resource):
     """
     Deletes a bus by bus name
