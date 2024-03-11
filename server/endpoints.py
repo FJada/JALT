@@ -462,6 +462,24 @@ class AddTrain(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
+@api.route('/trains/delete_train/<train_name>')      
+class DelTrain(Resource):
+    """
+    Deletes a train by train name
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    def delete(self, train_name):
+        """
+        Deletes a train by train name
+        """
+        try:
+            trains.del_train(train_name, True)
+            return {train_name: 'Deleted'}
+        except ValueError as e:
+            raise wz.NotFound(f'{str(e)}')
+
+
 @api.route('/buses')
 class Buses(Resource):
     """
@@ -503,6 +521,24 @@ class AddBus(Resource):
             return {'message': 'Bus created successfully'}
         except ValueError as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
+
+@api.route('/buses/delete_bus/<bus_name>')      
+class DelBus(Resource):
+    """
+    Deletes a bus by bus name
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    def delete(self, bus_name):
+        """
+        Deletes a bus by bus name
+        """
+        try:
+            buses.del_bus(bus_name, True)
+            return {bus_name: 'Deleted'}
+        except ValueError as e:
+            raise wz.NotFound(f'{str(e)}')
 
 
 if __name__ == '__main__':
