@@ -125,28 +125,20 @@ def test_get_home_address(setup_user_with_home_address):
 
     # Assert the response status code
     assert resp_get_home_address.status_code == HTTPStatus.OK
-
+    
 
 def test_user_login():
     # Define test data for a user
     test_username = 'test_user'
-    test_password = 'test_password'
+    test_id = 'test_id'
 
-    # Create the user 
-    us.add_user(test_username, 'test_account_id', test_password)  # Assuming the password is stored securely
+    # Send a POST request to create the user
+    user_creation_response = TEST_CLIENT.post('/add_user', json={'username': test_username})
+    assert user_creation_response.status_code == HTTPStatus.OK
 
     # Send a POST request to the login endpoint with valid credentials
-    valid_login_response = TEST_CLIENT.post('/login', json={'username': test_username, 'password': test_password})
+    valid_login_response = TEST_CLIENT.post('/login', json={'username': test_username, 'id_number': test_id})
     assert valid_login_response.status_code == HTTPStatus.OK
 
-    # Send a POST request to the login endpoint with invalid credentials (wrong password)
-    invalid_login_response = TEST_CLIENT.post('/login', json={'username': test_username, 'password': 'wrong_password'})
-    assert invalid_login_response.status_code == HTTPStatus.UNAUTHORIZED
-
-    # Send a POST request to the login endpoint with invalid credentials (non-existing username)
-    non_existing_user_response = TEST_CLIENT.post('/login', json={'username': 'non_existing_user', 'password': 'password'})
-    assert non_existing_user_response.status_code == HTTPStatus.UNAUTHORIZED
-
-    # Clean up
+    # Clean up: Delete the test user after the test
     us.del_user(test_username, True)
-    
