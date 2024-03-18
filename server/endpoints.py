@@ -270,7 +270,6 @@ class Login(Resource):
             data = request.json
             username = data.get('username')
             account_id = data.get('account_id')
-            
             if username:
                 user = us.get_user_by_username(username)
             elif account_id:
@@ -280,7 +279,7 @@ class Login(Resource):
             if user:
                 return {
                     TYPE: DATA,
-                    TITLE: f'User Details',
+                    TITLE: f'User Details for {username} and Account ID {account_id}',
                     DATA: user,
                     RETURN: '/MainMenu',
                 }, HTTPStatus.OK
