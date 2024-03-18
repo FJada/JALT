@@ -133,11 +133,11 @@ def test_user_login():
     test_id = 'test_id'
 
     # Send a POST request to create the user
-    user_creation_response = TEST_CLIENT.post('/add_user', json={'username': test_username})
+    user_creation_response = TEST_CLIENT.post('/users/add_user', json={'username': test_username})
     assert user_creation_response.status_code == HTTPStatus.OK
 
     # Send a POST request to the login endpoint with valid credentials
-    valid_login_response = TEST_CLIENT.post('/login', json={'username': test_username, 'id_number': test_id})
+    valid_login_response = TEST_CLIENT.post('/users/login', json={'username': test_username, 'id_number': test_id})
     assert valid_login_response.status_code == HTTPStatus.OK
 
     # Clean up: Delete the test user after the test
