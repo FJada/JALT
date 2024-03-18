@@ -125,3 +125,43 @@ def test_get_home_address(setup_user_with_home_address):
 
     # Assert the response status code
     assert resp_get_home_address.status_code == HTTPStatus.OK
+    
+
+def test_login_with_username():
+    # Add a test user
+    test_username = 'test_user'
+    test_account_id = 'test_account_id'
+    us.add_user(test_username, test_account_id)
+
+    # Send a POST request to login with the username
+    login_response = TEST_CLIENT.post('/users/login', json={'username': test_username})
+
+    # Assert the response status code
+    assert login_response.status_code == HTTPStatus.OK
+
+    # Clean up: Delete the test user after the test
+    us.del_user(test_username, delete_flag=True)
+
+
+def test_login_with_account_id():
+    # Add a test user
+    test_username = 'test_user'
+    test_account_id = 'test_account_id'
+    us.add_user(test_username, test_account_id)
+
+    # Send a POST request to login with the account ID
+    login_response = TEST_CLIENT.post('/users/login', json={'account_id': test_account_id})
+
+    # Assert the response status code
+    assert login_response.status_code == HTTPStatus.OK
+
+    # Clean up: Delete the test user after the test
+    us.del_user(test_username, delete_flag=True)
+
+
+def test_login_with_invalid_credentials():
+    # Send a POST request to login with invalid credentials
+    login_response = TEST_CLIENT.post('/users/login', json={'username': 'invalid_username'})
+
+    # Assert the response status code
+    assert login_response.status_code == HTTPStatus.NOT_FOUND
