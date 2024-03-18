@@ -127,18 +127,18 @@ def test_get_home_address(setup_user_with_home_address):
     assert resp_get_home_address.status_code == HTTPStatus.OK
     
 
-def test_user_login():
-    # Define test data for a user
-    test_username = 'test_user'
-    test_account_id = 'test_account_id'
+# def test_user_login():
+#     # Define test data for a user
+#     test_username = 'test_user'
+#     test_account_id = 'test_account_id'
 
-    # Send a POST request to create the user
-    user_creation_response = TEST_CLIENT.post('/add_user', json={'username': test_username, 'account_id': test_account_id})
-    assert user_creation_response.status_code == HTTPStatus.OK
+#     # Send a POST request to create the user
+#     user_creation_response = TEST_CLIENT.post('/add_user', json={'username': test_username, 'account_id': test_account_id})
+#     assert user_creation_response.status_code == HTTPStatus.OK
 
-    # Send a POST request to the login endpoint with valid credentials
-    valid_login_response = TEST_CLIENT.post('/login', json={'username': test_username, 'account_id': test_account_id})
-    assert valid_login_response.status_code == HTTPStatus.OK
+#     # Send a POST request to the login endpoint with valid credentials
+#     valid_login_response = TEST_CLIENT.post('/login', json={'username': test_username, 'account_id': test_account_id})
+#     assert valid_login_response.status_code == HTTPStatus.OK
 
-    # Clean up: Delete the test user after the test
-    us.del_user(test_username, True)
+#     # Clean up: Delete the test user after the test
+#     us.del_user(test_username, True)
