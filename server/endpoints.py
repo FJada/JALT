@@ -257,31 +257,37 @@ class GetUserByAccountId(Resource):
 @api.route('/users/login')
 class Login(Resource):
     """
-    Log in a user using account ID.
+    Log in a user using username or account ID.
     """
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.UNAUTHORIZED, 'Unauthorized')
-    @api.expect(get_account_id_model)
+    @api.expect(user_model)  # Modify the model to accept both username and account ID
     def post(self):
         """
-        Log in a user using account ID.
+        Log in a user using username or account ID.
         """
         try:
             data = request.json
+            username = data.get('username')
             account_id = data.get('account_id')
-
-            user = us.get_user_by_account_id(account_id)
+            
+            if username:
+                user = us.get_user_by_username(username)
+            elif account_id:
+                user = us.get_user_by_account_id(account_id)
+            else:
+                raise ValueError("Both username and account ID are missing.")
             if user:
                 return {
                     TYPE: DATA,
-                    TITLE: f'User Details for Account ID {account_id}',
+                    TITLE: f'User Details',
                     DATA: user,
                     RETURN: '/MainMenu',
                 }, HTTPStatus.OK
             else:
-                return {'message': 'Unauthorized'}, HTTPStatus.UNAUTHORIZED
+                raise wz.NotFound("User not found.")
         except ValueError as e:
-            return {'message': str(e)}, HTTPStatus.INTERNAL_SERVER_ERROR
+            raise wz.InternalServerError(f'Error: {str(e)}')
 
 
 @api.route('/users/home_address')
