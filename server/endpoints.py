@@ -28,6 +28,7 @@ ADDRESSES_EP = '/addresses'
 ADDRESS_MENU_EP = '/address_menu'
 ADDRESS_MENU_NM = 'Address Menu'
 DEL_USER_EP = f'{USERS_EP}/delete'  # Adjusted endpoint for deleting users
+LOGIN_USER_EP = '/users/login'
 USER_MENU_EP = '/user_menu'
 USER_MENU_NM = 'User Menu'
 TYPE = 'Type'
@@ -251,6 +252,36 @@ class GetUserByAccountId(Resource):
                 raise wz.NotFound(f'User with account ID {account_id} not found.')
         except ValueError as e:
             raise wz.InternalServerError(f'Error: {str(e)}')
+
+
+@api.route('/users/login')
+class Login(Resource):
+    """
+    Log in a user using account ID.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.UNAUTHORIZED, 'Unauthorized')
+    @api.expect(get_account_id_model)
+    def post(self):
+        """
+        Log in a user using account ID.
+        """
+        try:
+            data = request.json
+            account_id = data.get('account_id')
+
+            user = us.get_user_by_account_id(account_id)
+            if user:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'User Details for Account ID {account_id}',
+                    DATA: user,
+                    RETURN: '/MainMenu',
+                }, HTTPStatus.OK
+            else:
+                return {'message': 'Unauthorized'}, HTTPStatus.UNAUTHORIZED
+        except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.INTERNAL_SERVER_ERROR
 
 
 @api.route('/users/home_address')
