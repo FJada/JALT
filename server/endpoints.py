@@ -260,7 +260,7 @@ class Login(Resource):
     Log in a user using username or account ID.
     """
     @api.response(HTTPStatus.OK, 'Success')
-    @api.response(HTTPStatus.UNAUTHORIZED, 'Unauthorized')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
     @api.expect(user_model)  # Modify the model to accept both username and account ID
     def post(self):
         """
