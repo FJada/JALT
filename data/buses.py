@@ -21,13 +21,13 @@ def _gen_id() -> str:
     return _id
 
 
-# def gen_vehicle_id() -> str:
-#     """
-#     Returns vehicle12345678987654 to identify each account by unique id
-#     """
-#     vehicle = 'vehicle'
-#     rand_part = random.randint(0, BIG_NUM)
-#     return vehicle + str(rand_part)
+def gen_vehicle_id() -> str:
+    """
+    Returns vehicle12345678987654 to identify each account by unique id
+    """
+    vehicle = 'vehicle'
+    rand_part = random.randint(0, BIG_NUM)
+    return vehicle + str(rand_part)
 
 
 def get_buses_as_dict() -> dict:

@@ -34,9 +34,9 @@ def test_remove_favorite(temp_bus):
     assert bu.get_favorite(bus) is False
 
 
-# def test_gen_vehicle_id():
-#     vehicle_id = bu.gen_vehicle_id()
-#     assert vehicle_id is not None
+def test_gen_vehicle_id():
+    vehicle_id = bu.gen_vehicle_id()
+    assert vehicle_id is not None
 
 
 def test_add_blank_bus():
