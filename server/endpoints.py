@@ -144,7 +144,7 @@ class UserMenu(Resource):
         }
 
 
-@api.route('/users')
+@api.route('/users/get_users')
 class Users(Resource):
     """
     This class supports fetching a list of all users.
@@ -205,7 +205,7 @@ class DelUser(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
-@api.route('/add_user')
+@api.route('/users/add_user')
 class AddUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
@@ -289,7 +289,7 @@ class Login(Resource):
             raise wz.InternalServerError(f'Error: {str(e)}')
 
 
-@api.route('/users/home_address')
+@api.route('/users/add_home_address')
 class AddHomeAddress(Resource):
     """
     Adds a home address to a user.
@@ -342,7 +342,7 @@ class GetHomeAddress(Resource):
             raise wz.InternalServerError(f'Error: {str(e)}')
 
 
-@api.route('/add_route')
+@api.route('/routes/add_route')
 class AddRoute(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
@@ -366,7 +366,7 @@ class AddRoute(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
-@api.route('/routes')
+@api.route('/routes/get_routes')
 class Routes(Resource):
     """
     This class supports fetching a list of all routes.
@@ -383,7 +383,7 @@ class Routes(Resource):
         }
 
 
-@api.route('/routes/<route_id>')
+@api.route('/routes/get/<route_id>')
 class GetRouteById(Resource):
     """
     Gets a route by route ID.
@@ -455,7 +455,7 @@ class GetAccountID(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
-@api.route('/trains')
+@api.route('/trains/get_trains')
 class Trains(Resource):
     """
     This class supports fetching a list of all trains.
@@ -487,11 +487,11 @@ class AddTrain(Resource):
         try:
             data = request.json
             train_name = data.get('train_name')
-            vehicle_id = data.get('vehicle_id')
+            service_type = data.get('service_type')
             favorite = data.get('favorite', False)
 
             # Call the add_bus function
-            trains.add_train(train_name, vehicle_id, favorite)
+            trains.add_train(train_name, service_type, favorite)
 
             return {'message': 'Train created successfully'}
         except ValueError as e:
@@ -516,7 +516,7 @@ class DelTrain(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
-@api.route('/buses')
+@api.route('/buses/get_busses')
 class Buses(Resource):
     """
     This class supports fetching a list of all buses.
