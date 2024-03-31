@@ -273,16 +273,19 @@ class Login(Resource):
             data = request.json
             username = data.get('username')
             account_id = data.get('account_id')
+            password = data.get('password')
             if username:
                 user = us.get_user_by_username(username)
             elif account_id:
                 user = us.get_user_by_account_id(account_id)
+            elif password:
+                user = us.get_user_by_password(password)
             else:
-                raise ValueError("Both username and account ID are missing.")
+                raise ValueError("Username, account ID, and password are missing.")
             if user:
                 return {
                     TYPE: DATA,
-                    TITLE: f'User Details for {username} and Account ID {account_id}',
+                    TITLE: f'User Details for {username}, Account ID {account_id} and password {password}',
                     DATA: user,
                     RETURN: '/MainMenu',
                 }, HTTPStatus.OK

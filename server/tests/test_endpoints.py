@@ -35,7 +35,7 @@ def test_list_routes():
 
 
 def test_add_user():
-    new_user_data = {'username': 'test_user', 'account_id': '123456'}
+    new_user_data = {'username': 'test_user', 'account_id': '123456', 'password' : 'testpassword'}
     resp = TEST_CLIENT.post('/add_user', json=new_user_data)
 
     assert resp.status_code == HTTPStatus.OK
@@ -131,7 +131,8 @@ def test_login_with_username():
     # Add a test user
     test_username = 'test_user'
     test_account_id = 'test_account_id'
-    us.add_user(test_username, test_account_id)
+    test_password = 'test_password'
+    us.add_user(test_username, test_account_id, test_password)
 
     # Send a POST request to login with the username
     login_response = TEST_CLIENT.post('/users/login', json={'username': test_username})
@@ -147,7 +148,8 @@ def test_login_with_account_id():
     # Add a test user
     test_username = 'test_user'
     test_account_id = 'test_account_id'
-    us.add_user(test_username, test_account_id)
+    test_password = 'test_password'
+    us.add_user(test_username, test_account_id, test_password)
 
     # Send a POST request to login with the account ID
     login_response = TEST_CLIENT.post('/users/login', json={'account_id': test_account_id})
@@ -158,6 +160,23 @@ def test_login_with_account_id():
     # Clean up: Delete the test user after the test
     us.del_user(test_username, delete_flag=True)
 
+
+def test_login_with_password():
+    # Add a test user
+    test_username = 'test_user'
+    test_account_id = 'test_account_id'
+    test_password = 'test_password'
+    us.add_user(test_username, test_account_id, test_password)
+
+    # Send a POST request to login with the account ID
+    login_response = TEST_CLIENT.post('/users/login', json={'password': test_password})
+
+    # Assert the response status code
+    assert login_response.status_code == HTTPStatus.OK
+
+    # Clean up: Delete the test user after the test
+    us.del_user(test_username, delete_flag=True)
+    
 
 def test_login_with_invalid_credentials():
     # Send a POST request to login with invalid credentials

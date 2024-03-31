@@ -69,6 +69,14 @@ def get_user_by_account_id(account_id: str) -> dict:
     return dbc.fetch_one(USERS_COLLECTION, {ACCOUNT_ID: account_id})
 
 
+def get_user_by_password(password: str) -> dict:
+    """
+    Retrieve user information by password
+    """
+    dbc.connect_db()
+    return dbc.fetch_one(USERS_COLLECTION, {PASSWORD: password})
+
+
 def username_exists(username: str) -> dict:
     """
     Returns boolean is account user exists
