@@ -10,7 +10,6 @@ BOROUGH = 'borough'
 FAVORITE = 'favorite'
 
 
-
 def _gen_id() -> str:
     """
     Generates an id per entry for mongodb
