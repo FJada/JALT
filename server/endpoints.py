@@ -1,4 +1,3 @@
-# In endpoints.py
 from http import HTTPStatus
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
