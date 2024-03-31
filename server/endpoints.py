@@ -21,13 +21,13 @@ MAIN_MENU_EP = '/MainMenu'
 MAIN_MENU_NM = "MTA Route Planner"
 HELLO_EP = '/hello'
 HELLO_RESP = 'hello'
-USERS_EP = '/users'
+USERS_EP = '/users/get_users'
 BUSES_EP = '/bus_routes'
 TRAINS_EP = '/train_routes'
 ADDRESSES_EP = '/addresses'
 ADDRESS_MENU_EP = '/address_menu'
 ADDRESS_MENU_NM = 'Address Menu'
-DEL_USER_EP = f'{USERS_EP}/delete'  # Adjusted endpoint for deleting users
+DEL_USER_EP = f'{USERS_EP}/delete'  
 LOGIN_USER_EP = '/users/login'
 USER_MENU_EP = '/user_menu'
 USER_MENU_NM = 'User Menu'
@@ -36,7 +36,7 @@ DATA = 'Data'
 TITLE = 'Title'
 RETURN = 'Return'
 HOME_ADDR_EP = '/home_address'
-ROUTE_EP = '/routes'
+ROUTE_EP = '/routes/get_routes'
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
