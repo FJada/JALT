@@ -60,7 +60,7 @@ get_account_id_model = api.model('GetAccountID', {
 
 bus_model = api.model('Bus', {
     'bus_name': fields.String(required=True, description='Bus Name'),
-    'vehicle_id': fields.String(required=True, description='Vehicle ID'),
+    'borough': fields.String(required=True, description='Borough Name'),
     'favorite': fields.Boolean(description='Favorite', default=False),
 })
 
@@ -548,11 +548,11 @@ class AddBus(Resource):
         try:
             data = request.json
             bus_name = data.get('bus_name')
-            vehicle_id = data.get('vehicle_id')
+            borough_name = data.get('borough')
             favorite = data.get('favorite', False)
 
             # Call the add_bus function
-            buses.add_bus(bus_name, vehicle_id, favorite)
+            buses.add_bus(bus_name, borough_name, favorite)
 
             return {'message': 'Bus created successfully'}
         except ValueError as e:

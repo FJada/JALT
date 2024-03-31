@@ -8,7 +8,7 @@ BUS_NAME = 'busName'
 STATION_NAME = 'stationName'
 BOROUGH = 'borough'
 FAVORITE = 'favorite'
-VEHICLE_ID = 'vehicleId'
+
 
 
 def _gen_id() -> str:
@@ -21,13 +21,13 @@ def _gen_id() -> str:
     return _id
 
 
-def gen_vehicle_id() -> str:
-    """
-    Returns vehicle12345678987654 to identify each account by unique id
-    """
-    vehicle = 'vehicle'
-    rand_part = random.randint(0, BIG_NUM)
-    return vehicle + str(rand_part)
+# def gen_vehicle_id() -> str:
+#     """
+#     Returns vehicle12345678987654 to identify each account by unique id
+#     """
+#     vehicle = 'vehicle'
+#     rand_part = random.randint(0, BIG_NUM)
+#     return vehicle + str(rand_part)
 
 
 def get_buses_as_dict() -> dict:
@@ -62,14 +62,14 @@ def remove_favorite_bus(bus_name: str):
                               {FAVORITE: 0})
 
 
-def add_bus(bus_name: str, vehicle_id: str, favorite: bool) -> bool:
+def add_bus(bus_name: str, borough_name: str, favorite: bool) -> bool:
     if bus_exists(bus_name):
         raise ValueError(f'Duplicate bus: {bus_name=}')
     if not bus_name:
         raise ValueError('Bus name may not be blank')
     bus = {}
     bus[BUS_NAME] = bus_name
-    bus[VEHICLE_ID] = vehicle_id
+    bus[BOROUGH] = borough_name
     bus[FAVORITE] = 0
     dbc.connect_db()
     _id = dbc.insert_one(BUSES_COLLECTION, bus)
@@ -92,3 +92,7 @@ def get_bus_name(bus: dict):
 
 def get_favorite(bus: dict) -> bool:
     return bool(bus.get(FAVORITE, 0))
+
+
+def get_bus_borough(bus: dict):
+    return bus.get(BOROUGH, '')
