@@ -36,14 +36,15 @@ def gen_account_id() -> str:
     rand_part = random.randint(0, BIG_NUM)
     return account + str(rand_part)
 
+
 def gen_password(length=12):
     """
     Generate a random password 12 characters long.
     """
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for _ in range(length))
-    
     return password
+
 
 def get_users_as_dict() -> dict:
     """
