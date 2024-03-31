@@ -6,8 +6,9 @@ ID_LEN = 24
 BIG_NUM = 100_000_000_000_000_000_000
 TRAIN_NAME = 'trainName'
 STATION_NAME = 'stationName'
+BOROUGH = 'borough'
 FAVORITE = 'favorite'
-SERVICE_TYPE = 'serviceType'
+VEHICLE_ID = 'vehicleId'
 
 
 def _gen_id() -> str:
@@ -61,14 +62,14 @@ def remove_favorite_train(train_name: str):
                               {FAVORITE: 0})
 
 
-def add_train(train_name: str, service_type: str, favorite: bool) -> bool:
+def add_train(train_name: str, vehicle_id: str, favorite: bool) -> bool:
     if train_exists(train_name):
         raise ValueError(f'Duplicate train: {train_name=}')
     if not train_name:
         raise ValueError('Train name may not be blank')
     train = {}
     train[TRAIN_NAME] = train_name
-    train[SERVICE_TYPE] = service_type
+    train[VEHICLE_ID] = vehicle_id
     train[FAVORITE] = 0
     dbc.connect_db()
     _id = dbc.insert_one(TRAINS_COLLECTION, train)
@@ -91,7 +92,3 @@ def get_train_name(train: dict):
 
 def get_favorite(train: dict) -> bool:
     return bool(train.get(FAVORITE, 0))
-
-
-def get_service_type(train: dict) -> bool:
-    return train.get(SERVICE_TYPE, '')

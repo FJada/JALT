@@ -4,9 +4,9 @@ import data.trains as tr
 @pytest.fixture(scope='function')
 def temp_train():
     train_name = 'Test'
-    service_type = 'None'
+    vehicle_id = tr.gen_vehicle_id()
     favorite = 0
-    ret = tr.add_train(train_name, service_type, favorite)
+    ret = tr.add_train(train_name, vehicle_id, favorite)
     yield train_name
     if tr.train_exists(train_name):
         tr.del_train(train_name, 1)
@@ -33,13 +33,13 @@ def test_remove_favorite(temp_train):
 
 
 def test_gen_vehicle_id():
-    service_type = tr.gen_vehicle_id()
-    assert service_type is not None
+    vehicle_id = tr.gen_vehicle_id()
+    assert vehicle_id is not None
 
 
 def test_add_blank_train():
     with pytest.raises(ValueError):
-        tr.add_train('', '', 0)
+        tr.add_train('', 4, 0)
 
 
 def test_del_train(temp_train):
