@@ -21,13 +21,13 @@ MAIN_MENU_EP = '/MainMenu'
 MAIN_MENU_NM = "MTA Route Planner"
 HELLO_EP = '/hello'
 HELLO_RESP = 'hello'
-USERS_EP = '/users/get_users'
+USERS_EP = '/users'
 BUSES_EP = '/bus_routes'
 TRAINS_EP = '/train_routes'
 ADDRESSES_EP = '/addresses'
 ADDRESS_MENU_EP = '/address_menu'
 ADDRESS_MENU_NM = 'Address Menu'
-DEL_USER_EP = f'{USERS_EP}/delete'  
+DEL_USER_EP = f'{USERS_EP}/delete'  # Adjusted endpoint for deleting users
 LOGIN_USER_EP = '/users/login'
 USER_MENU_EP = '/user_menu'
 USER_MENU_NM = 'User Menu'
@@ -36,7 +36,7 @@ DATA = 'Data'
 TITLE = 'Title'
 RETURN = 'Return'
 HOME_ADDR_EP = '/home_address'
-ROUTE_EP = '/routes/get_routes'
+ROUTE_EP = '/routes'
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
@@ -144,7 +144,7 @@ class UserMenu(Resource):
         }
 
 
-@api.route('/users/get_users')
+@api.route('/users')
 class Users(Resource):
     """
     This class supports fetching a list of all users.
@@ -205,7 +205,7 @@ class DelUser(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
-@api.route('/users/add_user')
+@api.route('/add_user')
 class AddUser(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
@@ -289,7 +289,7 @@ class Login(Resource):
             raise wz.InternalServerError(f'Error: {str(e)}')
 
 
-@api.route('/users/add_home_address')
+@api.route('/users/home_address')
 class AddHomeAddress(Resource):
     """
     Adds a home address to a user.
@@ -342,7 +342,7 @@ class GetHomeAddress(Resource):
             raise wz.InternalServerError(f'Error: {str(e)}')
 
 
-@api.route('/routes/add_route')
+@api.route('/add_route')
 class AddRoute(Resource):
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
@@ -366,7 +366,7 @@ class AddRoute(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
-@api.route('/routes/get_routes')
+@api.route('/routes')
 class Routes(Resource):
     """
     This class supports fetching a list of all routes.
@@ -383,7 +383,7 @@ class Routes(Resource):
         }
 
 
-@api.route('/routes/get/<route_id>')
+@api.route('/routes/<route_id>')
 class GetRouteById(Resource):
     """
     Gets a route by route ID.
@@ -455,7 +455,7 @@ class GetAccountID(Resource):
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
-@api.route('/trains/get_trains')
+@api.route('/trains')
 class Trains(Resource):
     """
     This class supports fetching a list of all trains.
@@ -487,11 +487,11 @@ class AddTrain(Resource):
         try:
             data = request.json
             train_name = data.get('train_name')
-            service_type = data.get('service_type')
+            vehicle_id = data.get('vehicle_id')
             favorite = data.get('favorite', False)
 
             # Call the add_bus function
-            trains.add_train(train_name, service_type, favorite)
+            trains.add_train(train_name, vehicle_id, favorite)
 
             return {'message': 'Train created successfully'}
         except ValueError as e:
@@ -516,7 +516,7 @@ class DelTrain(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
-@api.route('/buses/get_busses')
+@api.route('/buses')
 class Buses(Resource):
     """
     This class supports fetching a list of all buses.

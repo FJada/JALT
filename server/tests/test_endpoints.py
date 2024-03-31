@@ -84,7 +84,7 @@ def test_add_home_address():
 
 def test_get_all_users():
     # Send a GET request to the /users endpoint
-    resp_get_users = TEST_CLIENT.get('/users/get_users')
+    resp_get_users = TEST_CLIENT.get('/users')
 
     # Assert the response status code
     assert resp_get_users.status_code == HTTPStatus.OK
@@ -92,7 +92,7 @@ def test_get_all_users():
 
 def test_get_all_routes():
     # Send a GET request to the /routes endpoint
-    resp_get_routes = TEST_CLIENT.get('/routes/get_routes')
+    resp_get_routes = TEST_CLIENT.get('/routes')
 
     # Assert the response status code
     assert resp_get_routes.status_code == HTTPStatus.OK
