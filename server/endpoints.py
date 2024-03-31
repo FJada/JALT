@@ -41,6 +41,8 @@ ROUTE_EP = '/routes'
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
     'account_id': fields.String(required=True, description='Account ID'),
+    'password': fields.String(required=True, description='Password'),
+
 })
 
 add_home_address_model = api.model('AddHomeAddress', {
@@ -221,7 +223,8 @@ class AddUser(Resource):
             print(f"Received request: username={username}")
             # Call the add_user function
             account_id = us.gen_account_id()
-            us.add_user(username, account_id)
+            password = us.gen_password()
+            us.add_user(username, account_id, password)
 
             return {'message': 'User created successfully'}
         except ValueError as e:

@@ -3,6 +3,7 @@ users.py: this module interfaces to our user data.
 """
 
 import random
+import string
 import data.db_connect as dbc
 
 USERS_COLLECTION = 'users'
@@ -12,6 +13,7 @@ BIG_NUM = 100_000_000_000_000_000_000
 MOCK_ID = '0' * ID_LEN
 USERNAME = 'username'
 ACCOUNT_ID = 'accountId'
+PASSWORD = 'password'
 HOME = 'home'
 WORK = 'work'
 
@@ -34,6 +36,14 @@ def gen_account_id() -> str:
     rand_part = random.randint(0, BIG_NUM)
     return account + str(rand_part)
 
+def gen_password(length=12):
+    """
+    Generate a random password 12 characters long.
+    """
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(length))
+    
+    return password
 
 def get_users_as_dict() -> dict:
     """
@@ -66,7 +76,7 @@ def username_exists(username: str) -> dict:
     return get_user_by_username(username) is not None
 
 
-def add_user(username: str, account_id: str) -> bool:
+def add_user(username: str, account_id: str, password: str) -> bool:
     if username_exists(username):
         raise ValueError(f'Duplicate username: {username=}, please choose another username!')
     if not username:
@@ -74,6 +84,7 @@ def add_user(username: str, account_id: str) -> bool:
     user = {}
     user[USERNAME] = username
     user[ACCOUNT_ID] = account_id
+    user[PASSWORD] = password
     dbc.connect_db()
     _id = dbc.insert_one(USERS_COLLECTION, user)
     return _id is not None
@@ -108,3 +119,7 @@ def get_account_id(user: dict):
 
 def get_home_address(user: dict):
     return user.get(HOME, '')
+
+
+def get_password(user: dict):
+    return user.get(PASSWORD, '')

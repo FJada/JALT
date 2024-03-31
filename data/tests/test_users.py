@@ -7,7 +7,8 @@ import data.users as us
 def temp_user():
     username = 'Test'
     account_id = us.gen_account_id()
-    ret = us.add_user(username, account_id)
+    password = us.gen_password()
+    ret = us.add_user(username, account_id, password)
     yield username
     if us.username_exists(username):
         us.del_user(username, 1)
@@ -38,21 +39,26 @@ def test_gen_id():
     assert isinstance(_id, str)
     assert len(_id) == us.ID_LEN
 
-
+def test_gen_password():
+    password = us.gen_password()
+    assert password is not None
+   
+    
 def test_add_dup_user(temp_user):
-    account_id = us.gen_account_id
+    account_id = us.gen_account_id()
+    password = us.gen_password()
     with pytest.raises(ValueError):
-        us.add_user(temp_user, account_id)
+        us.add_user(temp_user, account_id, password)
 
 
 def test_gen_account_id():
-    account_id = us.gen_account_id
+    account_id = us.gen_account_id()
     assert account_id is not None
 
 
 def test_add_blank_user():
     with pytest.raises(ValueError):
-        us.add_user('', 4)
+        us.add_user('', 4, '')
 
 
 def test_del_user(temp_user):
