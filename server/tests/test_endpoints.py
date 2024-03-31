@@ -102,10 +102,12 @@ def test_get_all_routes():
 def setup_user_with_home_address():
     # Setup logic to add a user with a home address to the system
     test_username = 'test_username'
+    test_account_id = 'test_account_id'
+    test_password = 'test_password'
     test_home_address = '123 Main Street'
 
     # Call the add_user and add_home_address functions from your application code
-    us.add_user(test_username, 'test_account_id')
+    us.add_user(test_username, test_account_id, test_password)
     us.add_home_address(test_username, test_home_address)
 
     # Return the username and home address for later use in tests
