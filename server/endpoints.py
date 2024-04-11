@@ -597,5 +597,6 @@ class Form(Resource):
             'fields': form.get_form()
         }
 
+
 if __name__ == '__main__':
     app.run(debug=True)
