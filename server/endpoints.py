@@ -7,6 +7,7 @@ import data.users as us
 import data.routes as routes
 import data.buses as buses
 import data.trains as trains
+import data.form as form
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -582,6 +583,19 @@ class DelBus(Resource):
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
 
+
+@api.route('/form')
+class Form(Resource):
+    """
+    This class serves the dropdown form fields.
+    """
+    def get(self):
+        """
+        Returns the dropdown form fields.
+        """
+        return {
+            'fields': form.get_form()
+        }
 
 if __name__ == '__main__':
     app.run(debug=True)
