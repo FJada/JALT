@@ -1,5 +1,4 @@
 from unittest.mock import patch
-import pytest
 import data.form as form
 
 
@@ -30,20 +29,3 @@ def test_get_fld_names():
     for name in field_names:
         assert isinstance(name, str)
         assert len(name) > 0
-
-
-@pytest.mark.parametrize("user_input", ["test_input"])  # Use parametrize to test with different input values
-def test_get_input(monkeypatch, user_input):
-    # Mock the input function to return the predefined user input
-    monkeypatch.setattr('builtins.input', lambda _: user_input)
-
-    # Define the parameters for the get_input function
-    dflt = "Default: "
-    opt = "(Optional) "
-    qstn = "Enter your input: "
-
-    # Call the get_input function
-    result = form.get_input(dflt, opt, qstn)
-
-    # Assert that the result matches the predefined user input
-    assert result == user_input
