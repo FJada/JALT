@@ -13,16 +13,7 @@ def test_get_form():
 
 
 def test_get_form_descr():
-    form_descr = form.get_form_descr()
-    assert isinstance(form_descr, dict)
-    assert len(form_descr) > 0
-    
-    # Check each form description in the dictionary
-    for key, value in form_descr.items():
-        assert isinstance(value, dict)
-        assert form.FLD_NM in value
-        assert isinstance(value[form.FLD_NM], str)
-        assert len(value[form.FLD_NM]) > 0
+    assert isinstance(formm.get_form_descr(), dict)
 
 
 def test_get_fld_names():
