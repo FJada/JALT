@@ -2,6 +2,7 @@ from unittest.mock import patch
 import pytest
 import data.form as form
 
+
 def test_get_form():
     form_data = form.get_form()
     assert isinstance(form_data, list)
@@ -29,7 +30,6 @@ def test_get_fld_names():
     for name in field_names:
         assert isinstance(name, str)
         assert len(name) > 0
-
 
 
 @pytest.mark.parametrize("user_input", ["test_input"])  # Use parametrize to test with different input values
