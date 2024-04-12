@@ -13,7 +13,7 @@ def test_get_form():
 
 
 def test_get_form_descr():
-    assert isinstance(formm.get_form_descr(), dict)
+    assert isinstance(form.get_form_descr(), dict)
 
 
 def test_get_fld_names():
