@@ -34,6 +34,6 @@ def test_get_input(monkeypatch):
     assert result == user_input
     
 
-@patch('examples.form_filler.get_input', return_value='Y')
+@patch('data.form_filler.get_input', return_value='Y')
 def test_form(mock_get_input):
     assert isinstance(ff.form(ff.TEST_FLD_DESCRIPS), dict)
