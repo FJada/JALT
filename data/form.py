@@ -12,6 +12,8 @@ SELECTED_TRAIN_LINE = 'selected_train_line'
 # Define the available train lines for the dropdown
 TRAIN_LINES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'J', 'L', 'M', 'N', 'Q', 'R', 'S', 'Z', '1', '2', '3', '4', '5', '6', '7']
 
+BOROUGHS = ['Queens', 'Manhattan', 'Bronx', 'Brooklyn', 'Staten Island']
+
 # Define the dropdown form fields
 DROPDOWN_FORM_FLDS = [
     {
