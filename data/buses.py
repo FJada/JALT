@@ -34,12 +34,14 @@ def get_buses_as_dict() -> dict:
     return dbc.fetch_all_as_dict(BUS_NAME, BUSES_COLLECTION)
 
 
-# def get_buses_by_borough_as_dict(borough: str) -> dict:
+# def get_buses_by_borough_as_list(bus_borough: str) -> list:
 #     dbc.connect_db()
-#     all_buses = dbc.fetch_all_as_dict(BUS_NAME, BUSES_COLLECTION)
-#     # Filter buses by the provided borough
-#     buses_by_borough = [bus for bus in all_buses if get_bus_borough(bus) == borough]
-#     return buses_by_borough
+#     buses_by_borough = []
+#     all_buses = get_buses_as_dict()
+#     for bus in all_buses:
+#         new_bus_borough = bus[BOROUGH]
+#         if new_bus_borough == bus_borough:
+#             buses_by_borough.append(bus)
 
 
 def get_bus_by_bus_name(bus_name: str) -> dict:

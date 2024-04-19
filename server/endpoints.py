@@ -10,6 +10,7 @@ import data.trains as trains
 import data.form as form
 from flask_cors import CORS
 
+
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
@@ -537,7 +538,7 @@ class Buses(Resource):
             TITLE: 'Current buses',
             DATA: buses.get_buses_as_dict(),
             RETURN: '/MainMenu',
-        }
+            }
 
 
 # @api.route('/buses/<borough>')
@@ -551,10 +552,12 @@ class Buses(Resource):
 #         """
 #         This method returns buses for the specified borough.
 #         """
+#         buses_by_borough = []
+#         buses_by_borough = buses.get_buses_by_borough_as_list(borough)
 #         return {
 #             TYPE: DATA,
 #             TITLE: f'Buses in {borough}',
-#             DATA: buses.get_buses_by_borough_as_dict(borough),
+#             DATA: buses_by_borough,
 #             RETURN: '/MainMenu',
 #         }
 

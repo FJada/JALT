@@ -19,19 +19,17 @@ def test_get_buses_as_dict():
     for bus in buses: 
         assert isinstance(bus, str)
         assert isinstance(buses[bus], dict)
-        
-        
-# def test_get_buses_by_borough_as_dict():
+     
+   
+# def test_get_buses_by_borough_as_list(temp_borough):
 #     # Call the method to be tested with a specific borough
-#     borough = "Queens"
-#     buses = bu.get_buses_by_borough_as_dict(borough)  
-    
+#     sorted_buses = bu.get_buses_by_borough_as_list(temp_borough)
 #     # Assertions
-#     assert isinstance(buses, list)
-#     for bus in buses:
+#     assert isinstance(sorted_buses, list)
+#     for bus in sorted_buses:
 #         assert isinstance(bus, dict)
-#         assert 'borough' in bus
-#         assert bus['borough'] == borough
+#         assert isinstance(bus.get_bus_borough())
+#         assert bus.get_bus_borough() == temp_borough
 
 
 def test_favorite_bus(temp_bus):
