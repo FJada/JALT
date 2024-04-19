@@ -545,7 +545,6 @@ class BusesByBorough(Resource):
     """
     This class supports fetching a list of buses by borough.
     """
-
     def get(self, borough):
         """
         This method returns buses for the specified borough.
@@ -556,7 +555,7 @@ class BusesByBorough(Resource):
             DATA: buses.get_buses_by_borough_as_dict(borough),
             RETURN: '/MainMenu',
         }
-      
+
 
 @api.route('/buses/add_bus')
 class AddBus(Resource):
