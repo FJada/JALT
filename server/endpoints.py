@@ -556,6 +556,32 @@ class BusesByBorough(Resource):
             RETURN: '/MainMenu',
         }
 
+   
+@api.route('/buses/<bus_name>')
+class GetBusByBusName(Resource):
+    """
+    Gets a bus by bus name.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, bus_name):
+        """
+        Gets a bus by bus name.
+        """
+        try:
+            bus = buses.get_bus_by_bus_name(bus_name)  
+            if bus:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'Bus Details for {bus_name}',
+                    DATA: bus,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with username {bus_name} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+        
 
 @api.route('/buses/add_bus')
 class AddBus(Resource):
