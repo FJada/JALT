@@ -646,5 +646,10 @@ class Form(Resource):
         }
 
 
+@app.route('/endpointA') # test endpoint for info page
+def endpoint_a():
+    return 'Hello, world!'
+
+
 if __name__ == '__main__':
     app.run(debug=True)
