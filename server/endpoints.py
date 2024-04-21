@@ -646,7 +646,7 @@ class Form(Resource):
         }
 
 
-@app.route('/endpointA') # test endpoint for info page
+@api.route('/endpointA')  # test endpoint for info page
 def endpoint_a():
     return 'Hello, world!'
 
