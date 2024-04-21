@@ -14,6 +14,32 @@ TRAIN_LINES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'J', 'L', 'M', 'N', 'Q', 'R', 
 
 BOROUGHS = ['Queens', 'Manhattan', 'Bronx', 'Brooklyn', 'Staten Island']
 
+ENDPOINTS = {
+    'A': '/endpointA',
+    'B': '/endpointB',
+    'C': '/endpointC',
+    'D': '/endpointD',
+    'E': '/endpointE',
+    'F': '/endpointF',
+    'G': '/endpointG',
+    'J': '/endpointJ',
+    'L': '/endpointL',
+    'M': '/endpointM',
+    'N': '/endpointN',
+    'Q': '/endpointQ',
+    'R': '/endpointR',
+    'S': '/endpointS',
+    'Z': '/endpointZ',
+    '1': '/endpoint1',
+    '2': '/endpoint2',
+    '3': '/endpoint3',
+    '4': '/endpoint4',
+    '5': '/endpoint5',
+    '6': '/endpoint6',
+    '7': '/endpoint7',
+
+}
+
 # Define the dropdown form fields
 DROPDOWN_FORM_FLDS = [
     {
@@ -27,6 +53,7 @@ DROPDOWN_FORM_FLDS = [
         ff.CHOICES: TRAIN_LINES,
         ff.PARAM_TYPE: ff.PATH,  # Use PATH for dropdown
         ff.OPT: False,
+        'endpoints': ENDPOINTS,
     },
 ]
 
