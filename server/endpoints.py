@@ -76,6 +76,7 @@ train_model = api.model('Train', {
     'favorite': fields.Boolean(description='Favorite', default=False),
 })
 
+
 @api.route('/errorlog')
 class ErrorLog(Resource):
     """
