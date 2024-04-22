@@ -1,6 +1,7 @@
 import pytest
 
 import data.users as us
+from unittest.mock import patch
 
 
 @pytest.fixture(scope='function')
@@ -90,7 +91,7 @@ def test_get_user_by_account_id(temp_user):
     user = us.get_user_by_account_id(account_id)
     assert isinstance(user, dict)
 
-
+@patch('data.db_connect.fetch_all_as_dict', side_effect=Exception('Mocked exception'))
 def test_get_users_as_dict_error():
     with pytest.raises(Exception):
         us.get_users_as_dict()
