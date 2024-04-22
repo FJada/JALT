@@ -98,4 +98,4 @@ def test_add_user_blank_username_error():
 
 def test_get_user_by_password_error():
     with pytest.raises(ValueError):
-        us.get_user_by_password(' ')
+        us.get_user_by_password('')
