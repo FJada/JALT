@@ -4,19 +4,8 @@ import data.db_connect as dbc
 import logging
 import os
 
-
-Given your directory structure where error.log is intended to be within the server directory and your users.py file is within the data directory, you'll need to adjust the path accordingly in users.py to correctly reference the error.log file.
-
-Assuming you want users.py in the data directory to write logs to error.log in the server directory, you can modify users.py like this:
-
-python
-Copy code
-import logging
-import os
-
-# Construct the path to the error log file relative to the current script (users.py)
-log_file_path = os.path.join(os.path.dirname(__file__), '..', 'server', 'error.log')
-log_file_path = os.path.abspath(log_file_path)
+# Directly specify the absolute path to the error log file
+log_file_path = '/home/amyf/SWE/JALT/server/error.log'
 
 # Configure the logger
 logging.basicConfig(filename=log_file_path, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
