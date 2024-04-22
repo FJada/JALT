@@ -7,7 +7,9 @@ import data.routes as routes
 import data.buses as buses
 import data.trains as trains
 import logging
+import data.form as form
 from flask_cors import CORS
+
 
 app = Flask(__name__)
 api = Api(app)
@@ -553,7 +555,54 @@ class Buses(Resource):
             TITLE: 'Current buses',
             DATA: buses.get_buses_as_dict(),
             RETURN: '/MainMenu',
-        }
+            }
+
+
+# @api.route('/buses/<borough>')
+# class BusesByBorough(Resource):
+#     """
+#     This class supports fetching a list of buses by borough.
+#     """
+#     @api.response(HTTPStatus.OK, 'Success')
+#     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+#     def get(self, borough):
+#         """
+#         This method returns buses for the specified borough.
+#         """
+#         buses_by_borough = []
+#         buses_by_borough = buses.get_buses_by_borough_as_list(borough)
+#         return {
+#             TYPE: DATA,
+#             TITLE: f'Buses in {borough}',
+#             DATA: buses_by_borough,
+#             RETURN: '/MainMenu',
+#         }
+
+
+@api.route('/buses/<bus_name>')
+class GetBusByBusName(Resource):
+    """
+    Gets a bus by bus name.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, bus_name):
+        """
+        Gets a bus by bus name.
+        """
+        try:
+            bus = buses.get_bus_by_bus_name(bus_name)
+            if bus:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'Bus Details for {bus_name}',
+                    DATA: bus,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with username {bus_name} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
 
 
 @api.route('/buses/add_bus')
@@ -598,6 +647,20 @@ class DelBus(Resource):
             return {bus_name: 'Deleted'}
         except ValueError as e:
             raise wz.NotFound(f'{str(e)}')
+
+
+@api.route('/form')
+class Form(Resource):
+    """
+    This class serves the dropdown form fields.
+    """
+    def get(self):
+        """
+        Returns the dropdown form fields.
+        """
+        return {
+            'fields': form.get_form()
+        }
 
 
 if __name__ == '__main__':
