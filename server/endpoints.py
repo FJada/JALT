@@ -1,12 +1,12 @@
-# In endpoints.py
 from http import HTTPStatus
-from flask import Flask, request
+from flask import Flask, request, send_file
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 import data.users as us
 import data.routes as routes
 import data.buses as buses
 import data.trains as trains
+import logging
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -37,6 +37,8 @@ TITLE = 'Title'
 RETURN = 'Return'
 HOME_ADDR_EP = '/home_address'
 ROUTE_EP = '/routes'
+# Configure logging
+logging.basicConfig(filename='error.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
@@ -71,6 +73,21 @@ train_model = api.model('Train', {
     'vehicle_id': fields.String(required=True, description='Vehicle ID'),
     'favorite': fields.Boolean(description='Favorite', default=False),
 })
+
+@api.route('/errorlog')
+class ErrorLog(Resource):
+    """
+    This class allows retrieval of the error log file.
+    """
+    def get(self):
+        """
+        Retrieves and returns the content of the error log file.
+        """
+        try:
+            # Use send_file to return the error log file
+            return send_file('error.log', mimetype='text/plain')
+        except FileNotFoundError:
+            api.abort(HTTPStatus.NOT_FOUND, "Error log file not found")
 
 
 @api.route('/hello')
