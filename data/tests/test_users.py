@@ -89,3 +89,8 @@ def test_get_user_by_account_id(temp_user):
     account_id = us.get_account_id(user)
     user = us.get_user_by_account_id(account_id)
     assert isinstance(user, dict)
+
+
+def test_get_users_as_dict_error():
+    with pytest.raises(Exception):
+        us.get_users_as_dict()
