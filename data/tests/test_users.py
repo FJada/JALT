@@ -104,3 +104,8 @@ def test_get_user_by_password_error():
 def test_get_user_by_account_id_error():
     with pytest.raises(Exception):
         us.get_user_by_account_id('test_account_id')
+
+
+def test_username_exists_error():
+    with pytest.raises(Exception):
+        us.username_exists('test_username')
