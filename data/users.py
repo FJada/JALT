@@ -4,7 +4,7 @@ import data.db_connect as dbc
 import logging
 
 # Define logger
-log_file_path = '../data/error.log'
+log_file_path = '../server/error.log'
 logging.basicConfig(filename=log_file_path, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
