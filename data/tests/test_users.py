@@ -94,3 +94,13 @@ def test_get_user_by_account_id(temp_user):
 def test_add_user_blank_username_error():
     with pytest.raises(ValueError):
         us.add_user('', 'test_account_id', 'test_password')
+
+
+def test_get_user_by_password_error():
+    with pytest.raises(Exception):
+        us.get_user_by_password('test_password')
+
+
+def test_get_user_by_account_id_error():
+    with pytest.raises(Exception):
+        us.get_user_by_account_id('test_account_id')
