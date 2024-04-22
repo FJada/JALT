@@ -2,7 +2,6 @@ import random
 import string
 import data.db_connect as dbc
 import logging
-import os
 
 # Directly specify the absolute path to the error log file
 log_file_path = '/home/amyf/SWE/JALT/server/error.log'
