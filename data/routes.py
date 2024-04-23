@@ -37,7 +37,7 @@ def get_route_by_route_id(route_id: str) -> dict:
 
 def route_exists(route_id: str) -> dict:
     """
-    Returns boolean is account user exists
+    Returns boolean if account user exists
     """
     return get_route_by_route_id(route_id) is not None
 

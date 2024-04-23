@@ -4,7 +4,7 @@ import data.db_connect as dbc
 import logging
 
 # Directly specify the absolute path to the error log file
-log_file_path = '../server/error.log'
+log_file_path = './server/error.log'
 
 # Configure the logger
 logging.basicConfig(filename=log_file_path, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -104,6 +104,8 @@ def get_user_by_password(password: str) -> dict:
     """
     try:
         dbc.connect_db()
+        if not password:
+            raise ValueError('Password may not be blank')
         return dbc.fetch_one(USERS_COLLECTION, {PASSWORD: password})
     except Exception as e:
         logger.error(f"Error fetching user by password: {str(e)}")
