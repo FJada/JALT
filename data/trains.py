@@ -2,7 +2,6 @@ import random
 import data.db_connect as dbc
 import logging
 
-# Directly specify the absolute path to the error log file
 log_file_path = './server/error.log'
 
 # Configure the logger
