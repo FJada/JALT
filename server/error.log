@@ -193,3 +193,12 @@ KeyError: 'user_id'
 2024-04-27 20:53:46,906 - WARNING -  * Debugger is active!
 2024-04-27 20:53:46,918 - INFO -  * Debugger PIN: 224-100-834
 2024-04-27 20:54:18,424 - INFO - 127.0.0.1 - - [27/Apr/2024 20:54:18] "[33mGET /users/jada HTTP/1.1[0m" 404 -
+2024-04-27 20:58:01,057 - INFO - 127.0.0.1 - - [27/Apr/2024 20:58:01] "OPTIONS /add_user HTTP/1.1" 200 -
+2024-04-27 20:58:01,088 - ERROR - Error adding user '': Username may not be blank
+2024-04-27 20:58:01,090 - INFO - 127.0.0.1 - - [27/Apr/2024 20:58:01] "[31m[1mPOST /add_user HTTP/1.1[0m" 400 -
+2024-04-27 20:58:02,199 - INFO - 127.0.0.1 - - [27/Apr/2024 20:58:02] "GET /users HTTP/1.1" 200 -
+2024-04-27 20:58:13,791 - INFO - 127.0.0.1 - - [27/Apr/2024 20:58:13] "GET /users/newuser232 HTTP/1.1" 200 -
+2024-04-27 21:03:20,792 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-04-27 21:03:21,380 - INFO -  * Restarting with stat
+2024-04-27 21:03:22,407 - WARNING -  * Debugger is active!
+2024-04-27 21:03:22,420 - INFO -  * Debugger PIN: 224-100-834
