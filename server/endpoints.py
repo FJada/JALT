@@ -284,7 +284,7 @@ class GetUserByPassword(Resource):
     """
     @api.response(HTTPStatus.OK, 'Success')
     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
-    def get(self,password):
+    def get(self, password):
         """
         Gets a user by password.
         """
