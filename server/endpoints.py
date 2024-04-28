@@ -277,6 +277,32 @@ class GetUserByAccountId(Resource):
             raise wz.InternalServerError(f'Error: {str(e)}')
 
 
+@api.route('/users/account/<password>')
+class GetUserByPassword(Resource):
+    """
+    Gets a user by password
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self,password):
+        """
+        Gets a user by password.
+        """
+        try:
+            user = us.get_user_by_password(password)
+            if user:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'User Details for Account ID {password}',
+                    DATA: user,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'User with account ID {password} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
 @api.route('/users/login')
 class Login(Resource):
     """
