@@ -1,10 +1,12 @@
-"""
-This module provides the glossary query form
-"""
-
 import data.form_filler as ff
+import logging
 
-from data.form_filler import FLD_NM  # for tests
+# Directly specify the absolute path to the error log file
+log_file_path = './server/error.log'
+
+# Configure the logger
+logging.basicConfig(filename=log_file_path, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 # Define the field names for the dropdown form
 SELECTED_TRAIN_LINE = 'selected_train_line'
@@ -43,12 +45,12 @@ ENDPOINTS = {
 # Define the dropdown form fields
 DROPDOWN_FORM_FLDS = [
     {
-        FLD_NM: 'Instructions',
+        ff.FLD_NM: 'Instructions',
         ff.QSTN: 'Select a train line:',
         ff.INSTRUCTIONS: True,
     },
     {
-        FLD_NM: SELECTED_TRAIN_LINE,
+        ff.FLD_NM: SELECTED_TRAIN_LINE,
         ff.QSTN: '',
         ff.CHOICES: TRAIN_LINES,
         ff.PARAM_TYPE: ff.PATH,  # Use PATH for dropdown
@@ -59,24 +61,45 @@ DROPDOWN_FORM_FLDS = [
 
 
 def get_form() -> list:
-    return DROPDOWN_FORM_FLDS
+    """
+    Returns the dropdown form fields.
+    """
+    try:
+        return DROPDOWN_FORM_FLDS
+    except Exception as e:
+        logger.error(f"Error getting dropdown form: {str(e)}")
+        raise
 
 
 def get_form_descr() -> dict:
     """
     For Swagger!
     """
-    return ff.get_form_descr(DROPDOWN_FORM_FLDS)
+    try:
+        return ff.get_form_descr(DROPDOWN_FORM_FLDS)
+    except Exception as e:
+        logger.error(f"Error getting dropdown form description: {str(e)}")
+        raise
 
 
 def get_fld_names() -> list:
-    return ff.get_fld_names(DROPDOWN_FORM_FLDS)
+    """
+    Returns the names of the form fields.
+    """
+    try:
+        return ff.get_fld_names(DROPDOWN_FORM_FLDS)
+    except Exception as e:
+        logger.error(f"Error getting field names: {str(e)}")
+        raise
 
 
 def main():
-    # print(f'Form: {get_form()=}\n\n')
-    print(f'Form: {get_form_descr()=}\n\n')
-    # print(f'Field names: {get_fld_names()=}\n\n')
+    try:
+        # print(f'Form: {get_form()=}\n\n')
+        print(f'Form: {get_form_descr()=}\n\n')
+        # print(f'Field names: {get_fld_names()=}\n\n')
+    except Exception as e:
+        logger.error(f"Error in main function: {str(e)}")
 
 
 if __name__ == "__main__":
