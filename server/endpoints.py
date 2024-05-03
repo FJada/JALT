@@ -568,6 +568,32 @@ class DelTrain(Resource):
             raise wz.NotFound(f'{str(e)}')
 
 
+@api.route('/trains/<train_name>')
+class GetTrainByTrainName(Resource):
+    """
+    Gets a train by train name
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
+    def get(self, train_name):
+        """
+        Gets a train by train name
+        """
+        try:
+            train = trains.get_train_by_train_name(train_name)
+            if trains:
+                return {
+                    TYPE: DATA,
+                    TITLE: f'Train Details for {train_name}',
+                    DATA: train,
+                    RETURN: '/MainMenu',
+                }
+            else:
+                raise wz.NotFound(f'train with name {train_name} not found.')
+        except ValueError as e:
+            raise wz.InternalServerError(f'Error: {str(e)}')
+
+
 @api.route('/buses')
 class Buses(Resource):
     """
@@ -583,27 +609,6 @@ class Buses(Resource):
             DATA: buses.get_buses_as_dict(),
             RETURN: '/MainMenu',
             }
-
-
-# @api.route('/buses/<borough>')
-# class BusesByBorough(Resource):
-#     """
-#     This class supports fetching a list of buses by borough.
-#     """
-#     @api.response(HTTPStatus.OK, 'Success')
-#     @api.response(HTTPStatus.NOT_FOUND, 'Not Found')
-#     def get(self, borough):
-#         """
-#         This method returns buses for the specified borough.
-#         """
-#         buses_by_borough = []
-#         buses_by_borough = buses.get_buses_by_borough_as_list(borough)
-#         return {
-#             TYPE: DATA,
-#             TITLE: f'Buses in {borough}',
-#             DATA: buses_by_borough,
-#             RETURN: '/MainMenu',
-#         }
 
 
 @api.route('/buses/<bus_name>')
@@ -627,7 +632,7 @@ class GetBusByBusName(Resource):
                     RETURN: '/MainMenu',
                 }
             else:
-                raise wz.NotFound(f'User with username {bus_name} not found.')
+                raise wz.NotFound(f'Bus with name {bus_name} not found.')
         except ValueError as e:
             raise wz.InternalServerError(f'Error: {str(e)}')
 
