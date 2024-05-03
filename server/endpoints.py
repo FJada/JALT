@@ -581,7 +581,7 @@ class GetTrainByTrainName(Resource):
         """
         try:
             train = trains.get_train_by_train_name(train_name)
-            if trains:
+            if train:
                 return {
                     TYPE: DATA,
                     TITLE: f'Train Details for {train_name}',
