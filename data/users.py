@@ -182,6 +182,10 @@ def update_username(username: str, new_username: str):
         # Check if the new username already exists
         if username_exists(new_username):
             return "Username already exists. Please choose a different one."
+        if not new_username:
+            return "New username cannot be empty."
+        elif new_username == username:
+            return "New username cannot be the same as the current username."
         user = get_user_by_username(username)
         if user:
             # Update the username in the database
@@ -196,31 +200,6 @@ def update_username(username: str, new_username: str):
     except Exception as e:
         logger.error(f"Error updating username '{username}': {str(e)}")
         return "An error occurred while updating the username."
-
-
-def update_password(password: str, new_password: str):
-    try:
-        # Check if the passwords are not empty
-        if not password or not new_password:
-            raise ValueError("Password and new password cannot be empty.")
-        # Retrieve user by password
-        user = get_user_by_password(password)
-        if user:
-            # Check if the new password already exists
-            if password_exists(new_password):
-                return "New password already exists. Please choose a different one."
-            # Update the password in the database
-            dbc.connect_db()
-            result = dbc.update_doc(USERS_COLLECTION, {PASSWORD: password}, {PASSWORD: new_password})
-            if result.modified_count == 1:
-                return "Password updated successfully."
-            else:
-                return "Failed to update password."
-        else:
-            return "Password not found."
-    except Exception as e:
-        logger.error(f"Error updating password '{password}': {str(e)}")
-        return "An error occurred while updating the password."
 
 
 def get_username(user: dict) -> str:

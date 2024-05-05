@@ -54,11 +54,6 @@ update_username_model = api.model('UpdateUsername', {
     'new_username': fields.String(required=True, description='New Username'),
 })
 
-update_password_model = api.model('UpdatePassword', {
-    'password': fields.String(required=True, description='Current Password'),
-    'new_password': fields.String(required=True, description='New Password'),
-})
-
 add_home_address_model = api.model('AddHomeAddress', {
     'username': fields.String(required=True, description='Username'),
     'home_address': fields.String(required=True, description='Home Address'),
@@ -278,31 +273,6 @@ class UpdateUsername(Resource):
             username = data.get('username')
             new_username = data.get('new_username')
             message = us.update_username(username, new_username)
-            return {'message': message}, HTTPStatus.OK
-        except Exception as e:
-            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
-
-
-@api.route('/users/update_password')
-class UpdatePassword(Resource):
-    """
-    Update a user's password.
-    """
-    @api.response(HTTPStatus.OK, 'Success')
-    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
-    @api.expect(update_password_model)
-    def post(self):
-        """
-        Update a user's password.
-        """
-        try:
-            data = request.json
-            password = data.get('password')
-            new_password = data.get('new_password')
-            message = us.update_password(password, new_password)
-            # Handle the case where the password is not found
-            if message == "Password not found.":
-                return {'message': message}, HTTPStatus.NOT_FOUND
             return {'message': message}, HTTPStatus.OK
         except Exception as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
