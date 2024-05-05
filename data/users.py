@@ -167,6 +167,28 @@ def del_user(username: str, delete_flag: bool):
         raise
 
 
+def update_username(username: str, new_username: str):
+    try:
+        # Check if the new username already exists
+        if username_exists(new_username):
+            return "Username already exists. Please choose a different one."
+        
+        user = get_user_by_username(username)
+        if user:
+            # Update the username in the database
+            dbc.connect_db()
+            result = dbc.update_doc(USERS_COLLECTION, {USERNAME: username}, {USERNAME: new_username})
+            if result.modified_count == 1:
+                return "Username updated successfully."
+            else:
+                return "Failed to update username."
+        else:
+            return "Username not found."
+    except Exception as e:
+        logger.error(f"Error updating username '{username}': {str(e)}")
+        return "An error occurred while updating the username."
+
+
 def get_username(user: dict) -> str:
     return user.get(USERNAME, '')
 

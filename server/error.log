@@ -542,3 +542,512 @@ KeyError: 'user_id'
 2024-05-03 12:56:07,896 - INFO -  * Restarting with stat
 2024-05-03 12:56:08,401 - WARNING -  * Debugger is active!
 2024-05-03 12:56:08,411 - INFO -  * Debugger PIN: 224-100-834
+2024-05-03 12:57:48,899 - INFO - 127.0.0.1 - - [03/May/2024 12:57:48] "GET / HTTP/1.1" 200 -
+2024-05-03 12:57:48,958 - INFO - 127.0.0.1 - - [03/May/2024 12:57:48] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-03 12:57:48,965 - INFO - 127.0.0.1 - - [03/May/2024 12:57:48] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-03 12:57:48,966 - INFO - 127.0.0.1 - - [03/May/2024 12:57:48] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-03 12:57:48,973 - INFO - 127.0.0.1 - - [03/May/2024 12:57:48] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-03 12:57:49,392 - INFO - 127.0.0.1 - - [03/May/2024 12:57:49] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-03 12:57:49,398 - INFO - 127.0.0.1 - - [03/May/2024 12:57:49] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-03 12:57:59,384 - INFO - 127.0.0.1 - - [03/May/2024 12:57:59] "GET /trains/6 HTTP/1.1" 200 -
+2024-05-03 12:58:05,699 - INFO - 127.0.0.1 - - [03/May/2024 12:58:05] "[33mGET /trains/7 HTTP/1.1[0m" 404 -
+2024-05-03 12:59:08,183 - INFO - 127.0.0.1 - - [03/May/2024 12:59:08] "[33mGET /trains/2 HTTP/1.1[0m" 404 -
+2024-05-03 13:00:04,811 - INFO - 127.0.0.1 - - [03/May/2024 13:00:04] "OPTIONS /add_user HTTP/1.1" 200 -
+2024-05-03 13:00:11,239 - INFO - 127.0.0.1 - - [03/May/2024 13:00:11] "POST /add_user HTTP/1.1" 200 -
+2024-05-03 13:00:11,649 - INFO - 127.0.0.1 - - [03/May/2024 13:00:11] "GET /users/testjada HTTP/1.1" 200 -
+2024-05-03 13:00:11,790 - INFO - 127.0.0.1 - - [03/May/2024 13:00:11] "GET /users/testjada HTTP/1.1" 200 -
+2024-05-03 13:10:42,948 - INFO - 127.0.0.1 - - [03/May/2024 13:10:42] "GET /users/testjada HTTP/1.1" 200 -
+2024-05-03 13:10:43,171 - INFO - 127.0.0.1 - - [03/May/2024 13:10:43] "GET /users/testjada HTTP/1.1" 200 -
+2024-05-03 13:40:00,567 - INFO - 127.0.0.1 - - [03/May/2024 13:40:00] "OPTIONS /add_user HTTP/1.1" 200 -
+2024-05-03 13:40:00,624 - ERROR - Error adding user 'testjada': Duplicate username: username='testjada', please choose another username!
+2024-05-03 13:40:00,626 - INFO - 127.0.0.1 - - [03/May/2024 13:40:00] "[31m[1mPOST /add_user HTTP/1.1[0m" 400 -
+2024-05-03 13:40:05,542 - INFO - 127.0.0.1 - - [03/May/2024 13:40:05] "POST /add_user HTTP/1.1" 200 -
+2024-05-03 13:40:05,606 - INFO - 127.0.0.1 - - [03/May/2024 13:40:05] "GET /users/testjada6 HTTP/1.1" 200 -
+2024-05-03 13:40:05,620 - INFO - 127.0.0.1 - - [03/May/2024 13:40:05] "GET /users/testjada6 HTTP/1.1" 200 -
+2024-05-03 13:40:09,632 - INFO - 127.0.0.1 - - [03/May/2024 13:40:09] "GET /form HTTP/1.1" 200 -
+2024-05-03 13:40:09,640 - INFO - 127.0.0.1 - - [03/May/2024 13:40:09] "GET /form HTTP/1.1" 200 -
+2024-05-03 14:49:09,470 - INFO - 127.0.0.1 - - [03/May/2024 14:49:09] "GET /form HTTP/1.1" 200 -
+2024-05-03 14:49:09,489 - INFO - 127.0.0.1 - - [03/May/2024 14:49:09] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:09:12,058 - INFO - 127.0.0.1 - - [03/May/2024 15:09:12] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:09:12,086 - INFO - 127.0.0.1 - - [03/May/2024 15:09:12] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:14:52,845 - INFO - 127.0.0.1 - - [03/May/2024 15:14:52] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:14:52,859 - INFO - 127.0.0.1 - - [03/May/2024 15:14:52] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:15:06,069 - INFO - 127.0.0.1 - - [03/May/2024 15:15:06] "OPTIONS /add_user HTTP/1.1" 200 -
+2024-05-03 15:15:06,343 - INFO - 127.0.0.1 - - [03/May/2024 15:15:06] "POST /add_user HTTP/1.1" 200 -
+2024-05-03 15:15:06,396 - INFO - 127.0.0.1 - - [03/May/2024 15:15:06] "GET /users/testjada2 HTTP/1.1" 200 -
+2024-05-03 15:15:06,410 - INFO - 127.0.0.1 - - [03/May/2024 15:15:06] "GET /users/testjada2 HTTP/1.1" 200 -
+2024-05-03 15:15:20,246 - INFO - 127.0.0.1 - - [03/May/2024 15:15:20] "GET /trains HTTP/1.1" 200 -
+2024-05-03 15:15:32,500 - INFO - 127.0.0.1 - - [03/May/2024 15:15:32] "OPTIONS /users/login HTTP/1.1" 200 -
+2024-05-03 15:15:32,525 - INFO - 127.0.0.1 - - [03/May/2024 15:15:32] "POST /users/login HTTP/1.1" 200 -
+2024-05-03 15:15:33,473 - INFO - 127.0.0.1 - - [03/May/2024 15:15:33] "POST /users/login HTTP/1.1" 200 -
+2024-05-03 15:16:47,657 - INFO - 127.0.0.1 - - [03/May/2024 15:16:47] "OPTIONS /add_user HTTP/1.1" 200 -
+2024-05-03 15:16:47,688 - INFO - 127.0.0.1 - - [03/May/2024 15:16:47] "POST /add_user HTTP/1.1" 200 -
+2024-05-03 15:27:17,454 - INFO - 127.0.0.1 - - [03/May/2024 15:27:17] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:27:17,468 - INFO - 127.0.0.1 - - [03/May/2024 15:27:17] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:32:57,499 - INFO - 127.0.0.1 - - [03/May/2024 15:32:57] "[33mGET /users/account/testjada2 HTTP/1.1[0m" 404 -
+2024-05-03 15:33:12,721 - INFO - 127.0.0.1 - - [03/May/2024 15:33:12] "GET /users HTTP/1.1" 200 -
+2024-05-03 15:38:48,171 - INFO - 127.0.0.1 - - [03/May/2024 15:38:48] "POST /users/login HTTP/1.1" 200 -
+2024-05-03 15:44:40,497 - INFO - 127.0.0.1 - - [03/May/2024 15:44:40] "OPTIONS /users/login HTTP/1.1" 200 -
+2024-05-03 15:44:40,522 - INFO - 127.0.0.1 - - [03/May/2024 15:44:40] "POST /users/login HTTP/1.1" 200 -
+2024-05-03 15:46:14,692 - INFO - 127.0.0.1 - - [03/May/2024 15:46:14] "OPTIONS /users/login HTTP/1.1" 200 -
+2024-05-03 15:46:14,718 - INFO - 127.0.0.1 - - [03/May/2024 15:46:14] "POST /users/login HTTP/1.1" 200 -
+2024-05-03 15:52:13,944 - INFO - 127.0.0.1 - - [03/May/2024 15:52:13] "GET /users/testjada2 HTTP/1.1" 200 -
+2024-05-03 15:52:13,967 - INFO - 127.0.0.1 - - [03/May/2024 15:52:13] "GET /users/testjada2 HTTP/1.1" 200 -
+2024-05-03 15:58:26,988 - INFO - 127.0.0.1 - - [03/May/2024 15:58:26] "GET /form HTTP/1.1" 200 -
+2024-05-03 15:58:27,000 - INFO - 127.0.0.1 - - [03/May/2024 15:58:26] "GET /form HTTP/1.1" 200 -
+2024-05-05 02:29:13,174 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2024-05-05 02:29:13,174 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-05 02:29:13,176 - INFO -  * Restarting with stat
+2024-05-05 02:29:13,810 - WARNING -  * Debugger is active!
+2024-05-05 02:29:13,827 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:29:32,750 - INFO - 127.0.0.1 - - [05/May/2024 02:29:32] "GET / HTTP/1.1" 200 -
+2024-05-05 02:29:32,851 - INFO - 127.0.0.1 - - [05/May/2024 02:29:32] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 02:29:32,853 - INFO - 127.0.0.1 - - [05/May/2024 02:29:32] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+2024-05-05 02:29:32,872 - INFO - 127.0.0.1 - - [05/May/2024 02:29:32] "GET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1" 200 -
+2024-05-05 02:29:32,875 - INFO - 127.0.0.1 - - [05/May/2024 02:29:32] "GET /swaggerui/swagger-ui.css HTTP/1.1" 200 -
+2024-05-05 02:29:33,779 - INFO - 127.0.0.1 - - [05/May/2024 02:29:33] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 02:29:54,058 - INFO - 127.0.0.1 - - [05/May/2024 02:29:54] "GET /buses HTTP/1.1" 200 -
+2024-05-05 02:30:00,415 - INFO - 127.0.0.1 - - [05/May/2024 02:30:00] "GET /form HTTP/1.1" 200 -
+2024-05-05 02:30:00,423 - INFO - 127.0.0.1 - - [05/May/2024 02:30:00] "GET /form HTTP/1.1" 200 -
+2024-05-05 02:30:53,525 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 02:30:54,125 - INFO -  * Restarting with stat
+2024-05-05 02:30:56,060 - INFO -  * Restarting with stat
+2024-05-05 02:30:57,713 - INFO -  * Restarting with stat
+2024-05-05 02:30:59,281 - INFO -  * Restarting with stat
+2024-05-05 02:31:01,804 - INFO -  * Restarting with stat
+2024-05-05 02:31:11,500 - INFO -  * Restarting with stat
+2024-05-05 02:31:14,278 - INFO -  * Restarting with stat
+2024-05-05 02:31:15,927 - INFO -  * Restarting with stat
+2024-05-05 02:31:17,464 - INFO -  * Restarting with stat
+2024-05-05 02:31:19,064 - INFO -  * Restarting with stat
+2024-05-05 02:31:20,783 - INFO -  * Restarting with stat
+2024-05-05 02:31:22,399 - INFO -  * Restarting with stat
+2024-05-05 02:31:23,975 - INFO -  * Restarting with stat
+2024-05-05 02:31:26,516 - INFO -  * Restarting with stat
+2024-05-05 02:31:35,144 - INFO -  * Restarting with stat
+2024-05-05 02:31:37,706 - INFO -  * Restarting with stat
+2024-05-05 02:31:43,254 - INFO -  * Restarting with stat
+2024-05-05 02:31:48,859 - INFO -  * Restarting with stat
+2024-05-05 02:31:50,538 - INFO -  * Restarting with stat
+2024-05-05 02:31:52,108 - INFO -  * Restarting with stat
+2024-05-05 02:31:54,680 - INFO -  * Restarting with stat
+2024-05-05 02:34:01,914 - INFO -  * Restarting with stat
+2024-05-05 02:34:02,826 - WARNING -  * Debugger is active!
+2024-05-05 02:34:02,838 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:37:26,968 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 02:37:27,080 - INFO -  * Restarting with stat
+2024-05-05 02:37:28,134 - WARNING -  * Debugger is active!
+2024-05-05 02:37:28,155 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:37:55,616 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 02:37:55,687 - INFO -  * Restarting with stat
+2024-05-05 02:37:56,668 - WARNING -  * Debugger is active!
+2024-05-05 02:37:56,682 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:38:04,837 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 02:38:04,899 - INFO -  * Restarting with stat
+2024-05-05 02:38:05,460 - WARNING -  * Debugger is active!
+2024-05-05 02:38:05,473 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:46:59,642 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:46:59,807 - INFO -  * Restarting with stat
+2024-05-05 02:47:00,968 - WARNING -  * Debugger is active!
+2024-05-05 02:47:00,984 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:02,022 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:02,092 - INFO -  * Restarting with stat
+2024-05-05 02:47:02,718 - WARNING -  * Debugger is active!
+2024-05-05 02:47:02,733 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:02,768 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:02,850 - INFO -  * Restarting with stat
+2024-05-05 02:47:03,426 - WARNING -  * Debugger is active!
+2024-05-05 02:47:03,438 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:04,488 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:04,580 - INFO -  * Restarting with stat
+2024-05-05 02:47:05,122 - WARNING -  * Debugger is active!
+2024-05-05 02:47:05,136 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:17,360 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:17,463 - INFO -  * Restarting with stat
+2024-05-05 02:47:18,182 - WARNING -  * Debugger is active!
+2024-05-05 02:47:18,204 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:19,241 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:19,309 - INFO -  * Restarting with stat
+2024-05-05 02:47:20,033 - WARNING -  * Debugger is active!
+2024-05-05 02:47:20,044 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:43,405 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:43,470 - INFO -  * Restarting with stat
+2024-05-05 02:47:44,076 - WARNING -  * Debugger is active!
+2024-05-05 02:47:44,087 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:50,187 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:50,250 - INFO -  * Restarting with stat
+2024-05-05 02:47:50,792 - WARNING -  * Debugger is active!
+2024-05-05 02:47:50,812 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:51,846 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:51,928 - INFO -  * Restarting with stat
+2024-05-05 02:47:55,400 - INFO -  * Restarting with stat
+2024-05-05 02:47:56,251 - WARNING -  * Debugger is active!
+2024-05-05 02:47:56,263 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:57,314 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:57,411 - INFO -  * Restarting with stat
+2024-05-05 02:47:58,388 - WARNING -  * Debugger is active!
+2024-05-05 02:47:58,408 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:47:59,526 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:47:59,597 - INFO -  * Restarting with stat
+2024-05-05 02:48:00,267 - WARNING -  * Debugger is active!
+2024-05-05 02:48:00,279 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:48:02,320 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:48:02,435 - INFO -  * Restarting with stat
+2024-05-05 02:48:02,999 - WARNING -  * Debugger is active!
+2024-05-05 02:48:03,012 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:48:46,830 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:48:46,926 - INFO -  * Restarting with stat
+2024-05-05 02:48:47,927 - WARNING -  * Debugger is active!
+2024-05-05 02:48:47,956 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:48:49,007 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:48:49,094 - INFO -  * Restarting with stat
+2024-05-05 02:48:49,674 - WARNING -  * Debugger is active!
+2024-05-05 02:48:49,686 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:48:50,884 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:48:50,969 - INFO -  * Restarting with stat
+2024-05-05 02:48:51,549 - WARNING -  * Debugger is active!
+2024-05-05 02:48:51,564 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 02:48:59,714 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:48:59,800 - INFO -  * Restarting with stat
+2024-05-05 02:49:00,559 - WARNING -  * Debugger is active!
+2024-05-05 02:49:00,572 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:49:22,908 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:49:22,995 - INFO -  * Restarting with stat
+2024-05-05 02:49:23,609 - WARNING -  * Debugger is active!
+2024-05-05 02:49:23,621 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:49:24,673 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:49:24,741 - INFO -  * Restarting with stat
+2024-05-05 02:49:25,309 - WARNING -  * Debugger is active!
+2024-05-05 02:49:25,321 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:49:32,459 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:49:32,532 - INFO -  * Restarting with stat
+2024-05-05 02:49:33,333 - WARNING -  * Debugger is active!
+2024-05-05 02:49:33,348 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:50:04,877 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:50:04,941 - INFO -  * Restarting with stat
+2024-05-05 02:50:05,967 - WARNING -  * Debugger is active!
+2024-05-05 02:50:05,978 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:50:08,042 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:50:08,113 - INFO -  * Restarting with stat
+2024-05-05 02:50:08,639 - WARNING -  * Debugger is active!
+2024-05-05 02:50:08,650 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:50:10,728 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:50:10,791 - INFO -  * Restarting with stat
+2024-05-05 02:50:12,226 - INFO -  * Restarting with stat
+2024-05-05 02:50:12,856 - WARNING -  * Debugger is active!
+2024-05-05 02:50:12,868 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:50:33,202 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:50:33,290 - INFO -  * Restarting with stat
+2024-05-05 02:50:34,254 - WARNING -  * Debugger is active!
+2024-05-05 02:50:34,265 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:50:36,327 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:50:36,407 - INFO -  * Restarting with stat
+2024-05-05 02:50:36,949 - WARNING -  * Debugger is active!
+2024-05-05 02:50:36,960 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:51:12,494 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:51:12,564 - INFO -  * Restarting with stat
+2024-05-05 02:51:13,192 - WARNING -  * Debugger is active!
+2024-05-05 02:51:13,203 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:51:14,255 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:51:14,362 - INFO -  * Restarting with stat
+2024-05-05 02:51:15,039 - WARNING -  * Debugger is active!
+2024-05-05 02:51:15,050 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:51:16,103 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:51:16,188 - INFO -  * Restarting with stat
+2024-05-05 02:51:16,802 - WARNING -  * Debugger is active!
+2024-05-05 02:51:16,814 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:51:21,920 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:51:21,987 - INFO -  * Restarting with stat
+2024-05-05 02:51:22,652 - WARNING -  * Debugger is active!
+2024-05-05 02:51:22,665 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:51:35,609 - INFO - 127.0.0.1 - - [05/May/2024 02:51:35] "GET / HTTP/1.1" 200 -
+2024-05-05 02:51:35,690 - INFO - 127.0.0.1 - - [05/May/2024 02:51:35] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 02:51:35,698 - INFO - 127.0.0.1 - - [05/May/2024 02:51:35] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-05 02:51:35,704 - INFO - 127.0.0.1 - - [05/May/2024 02:51:35] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-05 02:51:35,715 - INFO - 127.0.0.1 - - [05/May/2024 02:51:35] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-05 02:51:36,248 - INFO - 127.0.0.1 - - [05/May/2024 02:51:36] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 02:51:36,253 - INFO - 127.0.0.1 - - [05/May/2024 02:51:36] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-05 02:51:57,335 - INFO - 127.0.0.1 - - [05/May/2024 02:51:57] "[35m[1mPOST /users/update_password/testjada2 HTTP/1.1[0m" 500 -
+2024-05-05 02:53:40,898 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 02:53:41,002 - INFO -  * Restarting with stat
+2024-05-05 02:53:41,997 - WARNING -  * Debugger is active!
+2024-05-05 02:53:42,009 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:54:02,352 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 02:54:02,412 - INFO -  * Restarting with stat
+2024-05-05 02:54:02,977 - WARNING -  * Debugger is active!
+2024-05-05 02:54:02,988 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:54:45,880 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:54:46,048 - INFO -  * Restarting with stat
+2024-05-05 02:54:46,934 - WARNING -  * Debugger is active!
+2024-05-05 02:54:46,947 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:54:49,036 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:54:49,107 - INFO -  * Restarting with stat
+2024-05-05 02:54:49,662 - WARNING -  * Debugger is active!
+2024-05-05 02:54:49,674 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:54:50,741 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:54:50,819 - INFO -  * Restarting with stat
+2024-05-05 02:54:51,426 - WARNING -  * Debugger is active!
+2024-05-05 02:54:51,440 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:54:54,634 - INFO - 127.0.0.1 - - [05/May/2024 02:54:54] "GET / HTTP/1.1" 200 -
+2024-05-05 02:54:54,698 - INFO - 127.0.0.1 - - [05/May/2024 02:54:54] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-05 02:54:54,706 - INFO - 127.0.0.1 - - [05/May/2024 02:54:54] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-05 02:54:54,707 - INFO - 127.0.0.1 - - [05/May/2024 02:54:54] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 02:54:54,719 - INFO - 127.0.0.1 - - [05/May/2024 02:54:54] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-05 02:54:55,387 - INFO - 127.0.0.1 - - [05/May/2024 02:54:55] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 02:54:55,390 - INFO - 127.0.0.1 - - [05/May/2024 02:54:55] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-05 02:56:57,621 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:56:57,702 - INFO -  * Restarting with stat
+2024-05-05 02:56:58,884 - WARNING -  * Debugger is active!
+2024-05-05 02:56:58,897 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:57:02,998 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:57:03,090 - INFO -  * Restarting with stat
+2024-05-05 02:57:03,708 - WARNING -  * Debugger is active!
+2024-05-05 02:57:03,724 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:57:15,947 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:57:16,010 - INFO -  * Restarting with stat
+2024-05-05 02:57:16,579 - WARNING -  * Debugger is active!
+2024-05-05 02:57:16,590 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:58:29,747 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:58:29,904 - INFO -  * Restarting with stat
+2024-05-05 02:58:30,899 - WARNING -  * Debugger is active!
+2024-05-05 02:58:30,912 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:58:44,195 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:58:44,295 - INFO -  * Restarting with stat
+2024-05-05 02:58:45,384 - WARNING -  * Debugger is active!
+2024-05-05 02:58:45,398 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:58:45,464 - INFO - 127.0.0.1 - - [05/May/2024 02:58:45] "GET / HTTP/1.1" 200 -
+2024-05-05 02:58:45,525 - INFO - 127.0.0.1 - - [05/May/2024 02:58:45] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-05 02:58:45,525 - INFO - 127.0.0.1 - - [05/May/2024 02:58:45] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-05 02:58:45,529 - INFO - 127.0.0.1 - - [05/May/2024 02:58:45] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 02:58:45,542 - INFO - 127.0.0.1 - - [05/May/2024 02:58:45] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-05 02:58:45,804 - INFO - 127.0.0.1 - - [05/May/2024 02:58:45] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 02:58:45,808 - INFO - 127.0.0.1 - - [05/May/2024 02:58:45] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-05 02:59:10,855 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:10,935 - INFO -  * Restarting with stat
+2024-05-05 02:59:11,843 - WARNING -  * Debugger is active!
+2024-05-05 02:59:11,856 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:12,918 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:12,978 - INFO -  * Restarting with stat
+2024-05-05 02:59:13,530 - WARNING -  * Debugger is active!
+2024-05-05 02:59:13,541 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:20,249 - INFO - 127.0.0.1 - - [05/May/2024 02:59:20] "GET / HTTP/1.1" 200 -
+2024-05-05 02:59:20,297 - INFO - 127.0.0.1 - - [05/May/2024 02:59:20] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 02:59:20,309 - INFO - 127.0.0.1 - - [05/May/2024 02:59:20] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-05 02:59:20,311 - INFO - 127.0.0.1 - - [05/May/2024 02:59:20] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-05 02:59:20,313 - INFO - 127.0.0.1 - - [05/May/2024 02:59:20] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-05 02:59:20,533 - INFO - 127.0.0.1 - - [05/May/2024 02:59:20] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 02:59:20,536 - INFO - 127.0.0.1 - - [05/May/2024 02:59:20] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-05 02:59:27,809 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:27,884 - INFO -  * Restarting with stat
+2024-05-05 02:59:28,949 - WARNING -  * Debugger is active!
+2024-05-05 02:59:28,976 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:30,053 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:30,122 - INFO -  * Restarting with stat
+2024-05-05 02:59:30,636 - WARNING -  * Debugger is active!
+2024-05-05 02:59:30,647 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:31,703 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:31,772 - INFO -  * Restarting with stat
+2024-05-05 02:59:32,291 - WARNING -  * Debugger is active!
+2024-05-05 02:59:32,302 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:39,440 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:39,506 - INFO -  * Restarting with stat
+2024-05-05 02:59:40,098 - WARNING -  * Debugger is active!
+2024-05-05 02:59:40,109 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:41,166 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:41,255 - INFO -  * Restarting with stat
+2024-05-05 02:59:41,883 - WARNING -  * Debugger is active!
+2024-05-05 02:59:41,896 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:43,981 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 02:59:44,053 - INFO -  * Restarting with stat
+2024-05-05 02:59:44,633 - WARNING -  * Debugger is active!
+2024-05-05 02:59:44,645 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 02:59:47,428 - INFO - 127.0.0.1 - - [05/May/2024 02:59:47] "GET / HTTP/1.1" 200 -
+2024-05-05 02:59:47,501 - INFO - 127.0.0.1 - - [05/May/2024 02:59:47] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 02:59:47,502 - INFO - 127.0.0.1 - - [05/May/2024 02:59:47] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-05 02:59:47,509 - INFO - 127.0.0.1 - - [05/May/2024 02:59:47] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-05 02:59:47,520 - INFO - 127.0.0.1 - - [05/May/2024 02:59:47] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-05 02:59:47,677 - INFO - 127.0.0.1 - - [05/May/2024 02:59:47] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 02:59:47,681 - INFO - 127.0.0.1 - - [05/May/2024 02:59:47] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-05 03:00:42,646 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:00:42,834 - INFO -  * Restarting with stat
+2024-05-05 03:00:45,848 - INFO -  * Restarting with stat
+2024-05-05 03:00:46,683 - WARNING -  * Debugger is active!
+2024-05-05 03:00:46,694 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:00:47,745 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:00:47,807 - INFO -  * Restarting with stat
+2024-05-05 03:00:48,370 - WARNING -  * Debugger is active!
+2024-05-05 03:00:48,380 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:00:50,078 - INFO - 127.0.0.1 - - [05/May/2024 03:00:50] "GET / HTTP/1.1" 200 -
+2024-05-05 03:00:50,151 - INFO - 127.0.0.1 - - [05/May/2024 03:00:50] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 03:00:50,159 - INFO - 127.0.0.1 - - [05/May/2024 03:00:50] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-05 03:00:50,171 - INFO - 127.0.0.1 - - [05/May/2024 03:00:50] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-05 03:00:50,175 - INFO - 127.0.0.1 - - [05/May/2024 03:00:50] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-05 03:00:50,427 - INFO - 127.0.0.1 - - [05/May/2024 03:00:50] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 03:00:50,431 - INFO - 127.0.0.1 - - [05/May/2024 03:00:50] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-05 03:02:40,640 - INFO - 127.0.0.1 - - [05/May/2024 03:02:40] "[35m[1mPOST /users/update_username/newname HTTP/1.1[0m" 500 -
+2024-05-05 03:03:41,114 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:03:41,188 - INFO -  * Restarting with stat
+2024-05-05 03:03:42,364 - WARNING -  * Debugger is active!
+2024-05-05 03:03:42,376 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:03:43,429 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:03:43,512 - INFO -  * Restarting with stat
+2024-05-05 03:03:44,054 - WARNING -  * Debugger is active!
+2024-05-05 03:03:44,067 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 03:03:47,136 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:03:47,204 - INFO -  * Restarting with stat
+2024-05-05 03:03:47,889 - WARNING -  * Debugger is active!
+2024-05-05 03:03:47,900 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 03:03:53,002 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:03:53,103 - INFO -  * Restarting with stat
+2024-05-05 03:03:53,659 - WARNING -  * Debugger is active!
+2024-05-05 03:03:53,675 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 03:03:54,728 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:03:54,793 - INFO -  * Restarting with stat
+2024-05-05 03:03:55,493 - WARNING -  * Debugger is active!
+2024-05-05 03:03:55,519 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 03:03:56,560 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:03:56,637 - INFO -  * Restarting with stat
+2024-05-05 03:03:57,206 - WARNING -  * Debugger is active!
+2024-05-05 03:03:57,217 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:05:07,488 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:05:07,552 - INFO -  * Restarting with stat
+2024-05-05 03:05:08,517 - WARNING -  * Debugger is active!
+2024-05-05 03:05:08,528 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:05:09,590 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:05:09,657 - INFO -  * Restarting with stat
+2024-05-05 03:05:10,209 - WARNING -  * Debugger is active!
+2024-05-05 03:05:10,220 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:05:30,541 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:05:30,655 - INFO -  * Restarting with stat
+2024-05-05 03:05:32,186 - INFO -  * Restarting with stat
+2024-05-05 03:05:32,884 - WARNING -  * Debugger is active!
+2024-05-05 03:05:32,895 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:05:34,986 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:05:35,093 - INFO -  * Restarting with stat
+2024-05-05 03:05:35,718 - WARNING -  * Debugger is active!
+2024-05-05 03:05:35,734 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 03:05:36,777 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:05:36,858 - INFO -  * Restarting with stat
+2024-05-05 03:05:37,393 - WARNING -  * Debugger is active!
+2024-05-05 03:05:37,406 - INFO -  * Debugger PIN: 870-520-646
+2024-05-05 03:05:43,510 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:05:43,578 - INFO -  * Restarting with stat
+2024-05-05 03:05:44,169 - WARNING -  * Debugger is active!
+2024-05-05 03:05:44,181 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:05:51,010 - INFO - 127.0.0.1 - - [05/May/2024 03:05:51] "GET / HTTP/1.1" 200 -
+2024-05-05 03:05:51,094 - INFO - 127.0.0.1 - - [05/May/2024 03:05:51] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-05 03:05:51,098 - INFO - 127.0.0.1 - - [05/May/2024 03:05:51] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-05 03:05:51,101 - INFO - 127.0.0.1 - - [05/May/2024 03:05:51] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-05 03:05:51,107 - INFO - 127.0.0.1 - - [05/May/2024 03:05:51] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-05 03:05:51,538 - INFO - 127.0.0.1 - - [05/May/2024 03:05:51] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-05 03:05:51,543 - INFO - 127.0.0.1 - - [05/May/2024 03:05:51] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-05 03:06:10,377 - INFO - 127.0.0.1 - - [05/May/2024 03:06:10] "POST /users/update_username HTTP/1.1" 200 -
+2024-05-05 03:06:45,748 - INFO - 127.0.0.1 - - [05/May/2024 03:06:45] "GET /users/newname HTTP/1.1" 200 -
+2024-05-05 03:06:57,447 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:06:57,914 - INFO -  * Restarting with stat
+2024-05-05 03:06:58,950 - WARNING -  * Debugger is active!
+2024-05-05 03:06:58,962 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:00,022 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:07:00,091 - INFO -  * Restarting with stat
+2024-05-05 03:07:00,650 - WARNING -  * Debugger is active!
+2024-05-05 03:07:00,661 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:07,791 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:07:07,850 - INFO -  * Restarting with stat
+2024-05-05 03:07:08,424 - WARNING -  * Debugger is active!
+2024-05-05 03:07:08,434 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:09,480 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:07:09,590 - INFO -  * Restarting with stat
+2024-05-05 03:07:10,222 - WARNING -  * Debugger is active!
+2024-05-05 03:07:10,234 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:14,337 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/server/endpoints.py', reloading
+2024-05-05 03:07:14,516 - INFO -  * Restarting with stat
+2024-05-05 03:07:15,105 - WARNING -  * Debugger is active!
+2024-05-05 03:07:15,118 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:18,198 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:07:18,284 - INFO -  * Restarting with stat
+2024-05-05 03:07:18,896 - WARNING -  * Debugger is active!
+2024-05-05 03:07:18,907 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:19,966 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:07:20,033 - INFO -  * Restarting with stat
+2024-05-05 03:07:20,657 - WARNING -  * Debugger is active!
+2024-05-05 03:07:20,668 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:21,717 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:07:21,776 - INFO -  * Restarting with stat
+2024-05-05 03:07:22,288 - WARNING -  * Debugger is active!
+2024-05-05 03:07:22,298 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:07:57,841 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:07:57,901 - INFO -  * Restarting with stat
+2024-05-05 03:07:58,470 - WARNING -  * Debugger is active!
+2024-05-05 03:07:58,481 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:00,545 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:00,649 - INFO -  * Restarting with stat
+2024-05-05 03:08:01,718 - WARNING -  * Debugger is active!
+2024-05-05 03:08:01,734 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:03,810 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:03,992 - INFO -  * Restarting with stat
+2024-05-05 03:08:05,238 - WARNING -  * Debugger is active!
+2024-05-05 03:08:05,253 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:29,684 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:29,755 - INFO -  * Restarting with stat
+2024-05-05 03:08:30,335 - WARNING -  * Debugger is active!
+2024-05-05 03:08:30,357 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:31,408 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:31,495 - INFO -  * Restarting with stat
+2024-05-05 03:08:32,504 - WARNING -  * Debugger is active!
+2024-05-05 03:08:32,516 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:35,602 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:35,706 - INFO -  * Restarting with stat
+2024-05-05 03:08:36,500 - WARNING -  * Debugger is active!
+2024-05-05 03:08:36,530 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:37,590 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:37,655 - INFO -  * Restarting with stat
+2024-05-05 03:08:38,205 - WARNING -  * Debugger is active!
+2024-05-05 03:08:38,215 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:39,271 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:39,333 - INFO -  * Restarting with stat
+2024-05-05 03:08:39,858 - WARNING -  * Debugger is active!
+2024-05-05 03:08:39,887 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:40,943 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:41,020 - INFO -  * Restarting with stat
+2024-05-05 03:08:41,558 - WARNING -  * Debugger is active!
+2024-05-05 03:08:41,568 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:42,634 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:42,700 - INFO -  * Restarting with stat
+2024-05-05 03:08:43,290 - WARNING -  * Debugger is active!
+2024-05-05 03:08:43,301 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:44,351 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:44,418 - INFO -  * Restarting with stat
+2024-05-05 03:08:44,932 - WARNING -  * Debugger is active!
+2024-05-05 03:08:44,944 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:08:49,043 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:08:49,101 - INFO -  * Restarting with stat
+2024-05-05 03:08:49,603 - WARNING -  * Debugger is active!
+2024-05-05 03:08:49,618 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:09:58,800 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:09:58,869 - INFO -  * Restarting with stat
+2024-05-05 03:09:59,881 - WARNING -  * Debugger is active!
+2024-05-05 03:09:59,894 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:10:00,946 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:10:01,030 - INFO -  * Restarting with stat
+2024-05-05 03:10:01,587 - WARNING -  * Debugger is active!
+2024-05-05 03:10:01,598 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:10:15,838 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:10:15,915 - INFO -  * Restarting with stat
+2024-05-05 03:10:16,469 - WARNING -  * Debugger is active!
+2024-05-05 03:10:16,480 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:10:19,557 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/tests/test_users.py', reloading
+2024-05-05 03:10:19,654 - INFO -  * Restarting with stat
+2024-05-05 03:10:20,345 - WARNING -  * Debugger is active!
+2024-05-05 03:10:20,355 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:14:47,487 - INFO - 127.0.0.1 - - [05/May/2024 03:14:47] "GET /form HTTP/1.1" 200 -
+2024-05-05 03:14:47,495 - INFO - 127.0.0.1 - - [05/May/2024 03:14:47] "GET /form HTTP/1.1" 200 -
+2024-05-05 03:15:44,162 - INFO - 127.0.0.1 - - [05/May/2024 03:15:44] "OPTIONS /users/login HTTP/1.1" 200 -
+2024-05-05 03:15:44,646 - INFO - 127.0.0.1 - - [05/May/2024 03:15:44] "POST /users/login HTTP/1.1" 200 -
+2024-05-05 03:15:44,771 - INFO - 127.0.0.1 - - [05/May/2024 03:15:44] "GET /users/newname HTTP/1.1" 200 -
+2024-05-05 03:15:44,789 - INFO - 127.0.0.1 - - [05/May/2024 03:15:44] "GET /users/newname HTTP/1.1" 200 -
+2024-05-05 03:15:53,126 - INFO - 127.0.0.1 - - [05/May/2024 03:15:53] "OPTIONS /users/update_username HTTP/1.1" 200 -
+2024-05-05 03:15:53,191 - INFO - 127.0.0.1 - - [05/May/2024 03:15:53] "POST /users/update_username HTTP/1.1" 200 -
+2024-05-05 03:16:00,331 - INFO - 127.0.0.1 - - [05/May/2024 03:16:00] "GET /users/newname2 HTTP/1.1" 200 -
+2024-05-05 03:16:16,877 - INFO - 127.0.0.1 - - [05/May/2024 03:16:16] "OPTIONS /users/update_username HTTP/1.1" 200 -
+2024-05-05 03:16:16,932 - INFO - 127.0.0.1 - - [05/May/2024 03:16:16] "POST /users/update_username HTTP/1.1" 200 -

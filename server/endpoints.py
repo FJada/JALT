@@ -49,6 +49,11 @@ user_model = api.model('User', {
 
 })
 
+update_username_model = api.model('UpdateUsername', {
+    'username': fields.String(required=True, description='Current Username'),
+    'new_username': fields.String(required=True, description='New Username'),
+})
+
 add_home_address_model = api.model('AddHomeAddress', {
     'username': fields.String(required=True, description='Username'),
     'home_address': fields.String(required=True, description='Home Address'),
@@ -248,6 +253,28 @@ class AddUser(Resource):
 
             return {'message': 'User created successfully'}
         except ValueError as e:
+            return {'message': str(e)}, HTTPStatus.BAD_REQUEST
+
+
+@api.route('/users/update_username')
+class UpdateUsername(Resource):
+    """
+    Update a user's username.
+    """
+    @api.response(HTTPStatus.OK, 'Success')
+    @api.response(HTTPStatus.BAD_REQUEST, 'Bad Request')
+    @api.expect(update_username_model)
+    def post(self):
+        """
+        Update a user's username.
+        """
+        try:
+            data = request.json
+            username = data.get('username')
+            new_username = data.get('new_username')
+            message = us.update_username(username, new_username)
+            return {'message': message}, HTTPStatus.OK
+        except Exception as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
 
 
