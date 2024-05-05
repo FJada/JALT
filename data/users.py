@@ -127,7 +127,7 @@ def username_exists(username: str) -> bool:
     Returns boolean if account user exists
     """
     try:
-        return get_user_by_username(username) is not None or "" or username == username
+        return get_user_by_username(username) is not None
     except Exception as e:
         logger.error(f"Error checking username existence: {str(e)}")
         raise
