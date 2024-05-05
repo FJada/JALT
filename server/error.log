@@ -1589,3 +1589,19 @@ KeyError: 'user_id'
 2024-05-05 03:29:50,214 - INFO -  * Restarting with stat
 2024-05-05 03:29:50,746 - WARNING -  * Debugger is active!
 2024-05-05 03:29:50,783 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:30:35,602 - INFO - 127.0.0.1 - - [05/May/2024 03:30:35] "GET /form HTTP/1.1" 200 -
+2024-05-05 03:30:35,608 - INFO - 127.0.0.1 - - [05/May/2024 03:30:35] "GET /form HTTP/1.1" 200 -
+2024-05-05 03:31:20,139 - INFO - 127.0.0.1 - - [05/May/2024 03:31:20] "GET /form HTTP/1.1" 200 -
+2024-05-05 03:31:20,145 - INFO - 127.0.0.1 - - [05/May/2024 03:31:20] "GET /form HTTP/1.1" 200 -
+2024-05-05 03:31:40,394 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:31:40,519 - INFO -  * Restarting with stat
+2024-05-05 03:31:41,649 - WARNING -  * Debugger is active!
+2024-05-05 03:31:41,682 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:32:00,975 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:32:01,043 - INFO -  * Restarting with stat
+2024-05-05 03:32:01,643 - WARNING -  * Debugger is active!
+2024-05-05 03:32:01,674 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:32:11,856 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:32:11,921 - INFO -  * Restarting with stat
+2024-05-05 03:32:12,543 - WARNING -  * Debugger is active!
+2024-05-05 03:32:12,574 - INFO -  * Debugger PIN: 224-100-834

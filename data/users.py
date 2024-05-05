@@ -115,7 +115,6 @@ def get_user_by_password(password: str) -> dict:
 def password_exists(password: str) -> bool:
     """
     Returns boolean if account password exists
-    
     """
     try:
         return get_user_by_password(password) is not None
@@ -183,7 +182,6 @@ def update_username(username: str, new_username: str):
         # Check if the new username already exists
         if username_exists(new_username):
             return "Username already exists. Please choose a different one."
-        
         user = get_user_by_username(username)
         if user:
             # Update the username in the database
@@ -205,7 +203,6 @@ def update_password(password: str, new_password: str):
         # Check if the new username already exists
         if password_exists(new_password):
             return "Password already exists. Please choose a different one."
-        
         user = get_user_by_password(password)
         if user:
             # Update the password in the database
