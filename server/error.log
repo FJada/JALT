@@ -1675,3 +1675,11 @@ KeyError: 'user_id'
 2024-05-05 03:43:30,227 - INFO -  * Restarting with stat
 2024-05-05 03:43:30,773 - WARNING -  * Debugger is active!
 2024-05-05 03:43:30,825 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:45:26,659 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:45:26,745 - INFO -  * Restarting with stat
+2024-05-05 03:45:27,810 - WARNING -  * Debugger is active!
+2024-05-05 03:45:27,903 - INFO -  * Debugger PIN: 224-100-834
+2024-05-05 03:45:28,986 - INFO -  * Detected change in '/Users/jadaforrester/Desktop/JALT/data/users.py', reloading
+2024-05-05 03:45:29,090 - INFO -  * Restarting with stat
+2024-05-05 03:45:29,683 - WARNING -  * Debugger is active!
+2024-05-05 03:45:29,719 - INFO -  * Debugger PIN: 224-100-834
