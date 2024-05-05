@@ -89,7 +89,13 @@ def test_update_username(temp_user):
     result = us.update_username(temp_user, new_username)
     assert result == "Username updated successfully."
 
-    
+
+def test_update_password(temp_user):
+    new_password = 'NewTestPassword'
+    result = us.update_password(temp_user, new_password)
+    assert result == "Password updated successfully."
+
+
 def test_get_user_by_account_id(temp_user):
     user = us.get_user_by_username(temp_user)
     account_id = us.get_account_id(user)

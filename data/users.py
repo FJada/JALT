@@ -112,6 +112,17 @@ def get_user_by_password(password: str) -> dict:
         raise
 
 
+def password_exists(password: str) -> bool:
+    """
+    Returns boolean if account password exists
+    
+    """
+    try:
+        return get_user_by_password(password) is not None
+    except Exception as e:
+        logger.error(f"Error checking password existence: {str(e)}")
+
+
 def username_exists(username: str) -> bool:
     """
     Returns boolean if account user exists
@@ -187,6 +198,28 @@ def update_username(username: str, new_username: str):
     except Exception as e:
         logger.error(f"Error updating username '{username}': {str(e)}")
         return "An error occurred while updating the username."
+
+
+def update_password(password: str, new_password: str):
+    try:
+        # Check if the new username already exists
+        if password_exists(new_password):
+            return "Password already exists. Please choose a different one."
+        
+        user = get_user_by_password(password)
+        if user:
+            # Update the password in the database
+            dbc.connect_db()
+            result = dbc.update_doc(USERS_COLLECTION, {PASSWORD: password}, {PASSWORD: new_password})
+            if result.modified_count == 1:
+                return "Password updated successfully."
+            else:
+                return "Failed to update password."
+        else:
+            return "Password not found."
+    except Exception as e:
+        logger.error(f"Error updating password '{password}': {str(e)}")
+        return "An error occurred while updating the password."
 
 
 def get_username(user: dict) -> str:
