@@ -92,8 +92,14 @@ def test_update_username(temp_user):
 
 def test_update_password(temp_user):
     new_password = 'NewTestPassword'
+    old_password = us.get_user_by_username(temp_user)[us.PASSWORD]
+    # Call the function to update the password
     result = us.update_password(temp_user, new_password)
+    # Check if the password was updated successfully
     assert result == "Password updated successfully."
+    # Verify that the password in the database is updated
+    updated_user = us.get_user_by_username(temp_user)
+    assert updated_user[us.PASSWORD] == new_password
 
 
 def test_get_user_by_account_id(temp_user):

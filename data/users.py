@@ -200,9 +200,13 @@ def update_username(username: str, new_username: str):
 
 def update_password(password: str, new_password: str):
     try:
-        # Check if the new username already exists
+        # Check if the passwords are not empty
+        if not password or not new_password:
+            raise ValueError("Password and new password cannot be empty.")
+        # Check if the new password already exists
         if password_exists(new_password):
-            return "Password already exists. Please choose a different one."
+            return "New password already exists. Please choose a different one."
+        # Retrieve user by password
         user = get_user_by_password(password)
         if user:
             # Update the password in the database
