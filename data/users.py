@@ -203,12 +203,14 @@ def update_password(password: str, new_password: str):
         # Check if the passwords are not empty
         if not password or not new_password:
             raise ValueError("Password and new password cannot be empty.")
-        # Check if the new password already exists
-        if password_exists(new_password):
-            return "New password already exists. Please choose a different one."
+        
         # Retrieve user by password
         user = get_user_by_password(password)
         if user:
+            # Check if the new password already exists
+            if password_exists(new_password):
+                return "New password already exists. Please choose a different one."
+            
             # Update the password in the database
             dbc.connect_db()
             result = dbc.update_doc(USERS_COLLECTION, {PASSWORD: password}, {PASSWORD: new_password})

@@ -300,6 +300,9 @@ class UpdatePassword(Resource):
             password = data.get('password')
             new_password = data.get('new_password')
             message = us.update_password(password, new_password)
+            # Handle the case where the password is not found
+            if message == "Password not found.":
+                return {'message': message}, HTTPStatus.NOT_FOUND
             return {'message': message}, HTTPStatus.OK
         except Exception as e:
             return {'message': str(e)}, HTTPStatus.BAD_REQUEST
