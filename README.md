@@ -12,7 +12,7 @@ To create the env for a new developer, run `make dev_env`.
 Will use subway data to provide the user with the best route to their destination.  
 Before running our application, make sure to follow these commands in your terminal  
 > pip install -U flask-cors  
-> pip install flask
+> pip install flask  
 > pip install certifi  
 
 ## Progress and Goals
