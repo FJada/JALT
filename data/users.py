@@ -217,27 +217,27 @@ def update_username(username: str, new_username: str):
 
 def get_username(user: dict) -> str:
     """
-    Retrieves username from user 
+    Retrieves username from user
     """
     return user.get(USERNAME, '')
 
 
 def get_account_id(user: dict) -> str:
     """
-    Retrieves account id from user 
+    Retrieves account id from user
     """
     return user.get(ACCOUNT_ID, '')
 
 
 def get_home_address(user: dict) -> str:
     """
-    Retrieves home address from user 
+    Retrieves home address from user
     """
     return user.get(HOME, '')
 
 
 def get_password(user: dict) -> str:
     """
-    Retrieves password from user 
+    Retrieves password from user
     """
     return user.get(PASSWORD, '')
