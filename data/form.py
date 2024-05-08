@@ -64,12 +64,15 @@ def get_form() -> list:
 
 def get_form_descr() -> dict:
     """
-    For Swagger!
+    Gets form for Swagger!
     """
     return ff.get_form_descr(DROPDOWN_FORM_FLDS)
 
 
 def get_fld_names() -> list:
+    """
+    Returns all form field names
+    """
     return ff.get_fld_names(DROPDOWN_FORM_FLDS)
 
 
