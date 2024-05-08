@@ -32,9 +32,8 @@ def connect_db():
             if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
                 print("Connecting to Mongo in the cloud.")
                 password = "cluster_pass"
-                client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority'
-                , tlsCAFile=certifi.where())
-
+                client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority',
+                tlsCAFile=certifi.where())
             else:
                 print("Connecting to Mongo locally.")
                 client = pm.MongoClient()
