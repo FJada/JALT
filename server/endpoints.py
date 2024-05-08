@@ -40,7 +40,7 @@ RETURN = 'Return'
 HOME_ADDR_EP = '/home_address'
 ROUTE_EP = '/routes'
 # Configure logging
-logging.basicConfig(filename='error.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
+# logging.basicConfig(filename='error.log', level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 
 user_model = api.model('User', {
     'username': fields.String(required=True, description='Username'),
