@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from flask import Flask, request, send_file
+from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import werkzeug.exceptions as wz
 import data.users as us
