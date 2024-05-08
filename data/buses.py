@@ -34,7 +34,7 @@ def _gen_id() -> str:
 
 def gen_vehicle_id() -> str:
     """
-    Returns vehicle12345678987654 to identify each account by unique id.
+    Returns a vehicle id to identify each account by unique id.
     """
     try:
         vehicle = 'vehicle'
