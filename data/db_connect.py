@@ -1,6 +1,7 @@
 import os
 import pymongo as pm
 import logging
+import certifi as certifi
 
 # Directly specify the absolute path to the error log file
 log_file_path = './server/error.log'
@@ -31,7 +32,7 @@ def connect_db():
             if os.environ.get("CLOUD_MONGO", LOCAL) == CLOUD:
                 print("Connecting to Mongo in the cloud.")
                 password = "cluster_pass"
-                client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority')
+                client = pm.MongoClient(f'mongodb+srv://cluster_user:{password}@cluster0.9laqhsg.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 
             else:
                 print("Connecting to Mongo locally.")
