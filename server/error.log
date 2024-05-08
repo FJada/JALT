@@ -1853,3 +1853,121 @@ KeyError: 'user_id'
 2024-05-05 04:09:05,619 - INFO -  * Restarting with stat
 2024-05-05 04:09:06,164 - WARNING -  * Debugger is active!
 2024-05-05 04:09:06,175 - INFO -  * Debugger PIN: 224-100-834
+2024-05-08 11:51:42,550 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2024-05-08 11:51:42,550 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-08 11:51:42,551 - INFO -  * Restarting with stat
+2024-05-08 11:51:42,814 - WARNING -  * Debugger is active!
+2024-05-08 11:51:42,822 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 11:51:50,300 - INFO - 127.0.0.1 - - [08/May/2024 11:51:50] "GET / HTTP/1.1" 200 -
+2024-05-08 11:51:50,346 - INFO - 127.0.0.1 - - [08/May/2024 11:51:50] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-08 11:51:50,346 - INFO - 127.0.0.1 - - [08/May/2024 11:51:50] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-08 11:51:50,348 - INFO - 127.0.0.1 - - [08/May/2024 11:51:50] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-08 11:51:50,348 - INFO - 127.0.0.1 - - [08/May/2024 11:51:50] "GET /swaggerui/swagger-ui-bundle.js HTTP/1.1" 200 -
+2024-05-08 11:51:50,535 - INFO - 127.0.0.1 - - [08/May/2024 11:51:50] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 11:51:50,568 - INFO - 127.0.0.1 - - [08/May/2024 11:51:50] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-08 11:52:38,715 - ERROR - Error fetching document from collection 'buses': localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:52:38,715 - ERROR - Error fetching bus by bus name 'B44': localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:52:38,715 - ERROR - Error checking bus existence: localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:52:38,716 - ERROR - Error adding bus 'B44': localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:52:38,741 - INFO - 127.0.0.1 - - [08/May/2024 11:52:38] "[35m[1mPOST /buses/add_bus HTTP/1.1[0m" 500 -
+2024-05-08 11:53:38,723 - ERROR - Error fetching document from collection 'buses': localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:53:38,724 - ERROR - Error fetching bus by bus name 'B44': localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:53:38,724 - ERROR - Error checking bus existence: localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:53:38,724 - ERROR - Error adding bus 'B44': localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663b9fa8c30f6ef6b06dd0ec, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 61] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 11:53:38,749 - INFO - 127.0.0.1 - - [08/May/2024 11:53:38] "[35m[1mPOST /buses/add_bus HTTP/1.1[0m" 500 -
+2024-05-08 12:10:50,695 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2024-05-08 12:10:50,696 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-08 12:10:50,696 - INFO -  * Restarting with stat
+2024-05-08 12:10:51,052 - WARNING -  * Debugger is active!
+2024-05-08 12:10:51,061 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:11:08,936 - INFO - 127.0.0.1 - - [08/May/2024 12:11:08] "GET / HTTP/1.1" 200 -
+2024-05-08 12:11:09,008 - INFO - 127.0.0.1 - - [08/May/2024 12:11:09] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-08 12:11:09,009 - INFO - 127.0.0.1 - - [08/May/2024 12:11:09] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-08 12:11:09,009 - INFO - 127.0.0.1 - - [08/May/2024 12:11:09] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-08 12:11:09,011 - INFO - 127.0.0.1 - - [08/May/2024 12:11:09] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-08 12:11:09,156 - INFO - 127.0.0.1 - - [08/May/2024 12:11:09] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:11:09,184 - INFO - 127.0.0.1 - - [08/May/2024 12:11:09] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-08 12:11:09,186 - INFO - 127.0.0.1 - - [08/May/2024 12:11:09] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:11:51,203 - ERROR - Error fetching all documents as dictionary from collection 'users': ac-r79gfle-shard-00-00.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-r79gfle-shard-00-01.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-r79gfle-shard-00-02.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663ba428b2a3663115ccc209, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-r79gfle-shard-00-00.9laqhsg.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-r79gfle-shard-00-00.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-r79gfle-shard-00-01.9laqhsg.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-r79gfle-shard-00-01.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-r79gfle-shard-00-02.9laqhsg.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-r79gfle-shard-00-02.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 12:11:51,204 - ERROR - Error fetching users from database: ac-r79gfle-shard-00-00.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-r79gfle-shard-00-01.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),ac-r79gfle-shard-00-02.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 663ba428b2a3663115ccc209, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-r79gfle-shard-00-00.9laqhsg.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-r79gfle-shard-00-00.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-r79gfle-shard-00-01.9laqhsg.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-r79gfle-shard-00-01.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-r79gfle-shard-00-02.9laqhsg.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('ac-r79gfle-shard-00-02.9laqhsg.mongodb.net:27017: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2024-05-08 12:11:51,232 - INFO - 127.0.0.1 - - [08/May/2024 12:11:51] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2024-05-08 12:16:33,674 - INFO -  * Detected change in '/Users/tanvisaini/Software Eng/JALT/JALT/data/db_connect.py', reloading
+2024-05-08 12:16:34,201 - INFO -  * Restarting with stat
+2024-05-08 12:16:34,686 - WARNING -  * Debugger is active!
+2024-05-08 12:16:34,694 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:16:41,165 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2024-05-08 12:16:41,165 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-08 12:16:41,165 - INFO -  * Restarting with stat
+2024-05-08 12:16:41,424 - WARNING -  * Debugger is active!
+2024-05-08 12:16:41,429 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:16:44,668 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "GET / HTTP/1.1" 200 -
+2024-05-08 12:16:44,725 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-08 12:16:44,726 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-08 12:16:44,727 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-08 12:16:44,727 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-08 12:16:44,865 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:16:44,905 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-08 12:16:44,906 - INFO - 127.0.0.1 - - [08/May/2024 12:16:44] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:16:52,643 - ERROR - Error connecting to MongoDB: Unknown option ssl_ca_certs
+2024-05-08 12:16:52,644 - ERROR - Error fetching users from database: Unknown option ssl_ca_certs
+2024-05-08 12:16:52,666 - INFO - 127.0.0.1 - - [08/May/2024 12:16:52] "[35m[1mGET /users HTTP/1.1[0m" 500 -
+2024-05-08 12:18:09,334 - INFO -  * Detected change in '/Users/tanvisaini/Software Eng/JALT/JALT/data/db_connect.py', reloading
+2024-05-08 12:18:09,417 - INFO -  * Restarting with stat
+2024-05-08 12:18:09,900 - WARNING -  * Debugger is active!
+2024-05-08 12:18:09,907 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:19:20,293 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2024-05-08 12:19:20,293 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-08 12:19:20,294 - INFO -  * Restarting with stat
+2024-05-08 12:19:20,556 - WARNING -  * Debugger is active!
+2024-05-08 12:19:20,563 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:19:26,521 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "GET / HTTP/1.1" 200 -
+2024-05-08 12:19:26,567 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-08 12:19:26,569 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-08 12:19:26,571 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-08 12:19:26,572 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-08 12:19:26,747 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:19:26,787 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-08 12:19:26,788 - INFO - 127.0.0.1 - - [08/May/2024 12:19:26] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:19:34,680 - INFO - 127.0.0.1 - - [08/May/2024 12:19:34] "GET /users HTTP/1.1" 200 -
+2024-05-08 12:22:14,555 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2024-05-08 12:22:14,555 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-08 12:22:14,556 - INFO -  * Restarting with stat
+2024-05-08 12:22:14,820 - WARNING -  * Debugger is active!
+2024-05-08 12:22:14,828 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:22:16,382 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "GET / HTTP/1.1" 200 -
+2024-05-08 12:22:16,431 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-08 12:22:16,433 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-08 12:22:16,434 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-08 12:22:16,435 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-08 12:22:16,578 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:22:16,618 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-08 12:22:16,619 - INFO - 127.0.0.1 - - [08/May/2024 12:22:16] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:22:39,576 - INFO - 127.0.0.1 - - [08/May/2024 12:22:39] "POST /add_user HTTP/1.1" 200 -
+2024-05-08 12:23:04,481 - INFO - 127.0.0.1 - - [08/May/2024 12:23:04] "POST /add_route HTTP/1.1" 200 -
+2024-05-08 12:23:05,525 - INFO - 127.0.0.1 - - [08/May/2024 12:23:05] "POST /add_route HTTP/1.1" 200 -
+2024-05-08 12:23:47,742 - INFO - 127.0.0.1 - - [08/May/2024 12:23:47] "GET /endpoints HTTP/1.1" 200 -
+2024-05-08 12:24:46,336 - INFO -  * Detected change in '/Users/tanvisaini/Software Eng/JALT/JALT/data/db_connect.py', reloading
+2024-05-08 12:24:46,612 - INFO -  * Restarting with stat
+2024-05-08 12:24:47,069 - WARNING -  * Debugger is active!
+2024-05-08 12:24:47,077 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:28:17,390 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8000
+2024-05-08 12:28:17,390 - INFO - [33mPress CTRL+C to quit[0m
+2024-05-08 12:28:17,390 - INFO -  * Restarting with stat
+2024-05-08 12:28:17,658 - WARNING -  * Debugger is active!
+2024-05-08 12:28:17,665 - INFO -  * Debugger PIN: 403-181-477
+2024-05-08 12:28:20,799 - INFO - 127.0.0.1 - - [08/May/2024 12:28:20] "GET / HTTP/1.1" 200 -
+2024-05-08 12:28:20,846 - INFO - 127.0.0.1 - - [08/May/2024 12:28:20] "[36mGET /swaggerui/droid-sans.css HTTP/1.1[0m" 304 -
+2024-05-08 12:28:20,848 - INFO - 127.0.0.1 - - [08/May/2024 12:28:20] "[36mGET /swaggerui/swagger-ui.css HTTP/1.1[0m" 304 -
+2024-05-08 12:28:20,849 - INFO - 127.0.0.1 - - [08/May/2024 12:28:20] "[36mGET /swaggerui/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+2024-05-08 12:28:20,849 - INFO - 127.0.0.1 - - [08/May/2024 12:28:20] "[36mGET /swaggerui/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+2024-05-08 12:28:20,996 - INFO - 127.0.0.1 - - [08/May/2024 12:28:20] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:28:21,031 - INFO - 127.0.0.1 - - [08/May/2024 12:28:21] "GET /swagger.json HTTP/1.1" 200 -
+2024-05-08 12:28:21,035 - INFO - 127.0.0.1 - - [08/May/2024 12:28:21] "[36mGET /swaggerui/favicon-32x32.png HTTP/1.1[0m" 304 -
+2024-05-08 12:28:26,985 - INFO - 127.0.0.1 - - [08/May/2024 12:28:26] "[35m[1mGET /addresses HTTP/1.1[0m" 500 -
+2024-05-08 12:28:44,360 - INFO - 127.0.0.1 - - [08/May/2024 12:28:44] "GET /buses HTTP/1.1" 200 -

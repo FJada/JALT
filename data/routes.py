@@ -2,7 +2,7 @@ import random
 import data.db_connect as dbc
 import logging
 
-log_file_path = './server/error.log'
+log_file_path = '../server/error.log'
 
 # Configure the logger
 logging.basicConfig(filename=log_file_path, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
