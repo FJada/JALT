@@ -4,7 +4,7 @@ import data.db_connect as dbc
 import logging
 
 # Directly specify the absolute path to the error log file
-log_file_path = '../server/error.log'
+log_file_path = './JALT/server/error.log'
 
 # Configure the logger
 logging.basicConfig(filename=log_file_path, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
