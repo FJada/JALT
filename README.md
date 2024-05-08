@@ -1,4 +1,4 @@
-# 10/02 - 10/08
+# JALT Subway Route Planner
 
 # flask-api
 
@@ -8,14 +8,11 @@ To build production, type `make prod`.
 
 To create the env for a new developer, run `make dev_env`.
 
-## Subway Route Planner
+## Mobile App
+Will use subway data to provide the user with the best route to their destination.  
 Before running our application, make sure to follow these commands in your terminal  
 > pip install -U flask-cors  
 > pip install flask  
-
-### Mobile App
-
-Will use subway data to provide the user with the best route to their destination.
 
 ## Progress and Goals
 
