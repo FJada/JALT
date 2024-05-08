@@ -10,6 +10,7 @@ log_file_path = './server/error.log'
 logging.basicConfig(filename=log_file_path, level=logging.ERROR, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# CONSTANTS
 USERS_COLLECTION = 'users'
 ID_LEN = 24
 BIG_NUM = 100_000_000_000_000_000_000
@@ -38,7 +39,7 @@ def _gen_id() -> str:
 
 def gen_account_id() -> str:
     """
-    Returns acc123456789 to identify each account by unique id
+    Returns an account id to identify each account by unique id
     """
     try:
         account = 'acc'
@@ -51,7 +52,7 @@ def gen_account_id() -> str:
 
 def gen_password(length=12):
     """
-    Generate a random password 12 characters long.
+    Generates a random password 12 characters long.
     """
     try:
         characters = string.ascii_letters + string.digits + string.punctuation
@@ -134,6 +135,9 @@ def username_exists(username: str) -> bool:
 
 
 def add_user(username: str, account_id: str, password: str) -> bool:
+    """
+    Adds a new user to the database
+    """
     try:
         if username_exists(username):
             raise ValueError(f'Duplicate username: {username=}, please choose another username!')
@@ -152,6 +156,9 @@ def add_user(username: str, account_id: str, password: str) -> bool:
 
 
 def add_home_address(username: str, home_address: str):
+    """
+    Adds home address to user by username
+    """
     try:
         if not username_exists(username):
             raise ValueError(f"Update failure: '{username}' not in database.")
@@ -164,6 +171,9 @@ def add_home_address(username: str, home_address: str):
 
 
 def del_user(username: str, delete_flag: bool):
+    """
+    Deletes user from database
+    """
     try:
         if delete_flag:
             if username_exists(username):
@@ -178,6 +188,9 @@ def del_user(username: str, delete_flag: bool):
 
 
 def update_username(username: str, new_username: str):
+    """
+    Updates user's username in database
+    """
     try:
         # Check if the new username already exists
         if username_exists(new_username):
@@ -203,16 +216,28 @@ def update_username(username: str, new_username: str):
 
 
 def get_username(user: dict) -> str:
+    """
+    Retrieves username from user 
+    """
     return user.get(USERNAME, '')
 
 
 def get_account_id(user: dict) -> str:
+    """
+    Retrieves account id from user 
+    """
     return user.get(ACCOUNT_ID, '')
 
 
 def get_home_address(user: dict) -> str:
+    """
+    Retrieves home address from user 
+    """
     return user.get(HOME, '')
 
 
 def get_password(user: dict) -> str:
+    """
+    Retrieves password from user 
+    """
     return user.get(PASSWORD, '')

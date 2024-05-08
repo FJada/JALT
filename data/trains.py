@@ -34,7 +34,7 @@ def _gen_id() -> str:
 
 def gen_vehicle_id() -> str:
     """
-    Returns vehicle12345678987654 to identify each account by unique id
+    Returns a randomized vehicle id to identify each account by unique id
     """
     try:
         vehicle = 'vehicle'
@@ -97,7 +97,7 @@ def favorite_train(train_name: str):
 
 def remove_favorite_train(train_name: str):
     """
-    Remove favorite status from a train.
+    Remove favorite status from a train by train name.
     """
     try:
         if not train_exists(train_name):
